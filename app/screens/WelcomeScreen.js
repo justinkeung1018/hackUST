@@ -11,6 +11,7 @@ function WelcomeScreen(props) {
             source={require('../assets/images/background.png')}
         > 
             <View style={styles.container}>
+                <Text style={styles.titleText}>OpenFitness</Text>
                 <TouchableOpacity style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
@@ -28,18 +29,39 @@ const styles = StyleSheet.create({
     },
     container: {
         marginTop: 50,
-        paddingLeft: 30,
-        paddingRight: 30,
+        paddingLeft: 0,
+        paddingRight: 0,
         marginBottom: 30,
+    },
+    shadow: {
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 0,
+        },
+        shadowOpacity: 1,
+        shadowRadius: 5,
+    },    
+    titleText: {
+        position: 'absolute',
+        top: 0.7*window.height,
+        fontSize: 34,
+        fontFamily: 'SF-Pro-Display-Bold',
+        color: 'white',
+        textShadowOffset: {width: 0, height: 1},
+        textShadowRadius: 10,
+        textShadowColor: 'grey',
+        alignSelf: 'center',
+        justifyContent: 'center',
     },
     buttonContainer: {   
         position: 'absolute',
-        top: 0,
-        left: 46,
+        top: 0.8*window.height,
+        alignSelf: 'center',
         borderRadius: 100,
         backgroundColor: '#c4c4c4',
         opacity: .5,
-        width: 298,
+        width: "76.4%",
     },
     buttonText: {
         padding: 19,
