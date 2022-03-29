@@ -5,7 +5,12 @@ import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} 
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
-function WelcomeScreen(props) {
+function WelcomeScreen({navigation}) {
+
+    const pressHandler = () => {
+        navigation.navigate('HomeScreen');
+    }
+
     return (
         <ImageBackground 
             style={styles.background}
@@ -14,7 +19,7 @@ function WelcomeScreen(props) {
             <View style={styles.container}>
                 <Text style={styles.titleText}>OpenFitness</Text>
                 <TouchableOpacity 
-                    style={styles.buttonContainer}>
+                    style={styles.buttonContainer} onPress={pressHandler}>
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
             </View>
