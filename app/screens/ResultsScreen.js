@@ -8,6 +8,7 @@ export default function ResultsScreen({ navigation }) {
     ]);
 
     return (
-        <Card />
+        <Card>
+        </Card>
     );
 };
