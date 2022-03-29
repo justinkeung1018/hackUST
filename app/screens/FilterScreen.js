@@ -4,6 +4,10 @@ import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} 
 
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
+const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
+
+const buttonContainerHeight = 62;
 
 function FilterScreen({navigation}) {
     return (
@@ -15,16 +19,16 @@ function FilterScreen({navigation}) {
                    <Text style={styles.buttonTextContent}>Taikoo Shing</Text>
             </TouchableOpacity>
             <TouchableOpacity 
-                style={[styles.buttonContainer, {top: 0.15*window.height+62}]}>
+                style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight}]}>
                    <Text style={styles.buttonTextTitle}>Type of activity</Text>
                    <Text style={styles.buttonTextContent}>Badminton</Text>
             </TouchableOpacity>
             <TouchableOpacity 
-                style={[styles.buttonContainer, {top: 0.15*window.height+124}]}>
+                style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight*2}]}>
                    <Text style={styles.buttonTextTitle}>Price</Text>
             </TouchableOpacity>
             <TouchableOpacity 
-                style={[styles.buttonContainer, {top: 0.15*window.height+186}]}>
+                style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight*3}]}>
                    <Text style={styles.buttonTextTitle}>Time</Text>
             </TouchableOpacity>
         </View>
@@ -60,7 +64,7 @@ const styles = StyleSheet.create({
         backgroundColor: null,
         opacity: 1,
         width: "84%",
-        height: 62,
+        height: buttonContainerHeight,
         borderColor: '#c4c4c4',
         borderBottomWidth: 2,
     },
@@ -81,8 +85,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 })
-
-const windowHeight = Dimensions.get('window').height;
-const windowWidth = Dimensions.get('window').width;
 
 export default FilterScreen;
