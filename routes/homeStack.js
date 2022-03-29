@@ -9,14 +9,20 @@ const screens = {
     WelcomeScreen: {
         screen: WelcomeScreen,
         navigationOptions: {
-    headerVisible: false,
-  }
+            header: null,
+        }
     },
     HomeScreen: {
-        screen: HomeScreen
+        screen: HomeScreen,
+        navigationOptions: {
+            header: null,
+        }
     },  
     ResultsScreen: {
-        screen: ResultsScreen
+        screen: ResultsScreen,
+        navigationOptions: {
+            header: null,
+        }
     },  
 }
 
