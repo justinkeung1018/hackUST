@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { globalFonts } from '../globalStyles'
+import { StyleSheet, View, Text } from 'react-native';
+import { globalFonts, globalColors } from '../globalStyles'
 
 export default function Card(props) {
     return (
