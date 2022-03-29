@@ -6,14 +6,14 @@ import HomeScreen from '../app/screens/HomeScreen';
 
 
 const screens = {
+    ResultsScreen: {
+        screen: ResultsScreen
+    },  
     WelcomeScreen: {
         screen: WelcomeScreen
     },
     HomeScreen: {
         screen: HomeScreen
-    },  
-    ResultsScreen: {
-        screen: ResultsScreen
     },  
 }
 
