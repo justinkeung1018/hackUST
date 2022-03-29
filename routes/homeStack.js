@@ -7,7 +7,10 @@ import HomeScreen from '../app/screens/HomeScreen';
 
 const screens = {
     WelcomeScreen: {
-        screen: WelcomeScreen
+        screen: WelcomeScreen,
+        navigationOptions: {
+    headerVisible: false,
+  }
     },
     HomeScreen: {
         screen: HomeScreen
