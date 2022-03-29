@@ -2,7 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
-import WelcomeScreen from './app/screens/WelcomeScreen'
+import WelcomeScreen from './app/screens/WelcomeScreen';
+import ResultsScreen from './app/screens/ResultsScreen';
+import Navigator from './routes/homeStack';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -20,5 +22,5 @@ export default function App() {
   return <AppLoading />;
   }
 
-  return <WelcomeScreen />;
+  return <Navigator />;
 }
