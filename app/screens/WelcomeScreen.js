@@ -1,5 +1,8 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, Dimensions, View } from "react-native";
+import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
+
+const window = Dimensions.get("window");
+const screen = Dimensions.get("screen");
 
 function WelcomeScreen(props) {
     return (
@@ -7,7 +10,13 @@ function WelcomeScreen(props) {
             style={styles.background}
             source={require('../assets/images/background.png')}
         > 
-            <View style={styles.container}></View>
+            <View style={styles.container}>
+                <Text style={styles.titleText}>OpenFitness</Text>
+                <TouchableOpacity style={styles.buttonContainer}>
+                    <Text style={styles.buttonText}>Get Started</Text>
+                </TouchableOpacity>
+            </View>
+
         </ImageBackground>
     );
 }
@@ -19,9 +28,50 @@ const styles = StyleSheet.create({
         width: windowWidth,
     },
     container: {
-        paddingLeft: 30,
-        paddingRight: 30,
-    }
+        marginTop: 50,
+        paddingLeft: 0,
+        paddingRight: 0,
+        marginBottom: 30,
+    },
+    shadow: {
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 0,
+        },
+        shadowOpacity: 1,
+        shadowRadius: 5,
+    },    
+    titleText: {
+        position: 'absolute',
+        top: 0.7*window.height,
+        fontSize: 34,
+        fontFamily: 'SF-Pro-Display-Bold',
+        color: 'white',
+        textShadowOffset: {width: 0, height: 1},
+        textShadowRadius: 10,
+        textShadowColor: 'grey',
+        alignSelf: 'center',
+        justifyContent: 'center',
+    },
+    buttonContainer: {   
+        position: 'absolute',
+        top: 0.7*window.height + 60,
+        alignSelf: 'center',
+        borderRadius: 100,
+        backgroundColor: '#c4c4c4',
+        opacity: .5,
+        width: "76.4%",
+    },
+    buttonText: {
+        padding: 19,
+        fontSize: 24,
+        fontFamily: 'SF-Pro-Display-Bold',
+        color: 'white',
+        alignSelf: 'center',
+        justifyContent: 'center',
+        opacity: 1,
+    },
 })
 
 const windowHeight = Dimensions.get('window').height;
