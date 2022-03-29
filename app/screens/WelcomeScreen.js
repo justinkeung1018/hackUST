@@ -40,15 +40,6 @@ const styles = StyleSheet.create({
         paddingRight: 0,
         marginBottom: 30,
     },
-    shadow: {
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 0,
-        },
-        shadowOpacity: 1,
-        shadowRadius: 5,
-    },    
     titleText: {
         position: 'absolute',
         top: 0.7*window.height,

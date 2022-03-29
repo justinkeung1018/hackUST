@@ -33,6 +33,12 @@ const screens = {
             header: null,
         }
     },  
+    DetailsScreenRyze: {
+        screen: DetailsScreenRyze,
+        navigationOptions: {
+            header: null,
+        }
+    },
 }
 
 const HomeStack = createStackNavigator(screens);
