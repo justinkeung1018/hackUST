@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import Card from '../components/card';
-
-function ResultsScreen(props) {
-    return (
-        <Card>
-        </Card>
-    );
-}
+import Card from '../assets/components/card';
 
 export default function ResultsScreen({ navigation }) {
     const [ venue, setVenue ] = useState([
@@ -14,5 +7,8 @@ export default function ResultsScreen({ navigation }) {
         { name: 'Bounce Inc', price: '2', location: 'Kowloon Bay', type: 'Trampoline', favorite: false}
     ]);
 
-    return ResultsScreen;
+    return (
+        <Card>
+        </Card>
+    );
 };

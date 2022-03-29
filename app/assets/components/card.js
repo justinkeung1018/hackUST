@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { globalFonts, globalColors } from '../styles'
+import { globalFonts } from '../globalStyles'
 
 export default function Card(props) {
     return (
-        <View>
+        <View style={styles.card}>
             <Text style={globalFonts.text}>
                 Hello
             </Text>
@@ -16,6 +16,6 @@ const styles = StyleSheet.create({
     card: {
         height: 110,
         marginBottom: 20,
-        backgroundColor: globalColors.white
+        // backgroundColor: globalColors.white
     }
 })
