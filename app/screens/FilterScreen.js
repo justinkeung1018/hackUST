@@ -14,6 +14,19 @@ function FilterScreen({navigation}) {
                    <Text style={styles.buttonTextTitle}>Location</Text>
                    <Text style={styles.buttonTextContent}>Taikoo Shing</Text>
             </TouchableOpacity>
+            <TouchableOpacity 
+                style={[styles.buttonContainer, {top: 0.15*window.height+62}]}>
+                   <Text style={styles.buttonTextTitle}>Type of activity</Text>
+                   <Text style={styles.buttonTextContent}>Badminton</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+                style={[styles.buttonContainer, {top: 0.15*window.height+124}]}>
+                   <Text style={styles.buttonTextTitle}>Price</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+                style={[styles.buttonContainer, {top: 0.15*window.height+186}]}>
+                   <Text style={styles.buttonTextTitle}>Time</Text>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -44,10 +57,12 @@ const styles = StyleSheet.create({
         top: 0.15*window.height,
         alignSelf: 'center',
         justifyContent: 'center',
-        backgroundColor: '#c4c4c4',
+        backgroundColor: null,
         opacity: 1,
         width: "84%",
         height: 62,
+        borderColor: '#c4c4c4',
+        borderBottomWidth: 2,
     },
     buttonTextTitle: {
         padding: 3,
