@@ -40,15 +40,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     buttonContainer: {   
-        padding: 7,
         position: 'absolute',
-        top: 0.7*window.height + 60,
+        top: 0.15*window.height,
         alignSelf: 'center',
+        justifyContent: 'center',
         backgroundColor: '#c4c4c4',
         opacity: 1,
         width: "84%",
+        height: 62,
     },
     buttonTextTitle: {
+        padding: 3,
         fontSize: 18,
         fontFamily: 'SF-Pro-Display-Regular',
         color: 'black',
@@ -56,6 +58,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     buttonTextContent: {
+        padding: 3,
         fontSize: 14,
         fontFamily: 'SF-Pro-Display-Regular',
         color: 'grey',
