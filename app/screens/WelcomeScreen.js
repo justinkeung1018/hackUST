@@ -1,6 +1,7 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
 
+
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
@@ -12,7 +13,8 @@ function WelcomeScreen(props) {
         > 
             <View style={styles.container}>
                 <Text style={styles.titleText}>OpenFitness</Text>
-                <TouchableOpacity style={styles.buttonContainer}>
+                <TouchableOpacity 
+                    style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
             </View>
