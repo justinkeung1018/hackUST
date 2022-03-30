@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
 import { globalFonts } from '../assets/globalFonts';
 import { globalStyles } from '../assets/globalStyles';
 import Card from '../assets/components/card';
@@ -20,14 +20,24 @@ export default function ResultsScreen({ navigation }) {
     return (
         <View style={globalStyles.container}>
             <View style={styles.titleBar}>
-                <TouchableOpacity>
-                    <Text style={styles.arrow}>
-                        {'<'}
+                <View style={styles.results}>
+                    <TouchableOpacity>
+                        <Text style={styles.arrow}>
+                            {'<'}
+                        </Text>
+                    </TouchableOpacity>
+                    <Text style={[globalFonts.heading3Bold, styles.title]}>
+                        Results ({Object.keys(venue).length})
                     </Text>
-                </TouchableOpacity>
-                <Text style={[globalFonts.heading3Bold, styles.title]}>
-                    Results ({Object.keys(venue).length})
-                </Text>
+                </View>
+                <View>
+                    <TouchableOpacity>
+                        <Image 
+                            style={styles.image}
+                            source={require('../assets/images/black_filter.png')}
+                        />
+                    </TouchableOpacity>
+                </View>
             </View>
             <FlatList
                 data={venue}
@@ -45,10 +55,18 @@ const styles = StyleSheet.create({
         fontSize: 24,
         marginRight: 12,
     },
+    image: {
+        height: 30,
+        width: 30,
+    },
+    results: {
+        flexDirection: 'row',
+    },
     title: {
         marginBottom: 13,
     },
     titleBar: {
+        justifyContent: 'space-between',
         flexDirection: 'row',
     },
 })
