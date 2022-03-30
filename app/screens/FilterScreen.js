@@ -23,10 +23,12 @@ function FilterScreen({navigation}) {
                    <View style={styles.buttonFlexContainer}>  
                         <View style={styles.buttonTextContainer}>                   
                             <Text style={styles.buttonTextTitle}>Location</Text>
-                        <   Text style={styles.buttonTextContent}>Taikoo Shing</Text>
+                            <Text style={styles.buttonTextContent}>Taikoo Shing</Text>
                         </View> 
                         <View style={styles.buttonArrowContainer}>                   
-                            <Text style={styles.buttonArrow}>></Text>
+                            <Text style={styles.buttonArrow}>
+                                {'>'}
+                            </Text>
                         </View> 
                    </View>       
             </TouchableOpacity>
@@ -38,7 +40,9 @@ function FilterScreen({navigation}) {
                             <Text style={styles.buttonTextContent}>Badminton</Text>
                         </View> 
                         <View style={styles.buttonArrowContainer}>                   
-                            <Text style={styles.buttonArrow}>></Text>
+                            <Text style={styles.buttonArrow}>
+                                {'>'}
+                            </Text>
                         </View> 
                    </View>       
             </TouchableOpacity>
@@ -50,7 +54,9 @@ function FilterScreen({navigation}) {
                             <Text style={styles.buttonTextContent}>Any</Text>
                         </View> 
                         <View style={styles.buttonArrowContainer}>                   
-                            <Text style={styles.buttonArrow}>></Text>
+                            <Text style={styles.buttonArrow}>
+                                {'>'}
+                            </Text>
                         </View> 
                    </View>       
             </TouchableOpacity>
@@ -62,9 +68,11 @@ function FilterScreen({navigation}) {
                             <Text style={styles.buttonTextContent}>Any</Text>
                         </View> 
                         <View style={styles.buttonArrowContainer}>                   
-                            <Text style={styles.buttonArrow}>></Text>
+                            <Text style={styles.buttonArrow}>
+                                {'>'}
+                            </Text>
                         </View> 
-                   </View>   
+                   </View>  
             </TouchableOpacity>
         </View>
         <BottomSheet />
@@ -77,14 +85,13 @@ const styles = StyleSheet.create({
         flex: 1,
         height: windowHeight,
         width: windowWidth,
-    },
-    titleText: {
-        position: 'absolute',
-        top: 0.05*window.height,
+    },  
+    buttonArrow: {
         fontSize: 30,
-        fontFamily: 'SF-Pro-Display-Bold',
-        color: 'black',
-        alignSelf: 'center',
+        color: '#c4c4c4',
+    },
+    buttonArrowContainer: {
+        flex: 1,
         justifyContent: 'center',
     },
     buttonContainer: {   
@@ -108,8 +115,12 @@ const styles = StyleSheet.create({
         flex: 12,
         flexDirection: 'column',
     },
-    buttonArrowContainer: {
-        flex: 1,
+    buttonTextContent: {
+        padding: 3,
+        fontSize: 14,
+        fontFamily: 'SF-Pro-Display-Regular',
+        color: 'grey',
+        alignSelf: 'flex-start',
         justifyContent: 'center',
     },
     buttonTextTitle: {
@@ -120,18 +131,15 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         justifyContent: 'center',
     },
-    buttonTextContent: {
-        padding: 3,
-        fontSize: 14,
-        fontFamily: 'SF-Pro-Display-Regular',
-        color: 'grey',
-        alignSelf: 'flex-start',
+    titleText: {
+        position: 'absolute',
+        top: 0.05*window.height,
+        fontSize: 30,
+        fontFamily: 'SF-Pro-Display-Bold',
+        color: 'black',
+        alignSelf: 'center',
         justifyContent: 'center',
     },
-    buttonArrow: {
-        fontSize: 30,
-        color: '#c4c4c4',
-    }
 })
 
 export default FilterScreen;

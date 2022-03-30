@@ -23,7 +23,7 @@ export default function Card(props) {
                             ★ {props.info.rating}
                         </Text>
                         <Text style={{color: props.info.open ? 'green' : 'red' }}>
-                            Open
+                            {props.info.open ? 'Open' : 'Closed'}
                         </Text>
                     </View>
                 </View>
