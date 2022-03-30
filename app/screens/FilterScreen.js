@@ -12,6 +12,8 @@ const windowWidth = Dimensions.get('window').width;
 const buttonContainerHeight = 62;
 
 function FilterScreen({navigation}) {
+
+
     return (
         <View style={globalStyles.container}>
             <Text style={styles.titleText}>Filters</Text>
@@ -81,12 +83,6 @@ const styles = StyleSheet.create({
         height: windowHeight,
         width: windowWidth,
     },
-    container: {
-        marginTop: 50,
-        paddingLeft: '8%',
-        paddingRight: '8%',
-        marginBottom: 30,
-    },
     titleText: {
         position: 'absolute',
         top: 0.05*window.height,
@@ -107,19 +103,6 @@ const styles = StyleSheet.create({
         height: buttonContainerHeight,
         borderColor: '#c4c4c4',
         borderBottomWidth: 2,
-        flexDirection: 'row',
-    },
-    buttonFlexContainer: {
-        flex: 1,
-        flexDirection: 'row',
-    },
-    buttonTextContainer: {
-        flex: 12,
-        flexDirection: 'column',
-    },
-    buttonArrowContainer: {
-        flex: 1,
-        justifyContent: 'center',
     },
     buttonTextTitle: {
         padding: 3,
@@ -137,10 +120,6 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         justifyContent: 'center',
     },
-    buttonArrow: {
-        fontSize: 30,
-        color: '#c4c4c4',
-    }
 })
 
 export default FilterScreen;
