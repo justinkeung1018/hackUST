@@ -1,5 +1,6 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
+import { globalStyles } from '../assets/globalStyles';
 
 
 const window = Dimensions.get("window");
@@ -11,7 +12,7 @@ const buttonContainerHeight = 62;
 
 function FilterScreen({navigation}) {
     return (
-        <View style={styles.container}>
+        <View style={globalStyles.container}>
             <Text style={styles.titleText}>Filters</Text>
             <TouchableOpacity 
                 style={styles.buttonContainer}>
@@ -40,12 +41,6 @@ const styles = StyleSheet.create({
         flex: 1,
         height: windowHeight,
         width: windowWidth,
-    },
-    container: {
-        marginTop: 50,
-        paddingLeft: 0,
-        paddingRight: 0,
-        marginBottom: 30,
     },
     titleText: {
         position: 'absolute',
