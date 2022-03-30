@@ -42,11 +42,27 @@ function FilterScreen({navigation}) {
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={1}
                 style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight*2}]}>
-                   <Text style={styles.buttonTextTitle}>Price</Text>
+                   <View style={styles.buttonFlexContainer}>  
+                        <View style={styles.buttonTextContainer}>                   
+                            <Text style={styles.buttonTextTitle}>Price</Text>
+                            <Text style={styles.buttonTextContent}>Any</Text>
+                        </View> 
+                        <View style={styles.buttonArrowContainer}>                   
+                            <Text style={styles.buttonArrow}>></Text>
+                        </View> 
+                   </View>       
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={1}
                 style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight*3}]}>
-                   <Text style={styles.buttonTextTitle}>Time</Text>
+                   <View style={styles.buttonFlexContainer}>  
+                        <View style={styles.buttonTextContainer}>                   
+                            <Text style={styles.buttonTextTitle}>Time</Text>
+                            <Text style={styles.buttonTextContent}>Any</Text>
+                        </View> 
+                        <View style={styles.buttonArrowContainer}>                   
+                            <Text style={styles.buttonArrow}>></Text>
+                        </View> 
+                   </View>   
             </TouchableOpacity>
         </View>
     );
@@ -78,6 +94,19 @@ const styles = StyleSheet.create({
         height: buttonContainerHeight,
         borderColor: '#c4c4c4',
         borderBottomWidth: 2,
+        flexDirection: 'row',
+    },
+    buttonFlexContainer: {
+        flex: 1,
+        flexDirection: 'row',
+    },
+    buttonTextContainer: {
+        flex: 12,
+        flexDirection: 'column',
+    },
+    buttonArrowContainer: {
+        flex: 1,
+        justifyContent: 'center',
     },
     buttonTextTitle: {
         padding: 3,
@@ -95,6 +124,10 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         justifyContent: 'center',
     },
+    buttonArrow: {
+        fontSize: 30,
+        color: '#c4c4c4',
+    }
 })
 
 export default FilterScreen;
