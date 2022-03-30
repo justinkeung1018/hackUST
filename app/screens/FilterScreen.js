@@ -1,6 +1,8 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
 import { globalStyles } from '../assets/globalStyles';
+import BottomSheet from '../assets/components/BottomSheet';
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 
 const window = Dimensions.get("window");
@@ -12,10 +14,10 @@ const buttonContainerHeight = 62;
 
 function FilterScreen({navigation}) {
 
-
     return (
+    <GestureHandlerRootView style={{flex: 1}}>
         <View style={globalStyles.container}>
-            <Text style={styles.titleText}>Filters</Text>
+        <Text style={styles.titleText}>Filters</Text>
             <TouchableOpacity activeOpacity={1}
                 style={styles.buttonContainer}> 
                    <View style={styles.buttonFlexContainer}>  
@@ -65,6 +67,8 @@ function FilterScreen({navigation}) {
                    </View>   
             </TouchableOpacity>
         </View>
+        <BottomSheet />
+    </GestureHandlerRootView>
     );
 }
 

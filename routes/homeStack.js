@@ -8,6 +8,7 @@ import DetailsScreenRyze from '../app/screens/DetailsScreenRyze';
 
 
 const screens = {
+    
     FilterScreen: {
         screen: FilterScreen,
         navigationOptions: {
@@ -20,13 +21,12 @@ const screens = {
             header: null,
         }
     },
-    
     ResultsScreen: {
         screen: ResultsScreen,
         navigationOptions: {
             header: null,
         }
-    },  
+    },      
     HomeScreen: {
         screen: HomeScreen,
         navigationOptions: {
