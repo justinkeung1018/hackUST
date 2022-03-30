@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, FlatList } from 'react-native';
+import { Text, View, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { globalFonts } from '../assets/globalFonts';
 import { globalStyles } from '../assets/globalStyles';
 import Card from '../assets/components/card';
+import { globalColors } from '../assets/globalColors';
 
 export default function ResultsScreen({ navigation }) {
     const [ venue, setVenue ] = useState([
@@ -18,11 +19,20 @@ export default function ResultsScreen({ navigation }) {
 
     return (
         <View style={globalStyles.container}>
+            <View style={styles.titleBar}>
+                <TouchableOpacity>
+                    <Text style={styles.arrow}>
+                        {'<'}
+                    </Text>
+                </TouchableOpacity>
+                <Text style={[globalFonts.heading3Bold, styles.title]}>
+                    Results ({Object.keys(venue).length})
+                </Text>
+            </View>
             <FlatList
                 data={venue}
                 renderItem={({ item }) => (
-                    <Card info={item}>
-                    </Card>
+                    <Card info={item}/>
                 )}
             />
         </View>
@@ -30,9 +40,15 @@ export default function ResultsScreen({ navigation }) {
 };
 
 const styles = StyleSheet.create({
-    // card: {
-    //     height: 110,
-    //     marginBottom: 20,
-    //     backgroundColor: globalColors.white
-    // }
+    arrow: {
+        color: globalColors.gray,
+        fontSize: 24,
+        marginRight: 12,
+    },
+    title: {
+        marginBottom: 13,
+    },
+    titleBar: {
+        flexDirection: 'row',
+    },
 })
