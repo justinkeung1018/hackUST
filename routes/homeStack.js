@@ -20,13 +20,13 @@ const screens = {
             header: null,
         }
     },
+    
     ResultsScreen: {
         screen: ResultsScreen,
         navigationOptions: {
             header: null,
         }
     },  
-    
     HomeScreen: {
         screen: HomeScreen,
         navigationOptions: {

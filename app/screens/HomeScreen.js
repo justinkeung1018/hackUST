@@ -3,7 +3,12 @@ import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} 
 
 function HomeScreen(props) {
     return (
-        <Text>HomeScreen</Text>
+        <View>
+            <Text>HomeScreen</Text>
+            <Text>HomeScreen</Text>
+            <Text>HomeScreen</Text>
+            <Text>HomeScreen</Text>
+        </View>
     );
 }
 
