@@ -82,14 +82,13 @@ const styles = StyleSheet.create({
         flex: 1,
         height: windowHeight,
         width: windowWidth,
-    },
-    titleText: {
-        position: 'absolute',
-        top: 0.05*window.height,
+    },  
+    buttonArrow: {
         fontSize: 30,
-        fontFamily: 'SF-Pro-Display-Bold',
-        color: 'black',
-        alignSelf: 'center',
+        color: '#c4c4c4',
+    },
+    buttonArrowContainer: {
+        flex: 1,
         justifyContent: 'center',
     },
     buttonContainer: {   
@@ -113,8 +112,12 @@ const styles = StyleSheet.create({
         flex: 12,
         flexDirection: 'column',
     },
-    buttonArrowContainer: {
-        flex: 1,
+    buttonTextContent: {
+        padding: 3,
+        fontSize: 14,
+        fontFamily: 'SF-Pro-Display-Regular',
+        color: 'grey',
+        alignSelf: 'flex-start',
         justifyContent: 'center',
     },
     buttonTextTitle: {
@@ -125,18 +128,15 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         justifyContent: 'center',
     },
-    buttonTextContent: {
-        padding: 3,
-        fontSize: 14,
-        fontFamily: 'SF-Pro-Display-Regular',
-        color: 'grey',
-        alignSelf: 'flex-start',
+    titleText: {
+        position: 'absolute',
+        top: 0.05*window.height,
+        fontSize: 30,
+        fontFamily: 'SF-Pro-Display-Bold',
+        color: 'black',
+        alignSelf: 'center',
         justifyContent: 'center',
     },
-    buttonArrow: {
-        fontSize: 30,
-        color: '#c4c4c4',
-    }
 })
 
 export default FilterScreen;
