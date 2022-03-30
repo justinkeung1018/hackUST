@@ -2,7 +2,6 @@ import React from 'react';
 import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
 import { globalStyles } from '../assets/globalStyles';
 import BottomSheet from 'reanimated-bottom-sheet';
-import 
 
 
 const window = Dimensions.get("window");
@@ -21,10 +20,12 @@ function FilterScreen({navigation}) {
                    <View style={styles.buttonFlexContainer}>  
                         <View style={styles.buttonTextContainer}>                   
                             <Text style={styles.buttonTextTitle}>Location</Text>
-                        <   Text style={styles.buttonTextContent}>Taikoo Shing</Text>
+                            <Text style={styles.buttonTextContent}>Taikoo Shing</Text>
                         </View> 
                         <View style={styles.buttonArrowContainer}>                   
-                            <Text style={styles.buttonArrow}>></Text>
+                            <Text style={styles.buttonArrow}>
+                                {'>'}
+                            </Text>
                         </View> 
                    </View>       
             </TouchableOpacity>
@@ -36,7 +37,9 @@ function FilterScreen({navigation}) {
                             <Text style={styles.buttonTextContent}>Badminton</Text>
                         </View> 
                         <View style={styles.buttonArrowContainer}>                   
-                            <Text style={styles.buttonArrow}>></Text>
+                            <Text style={styles.buttonArrow}>
+                                {'>'}
+                            </Text>
                         </View> 
                    </View>       
             </TouchableOpacity>
@@ -48,7 +51,9 @@ function FilterScreen({navigation}) {
                             <Text style={styles.buttonTextContent}>Any</Text>
                         </View> 
                         <View style={styles.buttonArrowContainer}>                   
-                            <Text style={styles.buttonArrow}>></Text>
+                            <Text style={styles.buttonArrow}>
+                                {'>'}
+                            </Text>
                         </View> 
                    </View>  
             </TouchableOpacity>
@@ -60,7 +65,9 @@ function FilterScreen({navigation}) {
                             <Text style={styles.buttonTextContent}>Any</Text>
                         </View> 
                         <View style={styles.buttonArrowContainer}>                   
-                            <Text style={styles.buttonArrow}>></Text>
+                            <Text style={styles.buttonArrow}>
+                                {'>'}
+                            </Text>
                         </View> 
                    </View>  
             </TouchableOpacity>

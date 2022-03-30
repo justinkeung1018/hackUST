@@ -14,6 +14,13 @@ const screens = {
             header: null,
         }
     },
+    ResultsScreen: {
+        screen: ResultsScreen,
+        navigationOptions: {
+            header: null,
+        }
+    },  
+    
     WelcomeScreen: {
         screen: WelcomeScreen,
         navigationOptions: {
