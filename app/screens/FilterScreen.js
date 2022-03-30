@@ -57,7 +57,7 @@ function FilterScreen({navigation}) {
                                 {'>'}
                             </Text>
                         </View> 
-                   </View>  
+                   </View>       
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={1}
                 style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight*3}]}>
@@ -103,6 +103,19 @@ const styles = StyleSheet.create({
         height: buttonContainerHeight,
         borderColor: '#c4c4c4',
         borderBottomWidth: 2,
+        flexDirection: 'row',
+    },
+    buttonFlexContainer: {
+        flex: 1,
+        flexDirection: 'row',
+    },
+    buttonTextContainer: {
+        flex: 12,
+        flexDirection: 'column',
+    },
+    buttonArrowContainer: {
+        flex: 1,
+        justifyContent: 'center',
     },
     buttonTextTitle: {
         padding: 3,
@@ -120,6 +133,10 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         justifyContent: 'center',
     },
+    buttonArrow: {
+        fontSize: 30,
+        color: '#c4c4c4',
+    }
 })
 
 export default FilterScreen;
