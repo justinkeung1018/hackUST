@@ -1,6 +1,8 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
 import { globalStyles } from '../assets/globalStyles';
+import BottomSheet from 'reanimated-bottom-sheet';
+import 
 
 
 const window = Dimensions.get("window");
@@ -14,7 +16,7 @@ function FilterScreen({navigation}) {
     return (
         <View style={globalStyles.container}>
             <Text style={styles.titleText}>Filters</Text>
-            <TouchableOpacity 
+            <TouchableOpacity activeOpacity={1}
                 style={styles.buttonContainer}> 
                    <View style={styles.buttonFlexContainer}>  
                         <View style={styles.buttonTextContainer}>                   
@@ -26,7 +28,7 @@ function FilterScreen({navigation}) {
                         </View> 
                    </View>       
             </TouchableOpacity>
-            <TouchableOpacity 
+            <TouchableOpacity activeOpacity={1}
                 style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight*1}]}>
                    <View style={styles.buttonFlexContainer}>  
                         <View style={styles.buttonTextContainer}>                   
@@ -38,7 +40,7 @@ function FilterScreen({navigation}) {
                         </View> 
                    </View>       
             </TouchableOpacity>
-            <TouchableOpacity 
+            <TouchableOpacity activeOpacity={1}
                 style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight*2}]}>
                    <View style={styles.buttonFlexContainer}>  
                         <View style={styles.buttonTextContainer}>                   
@@ -50,7 +52,7 @@ function FilterScreen({navigation}) {
                         </View> 
                    </View>  
             </TouchableOpacity>
-            <TouchableOpacity 
+            <TouchableOpacity activeOpacity={1}
                 style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight*3}]}>
                    <View style={styles.buttonFlexContainer}>  
                         <View style={styles.buttonTextContainer}>                   
