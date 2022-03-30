@@ -1,8 +1,6 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
 import { globalStyles } from '../assets/globalStyles';
-import BottomSheet from 'reanimated-bottom-sheet';
-import 
 
 
 const window = Dimensions.get("window");
@@ -13,6 +11,8 @@ const windowWidth = Dimensions.get('window').width;
 const buttonContainerHeight = 62;
 
 function FilterScreen({navigation}) {
+
+
     return (
         <View style={globalStyles.container}>
             <Text style={styles.titleText}>Filters</Text>
