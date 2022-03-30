@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: null,
         opacity: 1,
-        width: "84%",
+        width: '100%',
         height: buttonContainerHeight,
         borderColor: '#c4c4c4',
         borderBottomWidth: 2,
