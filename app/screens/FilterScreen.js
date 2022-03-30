@@ -1,5 +1,6 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
+import { globalStyles } from '../assets/globalStyles';
 
 
 const window = Dimensions.get("window");
@@ -11,55 +12,25 @@ const buttonContainerHeight = 62;
 
 function FilterScreen({navigation}) {
     return (
-        <View style={styles.container}>
+        <View style={globalStyles.container}>
             <Text style={styles.titleText}>Filters</Text>
             <TouchableOpacity 
-                style={styles.buttonContainer}> 
-                   <View style={styles.buttonFlexContainer}>  
-                        <View style={styles.buttonTextContainer}>                   
-                            <Text style={styles.buttonTextTitle}>Location</Text>
-                        <   Text style={styles.buttonTextContent}>Taikoo Shing</Text>
-                        </View> 
-                        <View style={styles.buttonArrowContainer}>                   
-                            <Text style={styles.buttonArrow}>></Text>
-                        </View> 
-                   </View>       
+                style={styles.buttonContainer}>
+                   <Text style={styles.buttonTextTitle}>Location</Text>
+                   <Text style={styles.buttonTextContent}>Taikoo Shing</Text>
             </TouchableOpacity>
             <TouchableOpacity 
-                style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight*1}]}>
-                   <View style={styles.buttonFlexContainer}>  
-                        <View style={styles.buttonTextContainer}>                   
-                            <Text style={styles.buttonTextTitle}>Type of activity</Text>
-                            <Text style={styles.buttonTextContent}>Badminton</Text>
-                        </View> 
-                        <View style={styles.buttonArrowContainer}>                   
-                            <Text style={styles.buttonArrow}>></Text>
-                        </View> 
-                   </View>       
+                style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight}]}>
+                   <Text style={styles.buttonTextTitle}>Type of activity</Text>
+                   <Text style={styles.buttonTextContent}>Badminton</Text>
             </TouchableOpacity>
             <TouchableOpacity 
                 style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight*2}]}>
-                   <View style={styles.buttonFlexContainer}>  
-                        <View style={styles.buttonTextContainer}>                   
-                            <Text style={styles.buttonTextTitle}>Price</Text>
-                            <Text style={styles.buttonTextContent}>Any</Text>
-                        </View> 
-                        <View style={styles.buttonArrowContainer}>                   
-                            <Text style={styles.buttonArrow}>></Text>
-                        </View> 
-                   </View>  
+                   <Text style={styles.buttonTextTitle}>Price</Text>
             </TouchableOpacity>
             <TouchableOpacity 
                 style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight*3}]}>
-                   <View style={styles.buttonFlexContainer}>  
-                        <View style={styles.buttonTextContainer}>                   
-                            <Text style={styles.buttonTextTitle}>Time</Text>
-                            <Text style={styles.buttonTextContent}>Any</Text>
-                        </View> 
-                        <View style={styles.buttonArrowContainer}>                   
-                            <Text style={styles.buttonArrow}>></Text>
-                        </View> 
-                   </View>  
+                   <Text style={styles.buttonTextTitle}>Time</Text>
             </TouchableOpacity>
         </View>
     );
@@ -70,12 +41,6 @@ const styles = StyleSheet.create({
         flex: 1,
         height: windowHeight,
         width: windowWidth,
-    },
-    container: {
-        marginTop: 50,
-        paddingLeft: '8%',
-        paddingRight: '8%',
-        marginBottom: 30,
     },
     titleText: {
         position: 'absolute',
@@ -97,19 +62,6 @@ const styles = StyleSheet.create({
         height: buttonContainerHeight,
         borderColor: '#c4c4c4',
         borderBottomWidth: 2,
-        flexDirection: 'row',
-    },
-    buttonFlexContainer: {
-        flex: 1,
-        flexDirection: 'row',
-    },
-    buttonTextContainer: {
-        flex: 12,
-        flexDirection: 'column',
-    },
-    buttonArrowContainer: {
-        flex: 1,
-        justifyContent: 'center',
     },
     buttonTextTitle: {
         padding: 3,
@@ -127,10 +79,6 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         justifyContent: 'center',
     },
-    buttonArrow: {
-        fontSize: 30,
-        color: '#c4c4c4',
-    }
 })
 
 export default FilterScreen;
