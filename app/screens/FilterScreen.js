@@ -16,7 +16,6 @@ function FilterScreen({navigation}) {
     return (
         <View style={globalStyles.container}>
             <Text style={styles.titleText}>Filters</Text>
-<<<<<<< HEAD
             <TouchableOpacity activeOpacity={1}
                 style={styles.buttonContainer}> 
                    <View style={styles.buttonFlexContainer}>  
@@ -40,17 +39,6 @@ function FilterScreen({navigation}) {
                             <Text style={styles.buttonArrow}>></Text>
                         </View> 
                    </View>       
-=======
-            <TouchableOpacity 
-                style={styles.buttonContainer}>
-                   <Text style={styles.buttonTextTitle}>Location</Text>
-                   <Text style={styles.buttonTextContent}>Taikoo Shing</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-                style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight}]}>
-                   <Text style={styles.buttonTextTitle}>Type of activity</Text>
-                   <Text style={styles.buttonTextContent}>Badminton</Text>
->>>>>>> parent of 594ea19 (Arrow new)
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={1}
                 style={[styles.buttonContainer, {top: 0.15*window.height+buttonContainerHeight*2}]}>
