@@ -10,8 +10,7 @@ import {
 } from "react-native";
 import { globalColors } from "../assets/globalColors";
 import { globalFonts } from "../assets/globalFonts";
-import unclickedHeart from "../assets/images/white_heart.png";
-import clickedHeart from "../assets/images/white_heart_filled.png";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import { globalStyles } from "../assets/globalStyles";
 
 class DetailsScreenRyze extends Component {
@@ -20,8 +19,8 @@ class DetailsScreenRyze extends Component {
     this.state = { favorite: false };
   }
   renderImage() {
-    let image = this.state.favorite ? clickedHeart : unclickedHeart;
-    return <Image source={image} style={styles.heart} />;
+    let image = this.state.favorite ? "heart" : "heart-outline";
+    return <Ionicons name={image} style={styles.heart} />;
   }
   render() {
     return (
@@ -32,13 +31,21 @@ class DetailsScreenRyze extends Component {
         />
         <View style={styles.navBar}>
           <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-            <Text style={styles.arrow}>{"<"}</Text>
+            <Ionicons name="chevron-back-outline" style={styles.arrow} />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.setState({ favorite: !this.state.favorite })}
-          >
-            {this.renderImage()}
-          </TouchableOpacity>
+          <View style={styles.filterHeartContainer}>
+            <TouchableOpacity style={styles.filterContainer}>
+              <Image
+                source={require("../assets/images/white_filter.png")}
+                style={styles.filter}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.setState({ favorite: !this.state.favorite })}
+            >
+              {this.renderImage()}
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.container}>
           <View style={styles.basicInfo}>
@@ -146,7 +153,7 @@ const windowHeight = windowWidth;
 const styles = StyleSheet.create({
   arrow: {
     color: globalColors.white,
-    fontSize: 30,
+    fontSize: 32,
   },
   basicInfo: {
     marginBottom: 10,
@@ -157,9 +164,21 @@ const styles = StyleSheet.create({
     paddingRight: "8%",
     marginBottom: 30,
   },
+  filter: {
+    width: 30,
+    height: 30,
+  },
+  filterContainer: {
+    marginRight: 20,
+  },
+  filterHeartContainer: {
+    flexDirection: "row",
+  },
   heart: {
     width: 30,
     height: 30,
+    color: globalColors.white,
+    fontSize: 32,
   },
   icon: {
     width: 20,

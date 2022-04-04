@@ -17,42 +17,25 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { globalColors } from "./app/assets/globalColors";
 
-function Home() {
-  return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-
-          if (route.name === "Home") {
-            iconName = focused ? "home" : "home-outline";
-          } else if (route.name === "Settings") {
-            iconName = focused ? "list" : "list-outline";
-          } else if (route.name === "Favorites") {
-            iconName = focused ? "heart" : "heart-outline";
-          } else if (route.name === "Search") {
-            iconName = focused ? "search" : "search-outline";
-          }
-
-          // You can return any component that you like here!
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-        tabBarActiveTintColor: globalColors.darkBlue,
-        tabBarInactiveTintColor: "gray",
-      })}
-      style={styles.navBar}
-    >
-      <Tab.Screen name="Home" component={FilterLocationScreen} />
-      <Tab.Screen name="Search" component={FilterScreen} />
-      <Tab.Screen name="Favorites" component={DetailsScreenRyze} />
-      <Tab.Screen name="Settings" component={DetailsScreenRyze} />
-    </Tab.Navigator>
-  );
-}
-
+const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const Stack = createStackNavigator();
+function Home() {
+  return (
+    <Stack.Navigator
+      initialRouteName="HomeScreen"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="ResultsScreen" component={ResultsScreen} />
+      <Stack.Screen name="FilterScreen" component={FilterScreen} />
+      <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+      <Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -72,17 +55,32 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="HomeScreen"
-          component={Home}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen name="ResultsScreen" component={ResultsScreen} />
-        <Stack.Screen name="FilterScreen" component={FilterScreen} />
-        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-        <Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
-      </Stack.Navigator>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            if (route.name === "Home") {
+              iconName = focused ? "home" : "home-outline";
+            } else if (route.name === "Settings") {
+              iconName = focused ? "list" : "list-outline";
+            } else if (route.name === "Favorites") {
+              iconName = focused ? "heart" : "heart-outline";
+            } else if (route.name === "Search") {
+              iconName = focused ? "search" : "search-outline";
+            }
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: globalColors.darkBlue,
+          tabBarInactiveTintColor: globalColors.darkGray,
+          headerShown: false,
+        })}
+        style={styles.navBar}
+      >
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Search" component={FilterScreen} />
+        <Tab.Screen name="Favorites" component={DetailsScreenRyze} />
+        <Tab.Screen name="Settings" component={DetailsScreenRyze} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
