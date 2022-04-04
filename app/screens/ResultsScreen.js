@@ -45,14 +45,17 @@ export default function ResultsScreen({ navigation }) {
     <View style={globalStyles.container}>
       <View style={styles.titleBar}>
         <View style={styles.results}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("FilterScreen")}
+            style={styles.arrowContainer}
+          >
             <Ionicons name="chevron-back-outline" style={styles.arrow} />
           </TouchableOpacity>
           <Text style={[globalFonts.heading3Bold, styles.title]}>
             Results ({Object.keys(venue).length})
           </Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("FilterScreen")}>
           <Image
             style={styles.image}
             source={require("../assets/images/black_filter.png")}
@@ -75,7 +78,11 @@ export default function ResultsScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   arrow: {
-    fontSize: 30,
+    fontSize: 32,
+  },
+  arrowContainer: {
+    alignItems: "center",
+    justifyContent: "center",
   },
   image: {
     height: 30,
@@ -85,11 +92,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  title: {
-    marginBottom: 13,
-  },
   titleBar: {
     justifyContent: "space-between",
+    alignItems: "center",
     flexDirection: "row",
+    marginBottom: 13,
   },
 });
