@@ -8,18 +8,20 @@ import DetailsScreenRyze from '../app/screens/DetailsScreenRyze';
 
 
 const screens = {
-    ResultsScreen: {
-        screen: ResultsScreen,
-        navigationOptions: {
-            header: null,
-        }
-    },
     FilterScreen: {
         screen: FilterScreen,
         navigationOptions: {
             header: null,
         }
     },
+    
+    ResultsScreen: {
+        screen: ResultsScreen,
+        navigationOptions: {
+            header: null,
+        }
+    },
+    
     WelcomeScreen: {
         screen: WelcomeScreen,
         navigationOptions: {

@@ -1,21 +1,50 @@
 import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { globalStyles } from '../globalStyles';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler'
-import  Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import  Animated, { extrapolate, interpolate, useAnimatedStyle, useSharedValue, withTiming, withSpring, Extrapolate } from 'react-native-reanimated';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
 
+const minTranslateY = 25;
+const maxTranslateY = -windowHeight*.8;
+
 const BottomSheet = () => {
     const translateY = useSharedValue(0);
 
-    const gesture = Gesture.Pan().onUpdate((event) => {
-        translateY.value = event.translationY;
+    const scrollTo = useCallback((destination: number) => {
+        'worklet';
+        translateY.value = withSpring(destination, { damping: 50 });
+      }, []);
+
+    const context = useSharedValue({y: 0});
+
+    const gesture = Gesture.Pan()
+    .onStart(() => {
+        context.value = {y: translateY.value};
+    })
+    .onUpdate((event) => {
+        translateY.value = event.translationY + context.value.y;
+        translateY.value = Math.max(translateY.value, -windowHeight+50)
+        console.log(translateY.value);
+    })
+    .onEnd(() => {
+        if (translateY.value > minTranslateY) {
+            scrollTo(minTranslateY)
+        }
+        else if (translateY.value < maxTranslateY) {
+            scrollTo(maxTranslateY)
+        }
+        
     });
 
+    useEffect(() => {
+        scrollTo(-windowHeight*.8);
+    }, []);
+
     const rBottomSheetStyle = useAnimatedStyle(() => {
-        return {
+                return {
             transform: [{translateY: translateY.value}],
         }
     });
@@ -40,7 +69,7 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: 'white',
         position: 'absolute',
-        top: 0.15*windowHeight+50,
+        top: windowHeight,
         borderRadius: 25,
     },
     line: {
