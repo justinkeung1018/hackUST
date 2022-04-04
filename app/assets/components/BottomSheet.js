@@ -1,15 +1,34 @@
 import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
 import React from 'react';
 import { globalStyles } from '../globalStyles';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler'
+import  Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
 
 const BottomSheet = () => {
+    const translateY = useSharedValue(0);
+
+    const gesture = Gesture.Pan().onUpdate((event) => {
+        translateY.value = event.translationY;
+    });
+
+    const rBottomSheetStyle = useAnimatedStyle(() => {
+        return {
+            transform: [{translateY: translateY.value}],
+        }
+    });
+
     return(
-        <View style={styles.bottomSheetContainer}>
-            <Text>BottomSheet</Text>
-        </View>
+        <GestureDetector gesture={gesture}>
+            <Animated.View style={[styles.bottomSheetContainer, rBottomSheetStyle]}>
+                <View style={[globalStyles.container, {marginTop: 0}]}>
+                    <View style={styles.line}></View>
+                    <Text>BottomSheet</Text>
+                </View>
+            </Animated.View>
+        </GestureDetector>
     );
 }
 
@@ -22,5 +41,14 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         position: 'absolute',
         top: 0.15*windowHeight+50,
+        borderRadius: 25,
+    },
+    line: {
+        width: 75,
+        height: 4,
+        backgroundColor: 'grey',
+        alignSelf: 'center',
+        marginVertical: 15,
+        borderRadius: 2,
     }
 });
