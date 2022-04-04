@@ -13,10 +13,9 @@ const maxTranslateY = -windowHeight*.8;
 const BottomSheet = () => {
     const translateY = useSharedValue(0);
 
-    const scrollTo = useCallback((destination: number) => {
-        'worklet';
-        translateY.value = withSpring(destination, { damping: 50 });
-      }, []);
+    //const scrollTo = useCallback((destination: number) => {
+    //    translateY.value = withSpring(destination, {damping: 200});
+    //}, []);
 
     const context = useSharedValue({y: 0});
 
@@ -31,16 +30,16 @@ const BottomSheet = () => {
     })
     .onEnd(() => {
         if (translateY.value > minTranslateY) {
-            scrollTo(minTranslateY)
+            translateY.value = withSpring(minTranslateY), {damping: 200}
         }
         else if (translateY.value < maxTranslateY) {
-            scrollTo(maxTranslateY)
+            translateY.value = withSpring(maxTranslateY), {damping: 200}
         }
         
     });
 
     useEffect(() => {
-        scrollTo(-windowHeight*.8);
+        translateY.value = withSpring(-windowHeight*.8), {damping: 200};
     }, []);
 
     const rBottomSheetStyle = useAnimatedStyle(() => {
