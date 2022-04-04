@@ -1,10 +1,226 @@
-import React from 'react';
-import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
+import React, { Component } from 'react';
+import { Image, StyleSheet, Dimensions, View, Text, TouchableOpacity, ScrollView } from "react-native";
+import { globalColors } from '../assets/globalColors';
+import { globalFonts } from '../assets/globalFonts';
+import unclickedHeart from '../assets/images/white_heart.png';
+import clickedHeart from '../assets/images/white_heart_filled.png';
+import { globalStyles } from '../assets/globalStyles';
 
-function DetailsScreenRyze(props) {
-    return (
-        <Text>FilterScreen</Text>
-    );
-}
+class DetailsScreenRyze extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { favorite: false };
+    }
+    renderImage() {
+        let image = this.state.favorite ? clickedHeart: unclickedHeart;
+        return (
+          <Image
+            source={ image }
+            style={ styles.heart }
+          />
+        );
+    }
+    render() {
+        return (
+            <ScrollView>
+                <Image source={require('../assets/images/ryze.jpeg')} style={styles.image}/>
+                <View style={styles.navBar}>
+                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+                        <Text style={styles.arrow}> 
+                            {'<'}
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.setState({ favorite: !this.state.favorite})}>
+                        {this.renderImage()}
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.container}>
+                    <View style={styles.basicInfo}>
+                        <Text style={globalFonts.heading2}>
+                            Ryze Hong Kong
+                        </Text>
+                        <Text style={styles.info}>
+                            $$ · Quarry Bay · Trampoline
+                        </Text>
+                        <Text style={styles.open}>
+                            Open
+                        </Text>
+                    </View>
+                    <View style={styles.infoCard}>
+                        <View style={styles.infoCardComponent}>
+                            <Image source={require('../assets/images/darkblue_map.png')} style={styles.icon}/>
+                            <Text style={globalFonts.text}>3/F, Kodak House 1, 321 Java Rd, Quarry Bay</Text>
+                        </View>
+                        <View style={styles.infoCardComponent}>
+                            <Image source={require('../assets/images/darkblue_phone.png')} style={styles.icon}/>
+                            <Text style={globalFonts.text}>+852 2337 8191</Text>
+                        </View>
+                        <View style={styles.infoCardComponent}>
+                            <Image source={require('../assets/images/darkblue_mail.png')} style={styles.icon}/>
+                            <Text style={globalFonts.text}>jump@ryze.info</Text>
+                        </View>
+                        <View style={styles.infoCardComponentLast}>
+                            <Image source={require('../assets/images/darkblue_web.png')} style={styles.icon}/>
+                            <Text style={globalFonts.text}>https://www.ryzehongkong.com/</Text>
+                        </View>
+                    </View>
+                    <View style={styles.infoCard}>
+                        <View style={styles.infoCardHeading}>
+                            <Image source={require('../assets/images/darkblue_clock.png')} style={styles.icon}/>
+                            <Text style={styles.infoCardHeadingText}>Opening hours</Text>
+                        </View>
+                        <Text style={globalFonts.text}>
+                            · Mon - Thur: 1000 - 1800 {'\n'}
+                            · Fri - Sun: 0900 - 2100 {'\n'}
+                            · Public Holidays: 0900 - 2100
+                        </Text>
+                    </View>
+                    <View style={styles.infoCard}>
+                        <View style={styles.infoCardHeading}>
+                            <Image source={require('../assets/images/darkblue_coin.png')} style={styles.icon}/>
+                            <Text style={styles.infoCardHeadingText}>Price</Text>
+                        </View>
+                    </View>
+                    <View style={styles.sectionPhotos}>
+                        <View style={styles.sectionHeading}>
+                        <View style={styles.sectionHeadingStatic}>
+                                <Image source={require('../assets/images/darkblue_coin.png')} style={styles.icon}/>
+                                <Text style={styles.sectionHeadingText}>Photos</Text>
+                            </View>
+                            <TouchableOpacity style={styles.sectionHeadingButton}>
+                                <Text style={styles.sectionHeadingButtonText}>+ Add photos</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={styles.sectionReviews}>
+                        <View style={styles.sectionHeading}>
+                            <View style={styles.sectionHeadingStatic}>
+                                <Image source={require('../assets/images/darkblue_coin.png')} style={styles.icon}/>
+                                <Text style={styles.sectionHeadingText}>Reviews</Text>
+                            </View>
+                            <TouchableOpacity style={styles.sectionHeadingButton}>
+                                <Text style={styles.sectionHeadingButtonText}>+ Add reviews</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+            </ScrollView>
+        );
+    }
+}   
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = windowWidth;
+
+const styles = StyleSheet.create({
+    arrow: {
+        color: globalColors.white,
+        fontSize: 30,
+    },
+    basicInfo: {
+        marginBottom: 10,
+    },
+    container: {
+        marginTop: 30,
+        paddingLeft: '8%',
+        paddingRight: '8%',
+        marginBottom: 30,
+    },
+    heart: {
+        width: 30,
+        height: 30,
+    },
+    icon: {
+        width: 20,
+        height: 20,
+        marginRight: 10,
+    },
+    image: {
+        width: windowWidth,
+        height: windowHeight,
+    },
+    info: {
+        marginTop: 10,
+        marginBottom: 10,
+        color: globalColors.gray,
+    },
+    infoCard: {
+        backgroundColor: globalColors.lightBlue,
+        paddingTop: 20,
+        paddingBottom: 20,
+        paddingLeft: 30,
+        paddingRight: 30,
+        marginBottom: 10,
+    },
+    infoCardComponent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 10,
+    },
+    infoCardComponentLast: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    infoCardHeading:{
+        flexDirection: 'row',
+        marginBottom: 10,
+    },
+    infoCardHeadingText: {
+        fontFamily: 'SF-Pro-Text-Bold',
+        color: globalColors.darkBlue,
+        fontSize: 18,
+    },
+    navBar: {
+        position: 'absolute',
+        left: 30,
+        top: 50,
+        width: windowWidth - 60,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'row',
+    },
+    navContent: {
+    },
+    open: {
+        color: 'green'
+    },
+    sectionHeading: {
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'row',
+    },
+    sectionHeadingButton: {
+        backgroundColor: globalColors.darkBlue,
+        borderRadius: 100,
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingLeft: 10,
+        paddingRight: 10,
+    },
+    sectionHeadingButtonText: {
+        color: globalColors.white,
+    },
+    sectionHeadingFlex: {
+        flexDirection: 'row',
+        marginBottom: 10,
+    },
+    sectionHeadingStatic: {
+        alignItems: 'center',
+        flexDirection: 'row',
+    },
+    sectionHeadingText: {
+        fontFamily: 'SF-Pro-Text-Bold',
+        fontSize: 18,
+        color: globalColors.black,
+    },
+    sectionPhotos: {
+        marginTop: 45,
+        marginBottom: 30,
+    },
+    sectionReviews: {
+    },
+})
+
 
 export default DetailsScreenRyze;
+

@@ -7,6 +7,11 @@ export const globalFonts = StyleSheet.create({
         fontSize: 13,
         color: globalColors.black
     },
+    heading2: {
+        fontFamily: 'SF-Pro-Display-Bold',
+        fontSize: 30,
+        color: globalColors.black, 
+    },
     heading3: {
         fontFamily: 'SF-Pro-Display-Regular',
         fontSize: 24,

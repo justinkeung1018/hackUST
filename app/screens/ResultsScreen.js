@@ -42,19 +42,19 @@ export default function ResultsScreen({ navigation }) {
                         Results ({Object.keys(venue).length})
                     </Text>
                 </View>
-                <View>
-                    <TouchableOpacity>
-                        <Image 
-                            style={styles.image}
-                            source={require('../assets/images/black_filter.png')}
-                        />
-                    </TouchableOpacity>
-                </View>
+                <TouchableOpacity>
+                    <Image 
+                        style={styles.image}
+                        source={require('../assets/images/black_filter.png')}
+                    />
+                </TouchableOpacity>
             </View>
             <FlatList
                 data={venue}
                 renderItem={({ item }) => (
-                    <Card info={item}/>
+                    <TouchableOpacity onPress={() => navigation.navigate('DetailsScreenRyze')}>
+                        <Card info={item}/>
+                    </TouchableOpacity>
                 )}
             />
         </View>

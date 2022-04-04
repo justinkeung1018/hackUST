@@ -6,30 +6,28 @@ import { globalColors } from '../globalColors'
 export default function Card(props) {
     
     return (
-        <TouchableOpacity onPress={() => props.navigation.navigate('DetailsScreenRyze')}> 
-            <View style={styles.card}>
-                <View style={styles.flexbox}>
-                    <Image 
-                        style={styles.image}
-                        source={props.info.image}
-                    />
-                    <View style={styles.cardContent}>
-                        <Text style={styles.name}>
-                            {props.info.name}
-                        </Text>
-                        <Text style={[styles.info, globalFonts.text]}>
-                            {'$'.repeat(props.info.price)} · {props.info.location} · {props.info.type}
-                        </Text>
-                        <Text style={globalFonts.text}>
-                            ★ {props.info.rating}
-                        </Text>
-                        <Text style={{color: props.info.open ? 'green' : 'red' }}>
-                            {props.info.open ? 'Open' : 'Closed'}
-                        </Text>
-                    </View>
+        <View style={styles.card}>
+            <View style={styles.flexbox}>
+                <Image 
+                    style={styles.image}
+                    source={props.info.image}
+                />
+                <View style={styles.cardContent}>
+                    <Text style={styles.name}>
+                        {props.info.name}
+                    </Text>
+                    <Text style={[styles.info, globalFonts.text]}>
+                        {'$'.repeat(props.info.price)} · {props.info.location} · {props.info.type}
+                    </Text>
+                    <Text style={globalFonts.text}>
+                        ★ {props.info.rating}
+                    </Text>
+                    <Text style={{color: props.info.open ? 'green' : 'red' }}>
+                        {props.info.open ? 'Open' : 'Closed'}
+                    </Text>
                 </View>
             </View>
-        </TouchableOpacity>
+        </View>
     );
 }
  
