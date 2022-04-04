@@ -1,47 +1,43 @@
-import { createStackNavigator } from 'react-navigation-stack';
-import { createAppContainer } from 'react-navigation';
-import ResultsScreen from '../app/screens/ResultsScreen';
-import WelcomeScreen from '../app/screens/WelcomeScreen';
-import HomeScreen from '../app/screens/HomeScreen';
-import FilterScreen from '../app/screens/FilterScreen';
-import DetailsScreenRyze from '../app/screens/DetailsScreenRyze';
-
+import { createStackNavigator } from "react-navigation-stack";
+import { createAppContainer } from "react-navigation";
+import ResultsScreen from "../app/screens/ResultsScreen";
+import WelcomeScreen from "../app/screens/WelcomeScreen";
+import HomeScreen from "../app/screens/HomeScreen";
+import FilterScreen from "../app/screens/FilterScreen";
+import DetailsScreenRyze from "../app/screens/DetailsScreenRyze";
 
 const screens = {
-    FilterScreen: {
-        screen: FilterScreen,
-        navigationOptions: {
-            header: null,
-        }
+  ResultsScreen: {
+    screen: ResultsScreen,
+    navigationOptions: {
+      headerShown: false,
     },
-    
-    ResultsScreen: {
-        screen: ResultsScreen,
-        navigationOptions: {
-            header: null,
-        }
+  },
+  FilterScreen: {
+    screen: FilterScreen,
+    navigationOptions: {
+      headerShown: false,
     },
-    
-    WelcomeScreen: {
-        screen: WelcomeScreen,
-        navigationOptions: {
-            header: null,
-        }
+  },
+  WelcomeScreen: {
+    screen: WelcomeScreen,
+    navigationOptions: {
+      headerShown: false,
     },
-          
-    HomeScreen: {
-        screen: HomeScreen,
-        navigationOptions: {
-            header: null,
-        }
-    },  
-    DetailsScreenRyze: {
-        screen: DetailsScreenRyze,
-        navigationOptions: {
-            header: null,
-        }
+  },
+  HomeScreen: {
+    screen: HomeScreen,
+    navigationOptions: {
+      headerShown: false,
     },
-}
+  },
+  DetailsScreenRyze: {
+    screen: DetailsScreenRyze,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+};
 
 const HomeStack = createStackNavigator(screens);
 
