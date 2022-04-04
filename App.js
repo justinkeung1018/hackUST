@@ -7,6 +7,7 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ResultsScreen from "./app/screens/ResultsScreen";
 import FilterScreen from "./app/screens/FilterScreen";
 import HomeScreen from "./app/screens/HomeScreen";
+import FilterLocationScreen from "./app/screens/FilterLocationScreen"; 
 import DetailsScreenRyze from "./app/screens/DetailsScreenRyze";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -41,7 +42,7 @@ function Home() {
       })}
       style={styles.navBar}
     >
-      <Tab.Screen name="Home" component={ResultsScreen} />
+      <Tab.Screen name="Home" component={FilterLocationScreen} />
       <Tab.Screen name="Search" component={FilterScreen} />
       <Tab.Screen name="Favorites" component={DetailsScreenRyze} />
       <Tab.Screen name="Settings" component={DetailsScreenRyze} />

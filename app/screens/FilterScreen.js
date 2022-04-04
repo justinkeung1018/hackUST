@@ -20,8 +20,7 @@ function FilterScreen({navigation}) {
         <View style={globalStyles.container}>
         <Text style={styles.titleText}>Filters</Text>
             <TouchableOpacity activeOpacity={1}
-                style={styles.buttonContainer}
-                onPress = {onPress}> 
+                style={styles.buttonContainer}> 
                    <View style={styles.buttonFlexContainer}>  
                         <View style={styles.buttonTextContainer}>                   
                             <Text style={styles.buttonTextTitle}>Location</Text>
