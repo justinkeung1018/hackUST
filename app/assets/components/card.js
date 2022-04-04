@@ -4,8 +4,9 @@ import { globalFonts } from '../globalFonts'
 import { globalColors } from '../globalColors'
 
 export default function Card(props) {
+    
     return (
-        <TouchableOpacity> 
+        <TouchableOpacity onPress={() => props.navigation.navigate('DetailsScreenRyze')}> 
             <View style={styles.card}>
                 <View style={styles.flexbox}>
                     <Image 
@@ -39,6 +40,9 @@ const styles = StyleSheet.create({
         backgroundColor: globalColors.white,
         borderRadius: 10,
     },
+    cardContent: {
+        padding: 15,
+    },
     flexbox: {
         flex: 1,
         flexDirection: 'row',
@@ -49,21 +53,15 @@ const styles = StyleSheet.create({
         backgroundColor: globalColors.black,
         borderRadius: 10,
     },
-    cardContent: {
-        padding: 15,
+    info: {
+        color: globalColors.gray,
     },
     name: {
         fontFamily: 'SF-Pro-Text-Bold',
         fontSize: 18,
         marginBottom: 3,
     },
-    info: {
-        color: globalColors.gray,
-    },
     rating: {
         marginBottom: 2,
-    },
-    open: {
-
     },
 })

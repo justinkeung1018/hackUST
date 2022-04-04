@@ -7,14 +7,26 @@ import { globalColors } from '../assets/globalColors';
 
 export default function ResultsScreen({ navigation }) {
     const [ venue, setVenue ] = useState([
-        { name: 'Ryze Hong Kong', price: '2', location: 'Quarry Bay', type: 'Trampoline', image: require('../assets/images/ryze.jpeg'), rating: '4.5', open: true, favorite: false, key: '1' },
-        { name: 'Bounce Inc', price: '2', location: 'Kowloon Bay', type: 'Trampoline', image: require('../assets/images/ryze.jpeg'), rating: '4.2', open: false, favorite: false, key: '2' },
-        { name: 'Ryze Hong Kong', price: '2', location: 'Quarry Bay', type: 'Trampoline', image: require('../assets/images/ryze.jpeg'), rating: '4.5', open: true, favorite: false, key: '3' },
-        { name: 'Ryze Hong Kong', price: '2', location: 'Quarry Bay', type: 'Trampoline', image: require('../assets/images/ryze.jpeg'), rating: '4.5', open: true, favorite: false, key: '4' },
-        { name: 'Ryze Hong Kong', price: '2', location: 'Quarry Bay', type: 'Trampoline', image: require('../assets/images/ryze.jpeg'), rating: '4.5', open: true, favorite: false, key: '5' },
-        { name: 'Ryze Hong Kong', price: '2', location: 'Quarry Bay', type: 'Trampoline', image: require('../assets/images/ryze.jpeg'), rating: '4.5', open: true, favorite: false, key: '6' },
-        { name: 'Ryze Hong Kong', price: '2', location: 'Quarry Bay', type: 'Trampoline', image: require('../assets/images/ryze.jpeg'), rating: '4.5', open: true, favorite: false, key: '7' },
-        { name: 'Ryze Hong Kong', price: '2', location: 'Quarry Bay', type: 'Trampoline', image: require('../assets/images/ryze.jpeg'), rating: '4.5', open: true, favorite: false, key: '8' },
+        { name: 'Ryze Hong Kong', 
+            price: '2', 
+            location: 'Quarry Bay', 
+            type: 'Trampoline', 
+            image: require('../assets/images/ryze.jpeg'), 
+            details: './DetailsScreenRyze',
+            rating: '4.5', 
+            open: true, 
+            favorite: false, 
+            key: '1' },
+        { name: 'Bounce Inc', 
+            price: '2', 
+            location: 'Kowloon Bay', 
+            type: 'Trampoline', 
+            image: require('../assets/images/ryze.jpeg'), 
+            details: './DetailsScreenRyze',
+            rating: '4.2', 
+            open: false, 
+            favorite: false, 
+            key: '2' },
     ]);
 
     return (
