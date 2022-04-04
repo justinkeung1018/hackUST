@@ -1,21 +1,31 @@
-import { ImageBackground, StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
-import React, { useEffect, useCallback } from 'react';
+import { StyleSheet, Dimensions, View, Text, TouchableOpacity} from "react-native";
+import React, { useEffect, useCallback, useImperativeHandle } from 'react';
 import { globalStyles } from '../globalStyles';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler'
-import  Animated, { extrapolate, interpolate, useAnimatedStyle, useSharedValue, withTiming, withSpring, Extrapolate } from 'react-native-reanimated';
+import  Animated, { useAnimatedStyle, useSharedValue, withTiming, withSpring, Extrapolate } from 'react-native-reanimated';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
 
-const minTranslateY = 25;
+const minTranslateY = -140;
 const maxTranslateY = -windowHeight*.8;
 
-const BottomSheet = () => {
+type BottomSheetProps = {};
+
+export type BottomSheetRefProps = {
+    scrollTo: (destination: number) => void;
+};
+
+const BottomSheet = React.forwardRef<BottomSheetRefProps, BottomSheetProps>(
+    ({}, ref) => {
     const translateY = useSharedValue(0);
 
-    //const scrollTo = useCallback((destination: number) => {
-    //    translateY.value = withSpring(destination, {damping: 200});
-    //}, []);
+    const scrollTo = useCallback((destination: number) => {
+        'worklet';
+        translateY.value = withSpring(destination, {damping: 200});
+    }, []);
+
+    useImperativeHandle(ref, () => ({ scrollTo }), [scrollTo]);
 
     const context = useSharedValue({y: 0});
 
@@ -30,16 +40,16 @@ const BottomSheet = () => {
     })
     .onEnd(() => {
         if (translateY.value > minTranslateY) {
-            translateY.value = withSpring(minTranslateY), {damping: 200}
+            scrollTo(minTranslateY)
         }
         else if (translateY.value < maxTranslateY) {
-            translateY.value = withSpring(maxTranslateY), {damping: 200}
+            scrollTo(maxTranslateY)
         }
         
     });
 
     useEffect(() => {
-        translateY.value = withSpring(-windowHeight*.8), {damping: 200};
+        scrollTo(-windowHeight*.8);
     }, []);
 
     const rBottomSheetStyle = useAnimatedStyle(() => {
@@ -53,12 +63,12 @@ const BottomSheet = () => {
             <Animated.View style={[styles.bottomSheetContainer, rBottomSheetStyle]}>
                 <View style={[globalStyles.container, {marginTop: 0}]}>
                     <View style={styles.line}></View>
-                    <Text>BottomSheet</Text>
+                    <Text>BottomSheet - Location</Text>
                 </View>
             </Animated.View>
         </GestureDetector>
     );
-}
+})
 
 export default BottomSheet
 
