@@ -14,6 +14,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { globalColors } from "./app/assets/globalColors";
 
 function Home() {
   return (
@@ -23,22 +24,26 @@ function Home() {
           let iconName;
 
           if (route.name === "Home") {
-            iconName = focused
-              ? "ios-information-circle"
-              : "ios-information-circle-outline";
+            iconName = focused ? "home" : "home-outline";
           } else if (route.name === "Settings") {
-            iconName = focused ? "list-outline" : "list";
+            iconName = focused ? "list" : "list-outline";
+          } else if (route.name === "Favorites") {
+            iconName = focused ? "heart" : "heart-outline";
+          } else if (route.name === "Search") {
+            iconName = focused ? "search" : "search-outline";
           }
 
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: "tomato",
+        tabBarActiveTintColor: globalColors.darkBlue,
         tabBarInactiveTintColor: "gray",
       })}
       style={styles.navBar}
     >
       <Tab.Screen name="Home" component={ResultsScreen} />
+      <Tab.Screen name="Search" component={FilterScreen} />
+      <Tab.Screen name="Favorites" component={DetailsScreenRyze} />
       <Tab.Screen name="Settings" component={DetailsScreenRyze} />
     </Tab.Navigator>
   );
