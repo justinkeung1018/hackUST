@@ -7,14 +7,14 @@ import FilterScreen from "../app/screens/FilterScreen";
 import DetailsScreenRyze from "../app/screens/DetailsScreenRyze";
 
 const screens = {
-  ResultsScreen: {
-    screen: ResultsScreen,
+  FilterScreen: {
+    screen: FilterScreen,
     navigationOptions: {
       headerShown: false,
     },
   },
-  FilterScreen: {
-    screen: FilterScreen,
+  ResultsScreen: {
+    screen: ResultsScreen,
     navigationOptions: {
       headerShown: false,
     },
