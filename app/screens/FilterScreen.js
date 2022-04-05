@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import {
   ImageBackground,
   StyleSheet,
@@ -8,8 +8,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { globalStyles } from "../assets/globalStyles";
-import BottomSheet from "../assets/components/BottomSheet";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import { FilterLocationScreen } from "./FilterLocationScreen";
 
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
@@ -18,77 +21,70 @@ const windowWidth = Dimensions.get("window").width;
 
 const buttonContainerHeight = 62;
 
-function FilterScreen({ navigation }) {
-  return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <View style={globalStyles.container}>
-        <Text style={styles.titleText}>Filters</Text>
-        <TouchableOpacity activeOpacity={1} style={styles.buttonContainer}>
-          <View style={styles.buttonFlexContainer}>
-            <View style={styles.buttonTextContainer}>
-              <Text style={styles.buttonTextTitle}>Location</Text>
-              <Text style={styles.buttonTextContent}>Taikoo Shing</Text>
-            </View>
-            <View style={styles.buttonArrowContainer}>
-              <Text style={styles.buttonArrow}>{">"}</Text>
-            </View>
+class FilterScreen extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  render() {
+    let { location } = this.props.route.params == undefined ? 'Error' : this.props.route.params;
+    
+    return (
+        <View style={globalStyles.container}>
+          <Text style={styles.titleText}>Filters</Text>
+          <View style={styles.buttonMargin}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.navigate('FilterLocationScreen')}>
+              <View style={styles.buttonFlexContainer}>
+                <View style={styles.buttonTextContainer}>
+                  <Text style={styles.buttonTextTitle}>Location</Text>
+                    <Text style={styles.buttonTextContent}>{JSON.stringify(location).replace(/['"]+/g, '')}</Text>
+                </View>
+                <View style={styles.buttonArrowContainer}>
+                  <Text style={styles.buttonArrow}>{">"}</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+            <View style={styles.line}></View>
+            <TouchableOpacity style={styles.buttonContainer}>
+              <View style={styles.buttonFlexContainer}>
+                <View style={styles.buttonTextContainer}>
+                  <Text style={styles.buttonTextTitle}>Type of activity</Text>
+                  <Text style={styles.buttonTextContent}>Badminton</Text>
+                </View>
+                <View style={styles.buttonArrowContainer}>
+                  <Text style={styles.buttonArrow}>{">"}</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+            <View style={styles.line}></View>
+            <TouchableOpacity style={styles.buttonContainer}>
+              <View style={styles.buttonFlexContainer}>
+                <View style={styles.buttonTextContainer}>
+                  <Text style={styles.buttonTextTitle}>Price</Text>
+                  <Text style={styles.buttonTextContent}>Any</Text>
+                </View>
+                <View style={styles.buttonArrowContainer}>
+                  <Text style={styles.buttonArrow}>{">"}</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+            <View style={styles.line}></View>
+            <TouchableOpacity style={styles.buttonContainer}>
+              <View style={styles.buttonFlexContainer}>
+                <View style={styles.buttonTextContainer}>
+                  <Text style={styles.buttonTextTitle}>Time</Text>
+                  <Text style={styles.buttonTextContent}>Any</Text>
+                </View>
+                <View style={styles.buttonArrowContainer}>
+                  <Text style={styles.buttonArrow}>{">"}</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+            <View style={styles.line}></View>
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={1}
-          style={[
-            styles.buttonContainer,
-            { top: 0.15 * window.height + buttonContainerHeight * 1 },
-          ]}
-        >
-          <View style={styles.buttonFlexContainer}>
-            <View style={styles.buttonTextContainer}>
-              <Text style={styles.buttonTextTitle}>Type of activity</Text>
-              <Text style={styles.buttonTextContent}>Badminton</Text>
-            </View>
-            <View style={styles.buttonArrowContainer}>
-              <Text style={styles.buttonArrow}>{">"}</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={1}
-          style={[
-            styles.buttonContainer,
-            { top: 0.15 * window.height + buttonContainerHeight * 2 },
-          ]}
-        >
-          <View style={styles.buttonFlexContainer}>
-            <View style={styles.buttonTextContainer}>
-              <Text style={styles.buttonTextTitle}>Price</Text>
-              <Text style={styles.buttonTextContent}>Any</Text>
-            </View>
-            <View style={styles.buttonArrowContainer}>
-              <Text style={styles.buttonArrow}>{">"}</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={1}
-          style={[
-            styles.buttonContainer,
-            { top: 0.15 * window.height + buttonContainerHeight * 3 },
-          ]}
-        >
-          <View style={styles.buttonFlexContainer}>
-            <View style={styles.buttonTextContainer}>
-              <Text style={styles.buttonTextTitle}>Time</Text>
-              <Text style={styles.buttonTextContent}>Any</Text>
-            </View>
-            <View style={styles.buttonArrowContainer}>
-              <Text style={styles.buttonArrow}>{">"}</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-      </View>
-      <BottomSheet />
-    </GestureHandlerRootView>
-  );
+        </View>
+    );
+  };
 }
 
 const styles = StyleSheet.create({
@@ -105,17 +101,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
   },
+  buttonMargin: {
+    paddingTop: 0.15*window.height,
+  },
   buttonContainer: {
-    position: "absolute",
-    top: 0.15 * window.height,
     alignSelf: "center",
     justifyContent: "center",
     backgroundColor: null,
     opacity: 1,
     width: "100%",
     height: buttonContainerHeight,
-    borderColor: "#c4c4c4",
-    borderBottomWidth: 2,
     flexDirection: "row",
   },
   buttonFlexContainer: {
@@ -151,6 +146,12 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
   },
+  line: {
+    width: '100%',
+    height: 2,
+    backgroundColor: '#c4c4c4',
+    alignSelf: 'center',
+},
 });
 
 export default FilterScreen;

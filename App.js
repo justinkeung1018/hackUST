@@ -7,6 +7,7 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ResultsScreen from "./app/screens/ResultsScreen";
 import FilterScreen from "./app/screens/FilterScreen";
 import HomeScreen from "./app/screens/HomeScreen";
+import FilterLocationScreen from "./app/screens/FilterLocationScreen"; 
 import DetailsScreenRyze from "./app/screens/DetailsScreenRyze";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -27,11 +28,12 @@ function Home() {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="HomeScreen" component={FilterLocationScreen} />
       <Stack.Screen name="ResultsScreen" component={ResultsScreen} />
       <Stack.Screen name="FilterScreen" component={FilterScreen} />
       <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
+      <Stack.Screen name="FilterLocationScreen" component={FilterLocationScreen} />
     </Stack.Navigator>
   );
 }
