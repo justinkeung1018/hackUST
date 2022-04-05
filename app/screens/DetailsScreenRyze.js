@@ -34,7 +34,10 @@ class DetailsScreenRyze extends Component {
             <Ionicons name="chevron-back-outline" style={styles.arrow} />
           </TouchableOpacity>
           <View style={styles.filterHeartContainer}>
-            <TouchableOpacity style={styles.filterContainer}>
+            <TouchableOpacity
+              style={styles.filterContainer}
+              onPress={() => this.props.navigation.navigate("FilterScreen")}
+            >
               <Image
                 source={require("../assets/images/white_filter.png")}
                 style={styles.filter}

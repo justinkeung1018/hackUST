@@ -7,7 +7,10 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ResultsScreen from "./app/screens/ResultsScreen";
 import FilterScreen from "./app/screens/FilterScreen";
 import HomeScreen from "./app/screens/HomeScreen";
-import FilterLocationScreen from "./app/screens/FilterLocationScreen"; 
+import FilterLocationScreen from "./app/screens/FilterLocationScreen";
+import FilterActivityScreen from "./app/screens/FilterActivityScreen";
+import FilterPriceScreen from "./app/screens/FilterPriceScreen";
+import FilterTimeScreen from "./app/screens/FilterTimeScreen";
 import DetailsScreenRyze from "./app/screens/DetailsScreenRyze";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -28,12 +31,43 @@ function Home() {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="HomeScreen" component={FilterLocationScreen} />
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="ResultsScreen" component={ResultsScreen} />
       <Stack.Screen name="FilterScreen" component={FilterScreen} />
       <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
-      <Stack.Screen name="FilterLocationScreen" component={FilterLocationScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function Filter() {
+  return (
+    <Stack.Navigator
+      initialRouteName="FilterScreen"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen
+        name="FilterScreen"
+        component={FilterScreen}
+        initialParams={{
+          location: "Any",
+          activity: "Any",
+          price: "Any",
+          time: "Any",
+        }}
+      />
+      <Stack.Screen
+        name="FilterLocationScreen"
+        component={FilterLocationScreen}
+      />
+      <Stack.Screen
+        name="FilterActivityScreen"
+        component={FilterActivityScreen}
+      />
+      <Stack.Screen name="FilterPriceScreen" component={FilterPriceScreen} />
+      <Stack.Screen name="FilterTimeScreen" component={FilterTimeScreen} />
     </Stack.Navigator>
   );
 }
@@ -78,7 +112,7 @@ export default function App() {
         style={styles.navBar}
       >
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Search" component={FilterScreen} />
+        <Tab.Screen name="Search" component={Filter} />
         <Tab.Screen name="Favorites" component={DetailsScreenRyze} />
         <Tab.Screen name="Settings" component={DetailsScreenRyze} />
       </Tab.Navigator>
@@ -86,8 +120,4 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  navBar: {
-    position: "absolute",
-  },
-});
+const styles = StyleSheet.create({});
