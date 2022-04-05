@@ -12,108 +12,125 @@ const buttonContainerHeight = 55;
 
 const maxTranslateY = -windowHeight*.8;
 
-function FilterScreen({navigation}) {
+function FilterLocationScreen({navigation}) {
     return (
         <View style={globalStyles.container}>
         <Text style={styles.titleText}>Location</Text>
         <View style={styles.buttonMargin}>
             <ScrollView>
-                <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen', {location: 'Any'})}> 
                     <Text style={styles.buttonText}>Any</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen', {location: 'Central and Western District'})}> 
                     <Text style={styles.buttonText}>Central and Western District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>East District</Text>        
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}>
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}>
                     <Text style={styles.buttonText}>Islands District</Text>       
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Kowloon City District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Kwai Tsing District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}>   
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}>   
                     <Text style={styles.buttonText}>Kwun Tong District</Text>    
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}>  
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}>  
                     <Text style={styles.buttonText}>North District</Text>     
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Sai Kung District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Sha Tin District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Sham Shui Po District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Southern District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Tai Po District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Tsuen Wan District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Tuen Mun District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Wan Chai District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Wong Tai Sin District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Yau Tsim Mong District</Text>      
                 </TouchableOpacity>
                 <View style={styles.line}></View>
                 <TouchableOpacity
-                    style={styles.buttonContainer}> 
+                    style={styles.buttonContainer}
+                    onPress={() => navigation.navigate('FilterScreen')}> 
                     <Text style={styles.buttonText}>Yuen Long District</Text>      
                 </TouchableOpacity>
-                <View style={styles.line}></View>
             </ScrollView>
         </View>
 
@@ -137,7 +154,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     buttonMargin: {
-        paddingTop: 0.13*window.height,
+        paddingTop: 0.15*window.height,
     },
     buttonContainer: {   
         alignSelf: 'flex-start',
@@ -161,4 +178,4 @@ const styles = StyleSheet.create({
     
 })
 
-export default FilterScreen;
+export default FilterLocationScreen;

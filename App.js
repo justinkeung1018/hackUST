@@ -28,11 +28,12 @@ function Home() {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="HomeScreen" component={FilterLocationScreen} />
       <Stack.Screen name="ResultsScreen" component={ResultsScreen} />
       <Stack.Screen name="FilterScreen" component={FilterScreen} />
       <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
+      <Stack.Screen name="FilterLocationScreen" component={FilterLocationScreen} />
     </Stack.Navigator>
   );
 }
