@@ -19,9 +19,7 @@ export default function Leaderboard({ navigation }) {
       <View style={[globalStyles.container, styles.blueContainer]}>
         <View style={styles.headerFlex}>
           <View style={styles.arrowContainer}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("FilterScreen")}
-            >
+            <TouchableOpacity onPress={() => navigation.goBack()}>
               <Ionicons
                 name="chevron-back-outline"
                 style={globalStyles.arrow}
