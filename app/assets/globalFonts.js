@@ -32,4 +32,9 @@ export const globalFonts = StyleSheet.create({
     fontSize: 18,
     color: globalColors.black,
   },
+  title: {
+    fontFamily: "SF-Pro-Display-Bold",
+    fontSize: 30,
+    color: globalColors.black,
+  },
 });

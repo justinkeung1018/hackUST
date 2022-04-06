@@ -12,6 +12,7 @@ import FilterActivityScreen from "./app/screens/FilterActivityScreen";
 import FilterPriceScreen from "./app/screens/FilterPriceScreen";
 import FilterTimeScreen from "./app/screens/FilterTimeScreen";
 import DetailsScreenRyze from "./app/screens/DetailsScreenRyze";
+import LeaderboardScreen from "./app/screens/LeaderboardScreen";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -33,6 +34,7 @@ function Home() {
     >
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="ResultsScreen" component={ResultsScreen} />
+      <Stack.Screen name="LeaderboardScreen" component={LeaderboardScreen} />
       <Stack.Screen name="FilterScreen" component={FilterScreen} />
       <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />

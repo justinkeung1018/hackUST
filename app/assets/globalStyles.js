@@ -3,6 +3,10 @@ import { globalColors } from "./globalColors";
 import DropShadow from "react-native-drop-shadow";
 
 export const globalStyles = StyleSheet.create({
+  arrow: {
+    fontSize: 32,
+    color: globalColors.gray,
+  },
   container: {
     paddingTop: 50,
     paddingLeft: 24,

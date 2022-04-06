@@ -88,7 +88,7 @@ export default class FilterScreen extends Component {
                     <View style={styles.buttonArrowContainer}>
                       <Ionicons
                         name="chevron-forward-outline"
-                        style={styles.arrow}
+                        style={globalStyles.arrow}
                       />
                     </View>
                   </View>
@@ -104,10 +104,6 @@ export default class FilterScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  arrow: {
-    fontSize: 32,
-    color: globalColors.gray,
-  },
   background: {
     flex: 1,
     height: windowHeight,

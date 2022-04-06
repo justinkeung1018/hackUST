@@ -60,6 +60,7 @@ export default function HomeScreen({ navigation }) {
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.button, globalStyles.interactiveShadow]}
+            onPress={() => navigation.navigate("LeaderboardScreen")}
           >
             <Ionicons name="trophy-outline" style={styles.icon} />
             <Text style={styles.buttonText}>Leaderboard</Text>
