@@ -8,7 +8,7 @@ const screen = Dimensions.get("screen");
 function WelcomeScreen({navigation}) {
 
     const pressHandler = () => {
-        navigation.navigate('HomeScreen');
+        navigation.navigate('Main');
     }
 
     return (

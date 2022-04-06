@@ -40,8 +40,17 @@ export default class FilterScreen extends Component {
         param: activity,
         key: "2",
       },
-      { option: "Price", screen: "FilterPriceScreen", param: price, key: "3" },
-      { option: "Time", screen: "FilterTimeScreen", param: time, key: "4" },
+      { 
+        option: "Price", 
+        screen: "FilterPriceScreen", 
+        param: price, 
+        key: "3" 
+      },
+      { 
+        option: "Time", 
+        screen: "FilterTimeScreen", 
+        param: time, 
+        key: "4" },
     ];
 
     return (
@@ -105,15 +114,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   buttonMargin: {
-    paddingTop: 0.15 * window.height,
+    paddingTop: 0.03 * window.height,
   },
   buttonContainer: {
     alignSelf: "center",
     justifyContent: "center",
-    // backgroundColor: null,
     opacity: 1,
-    // width: "100%",
-    // height: buttonContainerHeight,
     flexDirection: "row",
   },
   buttonFlexContainer: {
