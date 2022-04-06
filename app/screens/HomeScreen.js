@@ -73,6 +73,7 @@ export default function HomeScreen({ navigation }) {
           Based on your activity
         </Text>
         <FlatList
+          showsHorizontalScrollIndicator={false}
           data={activity}
           renderItem={({ item }) => (
             <TouchableOpacity style={styles.card}>
@@ -89,6 +90,7 @@ export default function HomeScreen({ navigation }) {
           Based on your activity
         </Text>
         <FlatList
+          showsHorizontalScrollIndicator={false}
           data={activity}
           renderItem={({ item }) => (
             <TouchableOpacity style={styles.card}>
