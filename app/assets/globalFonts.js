@@ -27,4 +27,9 @@ export const globalFonts = StyleSheet.create({
     fontSize: 24,
     color: globalColors.black,
   },
+  heading4Bold: {
+    fontFamily: "SF-Pro-Text-Bold",
+    fontSize: 18,
+    color: globalColors.black,
+  },
 });

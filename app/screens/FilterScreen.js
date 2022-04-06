@@ -40,21 +40,22 @@ export default class FilterScreen extends Component {
         param: activity,
         key: "2",
       },
-      { 
-        option: "Price", 
-        screen: "FilterPriceScreen", 
-        param: price, 
-        key: "3" 
+      {
+        option: "Price",
+        screen: "FilterPriceScreen",
+        param: price,
+        key: "3",
       },
-      { 
-        option: "Time", 
-        screen: "FilterTimeScreen", 
-        param: time, 
-        key: "4" },
+      {
+        option: "Time",
+        screen: "FilterTimeScreen",
+        param: time,
+        key: "4",
+      },
     ];
 
     return (
-      <View style={globalStyles.container}>
+      <View style={[globalStyles.container, { minHeight: "100%" }]}>
         <Text style={styles.titleText}>Filters</Text>
         <View style={styles.buttonMargin}>
           <FlatList
@@ -64,7 +65,14 @@ export default class FilterScreen extends Component {
               <View>
                 <TouchableOpacity
                   style={styles.buttonContainer}
-                  onPress={() => this.props.navigation.navigate(item.screen, {location: location, activity: activity, price: price, time: time})}
+                  onPress={() =>
+                    this.props.navigation.navigate(item.screen, {
+                      location: location,
+                      activity: activity,
+                      price: price,
+                      time: time,
+                    })
+                  }
                 >
                   <View style={styles.buttonFlexContainer}>
                     <View style={styles.buttonTextContainer}>
