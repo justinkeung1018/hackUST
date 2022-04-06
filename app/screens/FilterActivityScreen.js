@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import {
   StyleSheet,
   Dimensions,
@@ -19,26 +19,12 @@ const buttonContainerHeight = 55;
 
 const maxTranslateY = -windowHeight * 0.8;
 
-export default function FilterLocationScreen({ navigation }) {
-  const [district, setDistrict] = useState([
-    { district: "Central and Western District", key: "1" },
-    { district: "East District", key: "2" },
-    { district: "Islands District", key: "3" },
-    { district: "Kowloon City District", key: "4" },
-    { district: "Kwai Tsing District", key: "5" },
-    { district: "Kwun Tong District", key: "6" },
-    { district: "North District", key: "7" },
-    { district: "Sai Kung District", key: "8" },
-    { district: "Sha Tin District", key: "9" },
-    { district: "Sham Shui Po District", key: "10" },
-    { district: "Southern District", key: "11" },
-    { district: "Tai Po District", key: "12" },
-    { district: "Tsuen Wan District", key: "13" },
-    { district: "Tuen Mun District", key: "14" },
-    { district: "Wan Chai District", key: "15" },
-    { district: "Wong Tai Sin District", key: "16" },
-    { district: "Yau Tsim Mong District", key: "17" },
-    { district: "Yuen Long District", key: "18" },
+export default function FilterLocationScreen({ route, navigation }) {
+  let { location, activity, price, time } = route.params;
+  
+  const [typeofactivity, setTypeofactivity] = useState([
+    { typeofactivity: "Any", key: "0" },
+    { typeofactivity: "Trampoline", key: "1" },
   ]);
 
   return (
@@ -46,16 +32,19 @@ export default function FilterLocationScreen({ navigation }) {
       <Text style={styles.titleText}>Location</Text>
       <View style={styles.buttonMargin}>
         <FlatList
-          data={district}
+          data={typeofactivity}
           renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.buttonContainer}
-              onPress={() =>
-                navigation.navigate("FilterScreen", { location: item.district })
-              }
-            >
-              <Text>{item.district}</Text>
-            </TouchableOpacity>
+            <View>
+              <TouchableOpacity
+                style={styles.buttonContainer}
+                onPress={() =>
+                  navigation.navigate("FilterScreen", { location: location , activity: item.typeofactivity, price: price, time: time })
+                }
+              >
+                <Text style={styles.buttonText}>{item.typeofactivity}</Text>
+              </TouchableOpacity>
+              <View style={styles.line}></View>
+            </View>
           )}
         />
       </View>

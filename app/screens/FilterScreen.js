@@ -64,7 +64,7 @@ export default class FilterScreen extends Component {
               <View>
                 <TouchableOpacity
                   style={styles.buttonContainer}
-                  onPress={() => this.props.navigation.navigate(item.screen)}
+                  onPress={() => this.props.navigation.navigate(item.screen, {location: location, activity: activity, price: price, time: time})}
                 >
                   <View style={styles.buttonFlexContainer}>
                     <View style={styles.buttonTextContainer}>

@@ -21,6 +21,7 @@ const maxTranslateY = -windowHeight * 0.8;
 
 export default function FilterLocationScreen({ navigation }) {
   const [district, setDistrict] = useState([
+    { district: "Any", key: "0" },
     { district: "Central and Western District", key: "1" },
     { district: "East District", key: "2" },
     { district: "Islands District", key: "3" },
@@ -48,14 +49,17 @@ export default function FilterLocationScreen({ navigation }) {
         <FlatList
           data={district}
           renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.buttonContainer}
-              onPress={() =>
-                navigation.navigate("FilterScreen", { location: item.district })
-              }
-            >
-              <Text>{item.district}</Text>
-            </TouchableOpacity>
+            <View>
+              <TouchableOpacity
+                style={styles.buttonContainer}
+                onPress={() =>
+                  navigation.navigate("FilterScreen", { location: item.district })
+                }
+              >
+                <Text style={styles.buttonText}>{item.district}</Text>
+              </TouchableOpacity>
+              <View style={styles.line}></View>
+            </View>
           )}
         />
       </View>

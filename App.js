@@ -126,6 +126,7 @@ export default function App() {
         screenOptions={{
           headerShown: false,
         }}
+        
       >
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen}/>
         <Stack.Screen name="Main" component={Main}/>

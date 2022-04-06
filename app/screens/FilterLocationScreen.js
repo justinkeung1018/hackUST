@@ -19,7 +19,9 @@ const buttonContainerHeight = 55;
 
 const maxTranslateY = -windowHeight * 0.8;
 
-export default function FilterLocationScreen({ navigation }) {
+export default function FilterLocationScreen({ route, navigation }) {
+  let { location, activity, price, time } = route.params;
+
   const [district, setDistrict] = useState([
     { district: "Any", key: "0" },
     { district: "Central and Western District", key: "1" },
@@ -53,7 +55,7 @@ export default function FilterLocationScreen({ navigation }) {
               <TouchableOpacity
                 style={styles.buttonContainer}
                 onPress={() =>
-                  navigation.navigate("FilterScreen", { location: item.district })
+                  navigation.navigate("FilterScreen", { location: item.district , activity: activity, price: price, time: time})
                 }
               >
                 <Text style={styles.buttonText}>{item.district}</Text>
