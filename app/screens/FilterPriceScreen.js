@@ -24,29 +24,15 @@ export default function FilterLocationScreen({ route, navigation }) {
 
   const [money, setMoney] = useState([
     { money: "Any", key: "0" },
-    { money: "Central and Western money", key: "1" },
-    { money: "East money", key: "2" },
-    { money: "Islands money", key: "3" },
-    { money: "Kowloon City money", key: "4" },
-    { money: "Kwai Tsing money", key: "5" },
-    { money: "Kwun Tong money", key: "6" },
-    { money: "North money", key: "7" },
-    { money: "Sai Kung money", key: "8" },
-    { money: "Sha Tin money", key: "9" },
-    { money: "Sham Shui Po money", key: "10" },
-    { money: "Southern money", key: "11" },
-    { money: "Tai Po money", key: "12" },
-    { money: "Tsuen Wan money", key: "13" },
-    { money: "Tuen Mun money", key: "14" },
-    { money: "Wan Chai money", key: "15" },
-    { money: "Wong Tai Sin money", key: "16" },
-    { money: "Yau Tsim Mong money", key: "17" },
-    { money: "Yuen Long money", key: "18" },
+    { money: "$", key: "1" },
+    { money: "$$", key: "2" },
+    { money: "$$$", key: "3" },
+    { money: "$$$$", key: "4" },
   ]);
 
   return (
     <View style={[globalStyles.container, { minHeight: "100%" }]}>
-      <Text style={styles.titleText}>Location</Text>
+      <Text style={styles.titleText}>Price</Text>
       <View style={styles.buttonMargin}>
         <FlatList
           showsVerticalScrollIndicator={false}

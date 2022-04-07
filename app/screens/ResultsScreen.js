@@ -13,7 +13,9 @@ import Card from "../assets/components/card";
 import { globalColors } from "../assets/globalColors";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-export default function ResultsScreen({ navigation }) {
+export default function ResultsScreen({ route, navigation }) {
+  let { location, activity, price, time , day, hour} = route.params;
+
   const [venue, setVenue] = useState([
     {
       name: "Ryze Hong Kong",
@@ -46,7 +48,15 @@ export default function ResultsScreen({ navigation }) {
       <View style={styles.titleBar}>
         <View style={styles.results}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("FilterScreen")}
+            onPress={() =>
+              navigation.navigate("FilterScreen", {
+                location: location,
+                activity: activity,
+                price: price,
+                time: time,
+                day: day,
+                hour: hour,
+              })}
             style={styles.arrowContainer}
           >
             <Ionicons name="chevron-back-outline" style={styles.arrow} />
@@ -55,7 +65,15 @@ export default function ResultsScreen({ navigation }) {
             Results ({Object.keys(venue).length})
           </Text>
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate("FilterScreen")}>
+        <TouchableOpacity onPress={() =>
+          navigation.navigate("ResultsScreen", {
+            location: location,
+            activity: activity,
+            price: price,
+            time: time,
+            day: day,
+            hour: hour,
+          })}>
           <Image
             style={styles.image}
             source={require("../assets/images/black_filter.png")}
@@ -66,7 +84,15 @@ export default function ResultsScreen({ navigation }) {
         data={venue}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() => navigation.navigate("DetailsScreenRyze")}
+            onPress={() =>
+              navigation.navigate("DetailsScreenRyze", {
+                location: location,
+                activity: activity,
+                price: price,
+                time: time,
+                day: day,
+                hour: hour,
+              })}
           >
             <Card info={item} />
           </TouchableOpacity>

@@ -99,6 +99,23 @@ export default class FilterScreen extends Component {
               </View>
             )}
           />
+
+          <TouchableOpacity
+            style={styles.buttonDoneContainer}
+            onPress={() =>
+              this.props.navigation.navigate("ResultsScreen", {
+                location: location,
+                activity: activity,
+                price: price,
+                time: time,
+                day: day,
+                hour: hour,
+              })
+            }
+          >
+            <Text style={styles.buttonDoneContent}>Done</Text>
+          </TouchableOpacity>
+
         </View>
       </View>
     );
@@ -156,6 +173,28 @@ const styles = StyleSheet.create({
     color: globalColors.black,
     alignSelf: "center",
     justifyContent: "center",
+  },
+  buttonDoneContent: {
+    fontSize: 14,
+    fontFamily: "SF-Pro-Text-Regular",
+    color: globalColors.black,
+    alignSelf: "center",
+    justifyContent: "center",
+  },
+  buttonDoneContainer:{
+    alignSelf: "center",
+    justifyContent: "center",
+    marginTop: 30,
+    paddingTop: 11,
+    paddingBottom: 11,
+    paddingLeft: 30,
+    paddingRight: 30,
+    opacity: 1,
+    flexDirection: "row",
+    backgroundColor: globalColors.white,
+    borderColor: globalColors.gray,
+    borderWidth: 2,
+    borderRadius: 10,
   },
   line: {
     width: "100%",

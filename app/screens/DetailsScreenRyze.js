@@ -23,6 +23,9 @@ class DetailsScreenRyze extends Component {
     return <Ionicons name={image} style={styles.heart} />;
   }
   render() {
+
+  let { location, activity, price, time , day, hour} = this.props.route.params;
+    
     return (
       <ScrollView style={{ backgroundColor: globalColors.white }}>
         <Image
@@ -30,13 +33,13 @@ class DetailsScreenRyze extends Component {
           style={styles.image}
         />
         <View style={styles.navBar}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("ResultsScreen", { location: location , activity: activity, price: price, time: time, day: day, hour: hour})}>
             <Ionicons name="chevron-back-outline" style={styles.arrow} />
           </TouchableOpacity>
           <View style={styles.filterHeartContainer}>
             <TouchableOpacity
               style={styles.filterContainer}
-              onPress={() => this.props.navigation.navigate("FilterScreen")}
+              onPress={() => this.props.navigation.navigate("FilterScreen", { location: location , activity: activity, price: price, time: time, day: day, hour: hour})}
             >
               <Image
                 source={require("../assets/images/white_filter.png")}
