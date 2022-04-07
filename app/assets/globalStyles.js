@@ -21,4 +21,10 @@ export const globalStyles = StyleSheet.create({
     shadowRadius: 30,
     shadowOpacity: 0.05,
   },
+  section: {
+    paddingTop: 25,
+    paddingLeft: 24,
+    paddingRight: 24,
+    paddingBottom: 30,
+  },
 });
