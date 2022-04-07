@@ -81,7 +81,7 @@ export default class Leaderboard extends Component {
           style={[
             styles.backgroundColor,
             globalStyles.section,
-            { minHeight: "100%" },
+            { paddingTop: 0, minHeight: "100%" },
           ]}
           ListHeaderComponent={
             <View>
