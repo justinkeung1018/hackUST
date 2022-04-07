@@ -94,8 +94,7 @@ const styles = StyleSheet.create({
     width: windowWidth,
   },
   titleText: {
-    position: "absolute",
-    top: 0.05 * window.height,
+    marginTop: 50,
     fontSize: 30,
     fontFamily: "SF-Pro-Display-Bold",
     color: globalColors.black,
@@ -103,7 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   buttonMargin: {
-    paddingTop: 0.15 * window.height,
+    paddingTop: 0.03 * window.height,
   },
   buttonContainer: {
     alignSelf: "flex-start",
