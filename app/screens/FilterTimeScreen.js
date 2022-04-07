@@ -99,7 +99,7 @@ export default function FilterLocationScreen({ route, navigation }) {
           </View>
         </TouchableOpacity>
 
-        <View style={[{padding: 40}]}></View>
+        <View style={[{padding: 30}]}></View>
 
         <TouchableOpacity style={styles.buttonDoneContainer}
           onPress={() => navigation.navigate("FilterScreen", 
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   buttonMargin: {
-    paddingTop: 0.11 * window.height,
+    paddingTop: 0.06 * window.height,
   },
   buttonContainer: {
     alignSelf: "center",
