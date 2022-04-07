@@ -49,8 +49,6 @@ export default function FilterLocationScreen({ route, navigation }) {
     setText(fTime + ", " + fDate);
     setTextDate(fDate);
     setTextTime(fTime);
-
-    console.log(fDate + " (" + fTime + ") ");
   };
 
   const showMode = (currentMode) => {
@@ -107,7 +105,9 @@ export default function FilterLocationScreen({ route, navigation }) {
             location: location,
             activity: activity,
             price: price,
-            time: time,
+            time: text,
+            Day: textDate,
+            Hour: textTime,
           })
         }
       >
