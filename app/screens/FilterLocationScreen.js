@@ -49,6 +49,7 @@ export default function FilterLocationScreen({ route, navigation }) {
       <Text style={styles.titleText}>Location</Text>
       <View style={styles.buttonMargin}>
         <FlatList
+          showsVerticalScrollIndicator={false}
           data={district}
           renderItem={({ item }) => (
             <View>
