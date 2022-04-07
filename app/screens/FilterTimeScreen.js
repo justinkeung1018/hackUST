@@ -24,14 +24,14 @@ const buttonContainerHeight = 55;
 const maxTranslateY = -windowHeight * 0.8;
 
 export default function FilterLocationScreen({ route, navigation }) {
-  let { location, activity, price, time } = route.params;
+  let { location, activity, price, time , day, hour} = route.params;
 
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
-  const [text, setText] = useState('Any');
-  const [textDate, setTextDate] = useState('Any');
-  const [textTime, setTextTime] = useState('Any');
+  const [text, setText] = useState(time);
+  const [textDate, setTextDate] = useState(day);
+  const [textTime, setTextTime] = useState(hour);
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -50,8 +50,6 @@ export default function FilterLocationScreen({ route, navigation }) {
     setText(fTime + ', ' + fDate)
     setTextDate(fDate)
     setTextTime(fTime)
-
-    console.log(fDate + ' (' + fTime + ') ')
   }
 
   const showMode = (currentMode) => {
@@ -71,7 +69,7 @@ export default function FilterLocationScreen({ route, navigation }) {
               <Text style={styles.buttonTextContent}>Date</Text>
             </View>
             <View style={styles.buttonTimeContainer}>
-              <Text style={styles.buttonTextContent} >{textDate}</Text>
+              <Text style={styles.buttonTextContent}>{textDate}</Text>
             </View>
             <View style={styles.buttonArrowContainer}>
               <Ionicons
@@ -105,7 +103,7 @@ export default function FilterLocationScreen({ route, navigation }) {
 
         <TouchableOpacity style={styles.buttonDoneContainer}
           onPress={() => navigation.navigate("FilterScreen", 
-          { location: location , activity: activity, price: price, time: text})}>
+          { location: location , activity: activity, price: price, time: text, day: textDate, hour: textTime})}>
           <Text style={styles.buttonDoneContent} >Done</Text>
         </TouchableOpacity>
       </View>

@@ -60,6 +60,8 @@ function Filter() {
           activity: "Any",
           price: "Any",
           time: "Any",
+          day: "Any",
+          hour: "Any",
         }}
       />
       <Stack.Screen
