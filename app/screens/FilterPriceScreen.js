@@ -19,44 +19,47 @@ const buttonContainerHeight = 55;
 
 const maxTranslateY = -windowHeight * 0.8;
 
-export default function FilterLocationScreen({ navigation }) {
-  const [district, setDistrict] = useState([
-    { district: "Any", key: "0" },
-    { district: "Central and Western District", key: "1" },
-    { district: "East District", key: "2" },
-    { district: "Islands District", key: "3" },
-    { district: "Kowloon City District", key: "4" },
-    { district: "Kwai Tsing District", key: "5" },
-    { district: "Kwun Tong District", key: "6" },
-    { district: "North District", key: "7" },
-    { district: "Sai Kung District", key: "8" },
-    { district: "Sha Tin District", key: "9" },
-    { district: "Sham Shui Po District", key: "10" },
-    { district: "Southern District", key: "11" },
-    { district: "Tai Po District", key: "12" },
-    { district: "Tsuen Wan District", key: "13" },
-    { district: "Tuen Mun District", key: "14" },
-    { district: "Wan Chai District", key: "15" },
-    { district: "Wong Tai Sin District", key: "16" },
-    { district: "Yau Tsim Mong District", key: "17" },
-    { district: "Yuen Long District", key: "18" },
+export default function FilterLocationScreen({ route, navigation }) {
+  let { location, activity, price, time , day, hour} = route.params;
+
+  const [money, setMoney] = useState([
+    { money: "Any", key: "0" },
+    { money: "Central and Western money", key: "1" },
+    { money: "East money", key: "2" },
+    { money: "Islands money", key: "3" },
+    { money: "Kowloon City money", key: "4" },
+    { money: "Kwai Tsing money", key: "5" },
+    { money: "Kwun Tong money", key: "6" },
+    { money: "North money", key: "7" },
+    { money: "Sai Kung money", key: "8" },
+    { money: "Sha Tin money", key: "9" },
+    { money: "Sham Shui Po money", key: "10" },
+    { money: "Southern money", key: "11" },
+    { money: "Tai Po money", key: "12" },
+    { money: "Tsuen Wan money", key: "13" },
+    { money: "Tuen Mun money", key: "14" },
+    { money: "Wan Chai money", key: "15" },
+    { money: "Wong Tai Sin money", key: "16" },
+    { money: "Yau Tsim Mong money", key: "17" },
+    { money: "Yuen Long money", key: "18" },
   ]);
 
   return (
-    <View style={globalStyles.container}>
+    <View style={[globalStyles.container, { minHeight: "100%" }]}>
       <Text style={styles.titleText}>Location</Text>
       <View style={styles.buttonMargin}>
         <FlatList
-          data={district}
+          showsVerticalScrollIndicator={false}
+          data={money}
           renderItem={({ item }) => (
             <View>
               <TouchableOpacity
                 style={styles.buttonContainer}
                 onPress={() =>
-                  navigation.navigate("FilterScreen", { location: item.district })
+                  navigation.navigate("FilterScreen", { location: location , activity: activity, price: item.money, time: time, day: day, hour: hour})
                 }
               >
-                <Text style={styles.buttonText}>{item.district}</Text>
+                <Text style={styles.buttonText}>{item.money}</Text>
               </TouchableOpacity>
               <View style={styles.line}></View>
             </View>
@@ -103,4 +106,3 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 });
-

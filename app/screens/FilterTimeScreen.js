@@ -23,7 +23,7 @@ const buttonContainerHeight = 55;
 const maxTranslateY = -windowHeight * 0.8;
 
 export default function FilterLocationScreen({ route, navigation }) {
-  let { location, activity, price, time } = route.params;
+  let { location, activity, price, time, day, hour } = route.params;
 
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState("date");

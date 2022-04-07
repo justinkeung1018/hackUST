@@ -20,7 +20,7 @@ const buttonContainerHeight = 55;
 const maxTranslateY = -windowHeight * 0.8;
 
 export default function FilterLocationScreen({ route, navigation }) {
-  let { location, activity, price, time } = route.params;
+  let { location, activity, price, time , day, hour} = route.params;
   
   const [typeofactivity, setTypeofactivity] = useState([
     { typeofactivity: "Any", key: "0" },
@@ -73,7 +73,7 @@ export default function FilterLocationScreen({ route, navigation }) {
               <TouchableOpacity
                 style={styles.buttonContainer}
                 onPress={() =>
-                  navigation.navigate("FilterScreen", { location: location , activity: item.typeofactivity, price: price, time: time })
+                  navigation.navigate("FilterScreen", { location: location , activity: item.typeofactivity, price: price, time: time, day: day, hour: hour })
                 }
               >
                 <Text style={styles.buttonText}>{item.typeofactivity}</Text>

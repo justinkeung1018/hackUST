@@ -25,7 +25,7 @@ export default class FilterScreen extends Component {
   }
 
   render() {
-    let { location, activity, price, time } = this.props.route.params;
+    let { location, activity, price, time , day, hour} = this.props.route.params;
 
     const options = [
       {
@@ -71,6 +71,8 @@ export default class FilterScreen extends Component {
                       activity: activity,
                       price: price,
                       time: time,
+                      day: day,
+                      hour: hour,
                     })
                   }
                 >
