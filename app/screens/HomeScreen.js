@@ -54,6 +54,7 @@ export default function HomeScreen({ navigation }) {
         <View style={styles.buttonFlex}>
           <TouchableOpacity
             style={[styles.button, globalStyles.interactiveShadow]}
+            onPress={() => navigation.navigate("StatisticsScreen")}
           >
             <Ionicons name="podium-outline" style={styles.icon} />
             <Text style={styles.buttonText}>Statistics</Text>

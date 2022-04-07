@@ -13,6 +13,7 @@ import FilterPriceScreen from "./app/screens/FilterPriceScreen";
 import FilterTimeScreen from "./app/screens/FilterTimeScreen";
 import DetailsScreenRyze from "./app/screens/DetailsScreenRyze";
 import LeaderboardScreen from "./app/screens/LeaderboardScreen";
+import StatisticsScreen from "./app/screens/StatisticsScreen";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -35,6 +36,7 @@ function Home() {
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="ResultsScreen" component={ResultsScreen} />
       <Stack.Screen name="LeaderboardScreen" component={LeaderboardScreen} />
+      <Stack.Screen name="StatisticsScreen" component={StatisticsScreen} />
       <Stack.Screen name="FilterScreen" component={FilterScreen} />
       <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
@@ -111,10 +113,14 @@ export default function App() {
     "SF-Pro-Display-BoldItalic": require("./app/assets/fonts/SF-Pro-Display-BoldItalic.otf"),
     "SF-Pro-Display-Regular": require("./app/assets/fonts/SF-Pro-Display-Regular.otf"),
     "SF-Pro-Display-RegularItalic": require("./app/assets/fonts/SF-Pro-Display-RegularItalic.otf"),
+    "SF-Pro-Display-Medium": require("./app/assets/fonts/SF-Pro-Display-Medium.otf"),
+    "SF-Pro-Display-MediumItalic": require("./app/assets/fonts/SF-Pro-Display-MediumItalic.otf"),
     "SF-Pro-Text-Bold": require("./app/assets/fonts/SF-Pro-Text-Bold.otf"),
     "SF-Pro-Text-BoldItalic": require("./app/assets/fonts/SF-Pro-Text-BoldItalic.otf"),
     "SF-Pro-Text-Regular": require("./app/assets/fonts/SF-Pro-Text-Regular.otf"),
     "SF-Pro-Text-RegularItalic": require("./app/assets/fonts/SF-Pro-Text-RegularItalic.otf"),
+    "SF-Pro-Text-Medium": require("./app/assets/fonts/SF-Pro-Text-Medium.otf"),
+    "SF-Pro-Text-MediumItalic": require("./app/assets/fonts/SF-Pro-Text-MediumItalic.otf"),
   });
 
   if (!fontsLoaded) {
