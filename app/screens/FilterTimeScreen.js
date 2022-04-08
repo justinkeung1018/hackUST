@@ -120,6 +120,7 @@ export default function FilterLocationScreen({ route, navigation }) {
           value={date}
           mode={mode}
           is24Hour={true}
+          minuteInterval={15}
           display="spinner"
           onChange={onChange}
           style={styles.picker}
