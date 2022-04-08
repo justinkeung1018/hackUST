@@ -28,7 +28,7 @@ class DetailsScreenRyze extends Component {
     return (
       <ScrollView style={{ backgroundColor: globalColors.white }}>
         <Image
-          source={require("../assets/images/ryze.jpeg")}
+          source={require("../assets/images/filter-cards/ryze.jpeg")}
           style={styles.image}
         />
         <View style={styles.navBar}>

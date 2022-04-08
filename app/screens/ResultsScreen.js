@@ -14,7 +14,7 @@ import { globalColors } from "../assets/globalColors";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function ResultsScreen({ route, navigation }) {
-  let { location, activity, price, time , day, hour} = route.params;
+  let { location, activity, price, time, day, hour } = route.params;
 
   const [venue, setVenue] = useState([
     {
@@ -22,7 +22,7 @@ export default function ResultsScreen({ route, navigation }) {
       price: "2",
       location: "Quarry Bay",
       type: "Trampoline",
-      image: require("../assets/images/ryze.jpeg"),
+      image: require("../assets/images/filter-cards/ryze.jpeg"),
       details: "./DetailsScreenRyze",
       rating: "4.5",
       open: true,
@@ -34,7 +34,7 @@ export default function ResultsScreen({ route, navigation }) {
       price: "2",
       location: "Kowloon Bay",
       type: "Trampoline",
-      image: require("../assets/images/ryze.jpeg"),
+      image: require("../assets/images/filter-cards/ryze.jpeg"),
       details: "./DetailsScreenRyze",
       rating: "4.2",
       open: false,
@@ -56,7 +56,8 @@ export default function ResultsScreen({ route, navigation }) {
                 time: time,
                 day: day,
                 hour: hour,
-              })}
+              })
+            }
             style={styles.arrowContainer}
           >
             <Ionicons name="chevron-back-outline" style={styles.arrow} />
@@ -65,15 +66,18 @@ export default function ResultsScreen({ route, navigation }) {
             Results ({Object.keys(venue).length})
           </Text>
         </View>
-        <TouchableOpacity onPress={() =>
-          navigation.navigate("ResultsScreen", {
-            location: location,
-            activity: activity,
-            price: price,
-            time: time,
-            day: day,
-            hour: hour,
-          })}>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate("ResultsScreen", {
+              location: location,
+              activity: activity,
+              price: price,
+              time: time,
+              day: day,
+              hour: hour,
+            })
+          }
+        >
           <Image
             style={styles.image}
             source={require("../assets/images/black_filter.png")}
@@ -92,7 +96,8 @@ export default function ResultsScreen({ route, navigation }) {
                 time: time,
                 day: day,
                 hour: hour,
-              })}
+              })
+            }
           >
             <Card info={item} />
           </TouchableOpacity>
