@@ -25,53 +25,101 @@ export default class Leaderboard extends Component {
 
   render() {
     const allTimeData = [
+      // {
+      //   name: "Anson Lo",
+      //   score: 791000,
+      //   image: require("../assets/images/avatars/ansonlo.jpg"),
+      //   key: "1",
+      // },
+      // {
+      //   name: "Keung To",
+      //   score: 791000,
+      //   image: require("../assets/images/avatars/keungto.jpg"),
+      //   key: "2",
+      // },
+      // {
+      //   name: "Edan Lui",
+      //   score: 580000,
+      //   image: require("../assets/images/avatars/edanlui.jpg"),
+      //   key: "3",
+      // },
       {
-        name: "Anson Lo",
-        score: 791000,
-        image: require("../assets/images/ansonlo.jpg"),
-        key: "1",
-      },
-      {
-        name: "Keung To",
-        score: 791000,
-        image: require("../assets/images/keungto.jpg"),
-        key: "2",
-      },
-      {
-        name: "Edan Lui",
-        score: 580000,
-        image: require("../assets/images/edanlui.jpg"),
-        key: "3",
-      },
-      {
-        name: "Anson Lo",
-        score: 8300,
-        image: require("../assets/images/ansonlo.jpg"),
+        name: "Jeremy Lee",
+        score: 447000,
+        image: require("../assets/images/avatars/jeremylee.jpg"),
         key: "4",
       },
       {
-        name: "Anson Lo",
-        score: 8300,
-        image: require("../assets/images/ansonlo.jpg"),
+        name: "Jer Lau",
+        score: 355000,
+        image: require("../assets/images/avatars/jerlau.jpg"),
         key: "5",
       },
       {
-        name: "Anson Lo",
-        score: 8300,
-        image: require("../assets/images/ansonlo.jpg"),
+        name: "Ian Chan",
+        score: 201000,
+        image: require("../assets/images/avatars/ianchan.jpg"),
         key: "6",
       },
       {
-        name: "Anson Lo",
-        score: 8300,
-        image: require("../assets/images/ansonlo.jpg"),
+        name: "Stanley Yau",
+        score: 190000,
+        image: require("../assets/images/avatars/stanleyyau.jpg"),
         key: "7",
       },
       {
-        name: "Anson Lo",
-        score: 8300,
-        image: require("../assets/images/ansonlo.jpg"),
+        name: "Anson Kong",
+        score: 153000,
+        image: require("../assets/images/avatars/ansonkong.jpg"),
         key: "8",
+      },
+      {
+        name: "Frankie Chan",
+        score: 127000,
+        image: require("../assets/images/avatars/frankiechan.jpg"),
+        key: "9",
+      },
+      {
+        name: "Lokman Yeung",
+        score: 108000,
+        image: require("../assets/images/avatars/lokmanyeung.jpg"),
+        key: "10",
+      },
+      {
+        name: "Alton Wong",
+        score: 102000,
+        image: require("../assets/images/avatars/altonwong.jpg"),
+        key: "11",
+      },
+      {
+        name: "Tiger Yau",
+        score: 97000,
+        image: require("../assets/images/avatars/tigeryau.jpg"),
+        key: "12",
+      },
+      {
+        name: "Fatboy",
+        score: 96000,
+        image: require("../assets/images/avatars/fatboy.jpg"),
+        key: "13",
+      },
+      {
+        name: "Denis Kwok",
+        score: 75000,
+        image: require("../assets/images/avatars/193.jpg"),
+        key: "14",
+      },
+      {
+        name: "Deegor",
+        score: 72000,
+        image: require("../assets/images/avatars/deegor.jpg"),
+        key: "15",
+      },
+      {
+        name: "Poki",
+        score: 53000,
+        image: require("../assets/images/avatars/poki.jpg"),
+        key: "16",
       },
     ];
 
@@ -197,7 +245,7 @@ export default class Leaderboard extends Component {
                     <View style={styles.podiumImageShadow}>
                       <Image
                         style={styles.podiumSilverImage}
-                        source={require("../assets/images/edanlui.jpg")}
+                        source={require("../assets/images/avatars/edanlui.jpg")}
                       />
                     </View>
                   </View>
@@ -205,7 +253,7 @@ export default class Leaderboard extends Component {
                     <View style={styles.podiumImageShadow}>
                       <Image
                         style={styles.podiumGoldImage}
-                        source={require("../assets/images/ansonlo.jpg")}
+                        source={require("../assets/images/avatars/ansonlo.jpg")}
                       />
                     </View>
                   </View>
@@ -213,7 +261,7 @@ export default class Leaderboard extends Component {
                     <View style={styles.podiumImageShadow}>
                       <Image
                         style={styles.podiumBronzeImage}
-                        source={require("../assets/images/keungto.jpg")}
+                        source={require("../assets/images/avatars/keungto.jpg")}
                       />
                     </View>
                   </View>
@@ -317,7 +365,9 @@ const styles = StyleSheet.create({
     marginRight: 15,
     borderRadius: 100,
   },
-  cardRankingText: {},
+  cardRankingText: {
+    width: "10%",
+  },
   emptyFlexContainer: {
     flex: 1,
   },
