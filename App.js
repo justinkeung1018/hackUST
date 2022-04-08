@@ -14,6 +14,7 @@ import FilterTimeScreen from "./app/screens/FilterTimeScreen";
 import DetailsScreenRyze from "./app/screens/DetailsScreenRyze";
 import LeaderboardScreen from "./app/screens/LeaderboardScreen";
 import StatisticsScreen from "./app/screens/StatisticsScreen";
+import SettingScreen from "./app/screens/SettingScreen";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -40,6 +41,7 @@ function Home() {
       <Stack.Screen name="FilterScreen" component={FilterScreen} />
       <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
+      <Stack.Screen name="SettingScreen" component={SettingScreen} />
     </Stack.Navigator>
   );
 }
@@ -104,7 +106,7 @@ function Main() {
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Search" component={Filter} />
       <Tab.Screen name="Favorites" component={DetailsScreenRyze} />
-      <Tab.Screen name="Settings" component={DetailsScreenRyze} />
+      <Tab.Screen name="Settings" component={SettingScreen} />
     </Tab.Navigator>
   );
 }
