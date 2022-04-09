@@ -15,6 +15,7 @@ import DetailsScreenRyze from "./app/screens/DetailsScreenRyze";
 import LeaderboardScreen from "./app/screens/LeaderboardScreen";
 import StatisticsScreen from "./app/screens/StatisticsScreen";
 import SettingScreen from "./app/screens/SettingScreen";
+import FavoriteScreen from "./app/screens/FavoriteScreen";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -35,13 +36,21 @@ function Home() {
       }}
     >
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="ResultsScreen" component={ResultsScreen} />
       <Stack.Screen name="LeaderboardScreen" component={LeaderboardScreen} />
       <Stack.Screen name="StatisticsScreen" component={StatisticsScreen} />
-      <Stack.Screen name="FilterScreen" component={FilterScreen} />
+      <Stack.Screen
+        name="FilterScreen"
+        component={FilterScreen}
+        initialParams={{
+          location: "Any",
+          activity: "Any",
+          price: "Any",
+          time: "Any",
+          day: "Any",
+          hour: "Any",
+        }}
+      />
       <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-      <Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
-      <Stack.Screen name="SettingScreen" component={SettingScreen} />
     </Stack.Navigator>
   );
 }
@@ -76,6 +85,8 @@ function Filter() {
       />
       <Stack.Screen name="FilterPriceScreen" component={FilterPriceScreen} />
       <Stack.Screen name="FilterTimeScreen" component={FilterTimeScreen} />
+      <Stack.Screen name="ResultsScreen" component={ResultsScreen} />
+      <Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
     </Stack.Navigator>
   );
 }
@@ -105,7 +116,18 @@ function Main() {
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Search" component={Filter} />
-      <Tab.Screen name="Favorites" component={DetailsScreenRyze} />
+      <Tab.Screen 
+        name="Favorites" 
+        component={FavoriteScreen} 
+        initialParams={{
+          location: "Any",
+          activity: "Any",
+          price: "Any",
+          time: "Any",
+          day: "Any",
+          hour: "Any",
+        }}
+        />
       <Tab.Screen name="Settings" component={SettingScreen} />
     </Tab.Navigator>
   );

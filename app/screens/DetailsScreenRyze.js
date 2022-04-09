@@ -33,7 +33,7 @@ class DetailsScreenRyze extends Component {
           style={styles.image}
         />
         <View style={styles.navBar}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("ResultsScreen", { location: location , activity: activity, price: price, time: time, day: day, hour: hour})}>
+          <TouchableOpacity onPress={() => this.props.navigation.goBack({ location: location , activity: activity, price: price, time: time, day: day, hour: hour})}>
             <Ionicons name="chevron-back-outline" style={styles.arrow} />
           </TouchableOpacity>
           <View style={styles.filterHeartContainer}>

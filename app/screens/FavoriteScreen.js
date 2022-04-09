@@ -13,7 +13,7 @@ import Card from "../assets/components/card";
 import { globalColors } from "../assets/globalColors";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-export default function ResultsScreen({ route, navigation }) {
+export default function FavoriteScreen({ route, navigation }) {
   let { location, activity, price, time, day, hour } = route.params;
 
   const [venue, setVenue] = useState([
@@ -47,42 +47,8 @@ export default function ResultsScreen({ route, navigation }) {
     <View style={[globalStyles.container , { minHeight: "100%" }]}>
       <View style={styles.titleBar}>
         <View style={styles.results}>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate("FilterScreen", {
-                location: location,
-                activity: activity,
-                price: price,
-                time: time,
-                day: day,
-                hour: hour,
-              })
-            }
-            style={styles.arrowContainer}
-          >
-            <Ionicons name="chevron-back-outline" style={styles.arrow} />
-          </TouchableOpacity>
-          <Text style={[globalFonts.heading3Bold, styles.title]}>
-            Results ({Object.keys(venue).length})
-          </Text>
+            <Text style={styles.titleText}>Favorites ({Object.keys(venue).length})</Text>
         </View>
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate("FilterScreen", {
-              location: location,
-              activity: activity,
-              price: price,
-              time: time,
-              day: day,
-              hour: hour,
-            })
-          }
-        >
-          <Image
-            style={styles.image}
-            source={require("../assets/images/black_filter.png")}
-          />
-        </TouchableOpacity>
       </View>
       <FlatList
         data={venue}
@@ -124,9 +90,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   titleBar: {
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
     marginBottom: 13,
+  },
+  titleText: {
+    marginTop: 50,
+    marginBottom: 25,
+    fontSize: 30,
+    fontFamily: "SF-Pro-Display-Bold",
+    color: globalColors.black,
+    alignSelf: "center",
+    justifyContent: "center",
   },
 });
