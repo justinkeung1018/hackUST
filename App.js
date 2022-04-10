@@ -16,6 +16,7 @@ import LeaderboardScreen from "./app/screens/LeaderboardScreen";
 import StatisticsScreen from "./app/screens/StatisticsScreen";
 import SettingScreen from "./app/screens/SettingScreen";
 import FavoriteScreen from "./app/screens/FavoriteScreen";
+import ProfileScreen from "./app/screens/ProfileScreen";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -30,7 +31,7 @@ const Tab = createBottomTabNavigator();
 function Home() {
   return (
     <Stack.Navigator
-      initialRouteName="HomeScreen"
+      initialRouteName="ProfileScreen"
       screenOptions={{
         headerShown: false,
       }}
@@ -51,6 +52,7 @@ function Home() {
         }}
       />
       <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
     </Stack.Navigator>
   );
 }
