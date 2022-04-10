@@ -124,54 +124,67 @@ export default class StatisticsScreen extends Component {
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.levelContainer}>
-          <View style={styles.levelFlex}>
-            <Text style={[styles.levelText, { marginRight: 10 }]}>
-              Level 10
-            </Text>
-            <Text
-              style={[globalFonts.Text, { color: globalColors.darkGray }]}
-            >
-              1200/1500
-            </Text>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.levelContainer}>
+            <View style={styles.levelFlex}>
+              <Text style={[styles.levelText, { marginRight: 10 }]}>
+                Level 10
+              </Text>
+              <Text
+                style={[globalFonts.Text, { color: globalColors.darkGray }]}
+              >
+                1200/1500
+              </Text>
+            </View>
           </View>
-        </View>
-        <View style={styles.categoryContainer}>
-          <View style={styles.categoryHeaderFlex}>
-            <Ionicons name="bar-chart-outline" style={styles.categoryIcon} />
-            <Text style={styles.categoryHeaderText}>Score breakdown</Text>
-          </View>
-          <View style={styles.categoryBreakdownContainer}>
-            <View style={styles.categoryBreakdownFlex}>
-              <View style={styles.categoryBreakdownCircularProgressLeftMargin}>
+          <View style={styles.categoryContainer}>
+            <View style={styles.categoryHeaderFlex}>
+              <Ionicons name="bar-chart-outline" style={styles.categoryIcon} />
+              <Text style={styles.categoryHeaderText}>Score breakdown</Text>
+            </View>
+            <View style={styles.categoryBreakdownContainer}>
+              <View style={styles.categoryBreakdownFlex}>
+                <View style={styles.categoryBreakdownCircularProgressLeftMargin}>
+                  <View style={styles.categoryBreakdownCircularProgressFlex}>
+                    <CircularProgress
+                      value={500}
+                      radius={55}
+                      maxValue={800}
+                      activeStrokeColor={globalColors.darkBlue}
+                      inActiveStrokeColor={"#B7D4FD"}
+                      progressValueStyle={{ color: globalColors.darkBlue }}
+                    />
+                    <Text>Cardio</Text>
+                  </View>
+                </View>
                 <View style={styles.categoryBreakdownCircularProgressFlex}>
                   <CircularProgress
-                    value={500}
+                    value={400}
                     radius={55}
                     maxValue={800}
                     activeStrokeColor={globalColors.darkBlue}
                     inActiveStrokeColor={"#B7D4FD"}
                     progressValueStyle={{ color: globalColors.darkBlue }}
                   />
-                  <Text>Cardio</Text>
+                  <Text>Strength</Text>
                 </View>
               </View>
-              <View style={styles.categoryBreakdownCircularProgressFlex}>
-                <CircularProgress
-                  value={400}
-                  radius={55}
-                  maxValue={800}
-                  activeStrokeColor={globalColors.darkBlue}
-                  inActiveStrokeColor={"#B7D4FD"}
-                  progressValueStyle={{ color: globalColors.darkBlue }}
-                />
-                <Text>Strength</Text>
-              </View>
             </View>
-          </View>
-          <View style={styles.categoryBreakdownContainer}>
-            <View style={styles.categoryBreakdownFlex}>
-              <View style={styles.categoryBreakdownCircularProgressLeftMargin}>
+            <View style={styles.categoryBreakdownContainer}>
+              <View style={styles.categoryBreakdownFlex}>
+                <View style={styles.categoryBreakdownCircularProgressLeftMargin}>
+                  <View style={styles.categoryBreakdownCircularProgressFlex}>
+                    <CircularProgress
+                      value={100}
+                      radius={55}
+                      maxValue={800}
+                      activeStrokeColor={globalColors.darkBlue}
+                      inActiveStrokeColor={"#B7D4FD"}
+                      progressValueStyle={{ color: globalColors.darkBlue }}
+                    />
+                    <Text>Flexibility</Text>
+                  </View>
+                </View>
                 <View style={styles.categoryBreakdownCircularProgressFlex}>
                   <CircularProgress
                     value={100}
@@ -181,67 +194,57 @@ export default class StatisticsScreen extends Component {
                     inActiveStrokeColor={"#B7D4FD"}
                     progressValueStyle={{ color: globalColors.darkBlue }}
                   />
-                  <Text>Flexibility</Text>
+                  <Text>Others</Text>
                 </View>
               </View>
-              <View style={styles.categoryBreakdownCircularProgressFlex}>
-                <CircularProgress
-                  value={100}
-                  radius={55}
-                  maxValue={800}
-                  activeStrokeColor={globalColors.darkBlue}
-                  inActiveStrokeColor={"#B7D4FD"}
-                  progressValueStyle={{ color: globalColors.darkBlue }}
-                />
-                <Text>Others</Text>
+            </View>
+            
+          </View>
+          <View style={styles.categorySideBySideFlex}>
+            <View
+              style={[
+                styles.categoryContainer,
+                styles.categorySideBySideLeftChild,
+              ]}
+            >
+              <View style={styles.categoryHeaderFlex}>
+                <Ionicons name="location-outline" style={styles.categoryIcon} />
+                <Text style={styles.categoryHeaderText}>Locations visited</Text>
+              </View>
+              <View style={styles.categorySideBySideChildFlex}>
+                <Text style={styles.largeStatsText}>0</Text>
+              </View>
+            </View>
+            <View
+              style={[
+                styles.categoryContainer,
+                styles.categorySideBySideRightChild,
+              ]}
+            >
+              <View style={styles.categoryHeaderFlex}>
+                <Ionicons name="timer-outline" style={styles.categoryIcon} />
+                <Text style={styles.categoryHeaderText}>Active time</Text>
+              </View>
+              <View style={styles.categorySideBySideChildFlex}>
+                <View style={styles.categoryTimeFlex}>
+                  <Text style={styles.largeStatsText}>20</Text>
+                  <Text style={styles.categoryTimeUnit}>hr</Text>
+                  <Text style={styles.largeStatsText}>50</Text>
+                  <Text style={styles.categoryTimeUnit}>min</Text>
+                </View>
               </View>
             </View>
           </View>
-        </View>
-        <View style={styles.categorySideBySideFlex}>
-          <View
-            style={[
-              styles.categoryContainer,
-              styles.categorySideBySideLeftChild,
-            ]}
-          >
+          <View style={styles.categoryContainer}>
             <View style={styles.categoryHeaderFlex}>
-              <Ionicons name="location-outline" style={styles.categoryIcon} />
-              <Text style={styles.categoryHeaderText}>Locations visited</Text>
+              <Ionicons name="heart-outline" style={styles.categoryIcon} />
+              <Text style={styles.categoryHeaderText}>Your favorite sport</Text>
             </View>
-            <View style={styles.categorySideBySideChildFlex}>
-              <Text style={styles.largeStatsText}>0</Text>
-            </View>
-          </View>
-          <View
-            style={[
-              styles.categoryContainer,
-              styles.categorySideBySideRightChild,
-            ]}
-          >
-            <View style={styles.categoryHeaderFlex}>
-              <Ionicons name="timer-outline" style={styles.categoryIcon} />
-              <Text style={styles.categoryHeaderText}>Active time</Text>
-            </View>
-            <View style={styles.categorySideBySideChildFlex}>
-              <View style={styles.categoryTimeFlex}>
-                <Text style={styles.largeStatsText}>20</Text>
-                <Text style={styles.categoryTimeUnit}>hr</Text>
-                <Text style={styles.largeStatsText}>50</Text>
-                <Text style={styles.categoryTimeUnit}>min</Text>
-              </View>
+            <View style={styles.categoryFavoriteTextContainer}>
+              <Text style={styles.categoryFavoriteText}>Trampoline</Text>
             </View>
           </View>
-        </View>
-        <View style={styles.categoryContainer}>
-          <View style={styles.categoryHeaderFlex}>
-            <Ionicons name="heart-outline" style={styles.categoryIcon} />
-            <Text style={styles.categoryHeaderText}>Your favorite sport</Text>
-          </View>
-          <View style={styles.categoryFavoriteTextContainer}>
-            <Text style={styles.categoryFavoriteText}>Trampoline</Text>
-          </View>
-        </View>
+        </ScrollView>
       </View>
     );
   }
