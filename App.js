@@ -99,46 +99,46 @@ function Filter() {
 	);
 }
 
-function Tabs() {
-	return (
-		<Tab.Navigator
-			screenOptions={({ route }) => ({
-				tabBarIcon: ({ focused, color, size }) => {
-					let iconName;
-					if (route.name === "Home") {
-						iconName = focused ? "home" : "home-outline";
-					} else if (route.name === "Settings") {
-						iconName = focused ? "list" : "list-outline";
-					} else if (route.name === "Favorites") {
-						iconName = focused ? "heart" : "heart-outline";
-					} else if (route.name === "Search") {
-						iconName = focused ? "search" : "search-outline";
-					}
-					return <Ionicons name={iconName} size={size} color={color} />;
-				},
-				tabBarActiveTintColor: globalColors.darkBlue,
-				tabBarInactiveTintColor: globalColors.darkGray,
-				headerShown: false,
-			})}
-			style={styles.navBar}
-		>
-			<Tab.Screen name="Home" component={Home} />
-			<Tab.Screen name="Search" component={Filter} />
-			<Tab.Screen
-				name="Favorites"
-				component={FavoriteScreen}
-				initialParams={{
-					location: "Any",
-					activity: "Any",
-					price: "Any",
-					time: "Any",
-					day: "Any",
-					hour: "Any",
-				}}
-			/>
-			<Tab.Screen name="Settings" component={SettingScreen} />
-		</Tab.Navigator>
-	);
+function Main() {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+          if (route.name === "Home") {
+            iconName = focused ? "home" : "home-outline";
+          } else if (route.name === "Settings") {
+            iconName = focused ? "list" : "list-outline";
+          } else if (route.name === "Favorites") {
+            iconName = focused ? "heart" : "heart-outline";
+          } else if (route.name === "Search") {
+            iconName = focused ? "search" : "search-outline";
+          }
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: globalColors.darkBlue,
+        tabBarInactiveTintColor: globalColors.darkGray,
+        headerShown: false,
+      })}
+      style={styles.navBar}
+    >
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Search" component={StatisticsScreen} />
+      <Tab.Screen 
+        name="Favorites" 
+        component={FavoriteScreen} 
+        initialParams={{
+          location: "Any",
+          activity: "Any",
+          price: "Any",
+          time: "Any",
+          day: "Any",
+          hour: "Any",
+        }}
+        />
+      <Tab.Screen name="Settings" component={SettingScreen} />
+    </Tab.Navigator>
+  );
 }
 
 export default function App() {
