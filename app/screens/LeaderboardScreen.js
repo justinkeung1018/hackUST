@@ -128,7 +128,7 @@ export default class Leaderboard extends Component {
 				<FlatList
 					style={[
 						styles.backgroundColor,
-						globalStyles.section,
+						// globalStyles.section,
 						{ paddingTop: 0, minHeight: "100%" },
 					]}
 					ListHeaderComponent={
@@ -138,8 +138,8 @@ export default class Leaderboard extends Component {
 									globalStyles.container,
 									styles.blueContainer,
 									{
-										marginLeft: -24,
-										marginRight: -24,
+										marginLeft: 0,
+										marginRight: 0,
 										marginBottom: -30, // Something went wrong so there is extra margin below the top three leaderboard
 										paddingBottom: 0,
 									},
@@ -272,17 +272,19 @@ export default class Leaderboard extends Component {
 					}
 					data={allTimeData}
 					renderItem={({ item }) => (
-						<View style={styles.card}>
-							<View style={styles.cardContent}>
-								<View style={styles.cardContentLeft}>
-									<Text style={[styles.cardRankingText, globalFonts.text]}>
-										{item.key}
-									</Text>
-									<Image style={styles.cardImage} source={item.image} />
-									<Text style={globalFonts.text}>{item.name}</Text>
-								</View>
-								<View style={styles.cardScore}>
-									<Text style={globalFonts.text}>{item.score}</Text>
+						<View style={{paddingLeft: 24, paddingRight: 24}}>
+							<View style={styles.card}>
+								<View style={styles.cardContent}>
+									<View style={styles.cardContentLeft}>
+										<Text style={[styles.cardRankingText, globalFonts.text]}>
+											{item.key}
+										</Text>
+										<Image style={styles.cardImage} source={item.image} />
+										<Text style={globalFonts.text}>{item.name}</Text>
+									</View>
+									<View style={styles.cardScore}>
+										<Text style={globalFonts.text}>{item.score}</Text>
+									</View>
 								</View>
 							</View>
 						</View>

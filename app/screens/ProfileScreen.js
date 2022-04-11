@@ -271,7 +271,12 @@ export default class Leaderboard extends Component {
                                 </View>
                             </View>
                             <Image source={require("../assets/images/avatars/ansonlo.jpg")} style={styles.profileimage} />
-                            
+                            <TouchableOpacity 
+                                style={styles.backarrowContainer}
+                                onPress={() => this.props.navigation.goBack()}
+                            >
+                                <Ionicons name="chevron-back-outline" style={styles.backarrow}/>
+                            </TouchableOpacity>     
                         </View>
                     }
                 />
@@ -399,5 +404,13 @@ const styles = StyleSheet.create({
         marginTop: 0, 
         marginBottom: 0,  
     },
-
+    backarrowContainer: {
+        position: "absolute",
+        top: 50, 
+        left: 30,
+    },
+    backarrow: {
+        fontSize: 32,
+        color: "white",
+    }
 });

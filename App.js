@@ -123,7 +123,7 @@ function Main() {
       style={styles.navBar}
     >
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Search" component={StatisticsScreen} />
+      <Tab.Screen name="Search" component={Filter} />
       <Tab.Screen 
         name="Favorites" 
         component={FavoriteScreen} 
@@ -169,7 +169,7 @@ export default function App() {
 					headerShown: false,
 				}}
 			>
-				<Stack.Screen name="WelcomeScreen" component={ProfileScreen} />
+				<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
 				<Stack.Screen name="Main" component={Main} />
 				<Stack.Group>
 					<Stack.Screen name="MapModalScreen" component={MapModalScreen} />

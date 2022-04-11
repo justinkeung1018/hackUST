@@ -15,7 +15,6 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: globalColors.white,
   },
   interactiveShadow: {
-    // IOS only
     shadowColor: "#000",
     shadowOffset: { height: 4 },
     shadowRadius: 30,
