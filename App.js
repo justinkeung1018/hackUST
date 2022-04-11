@@ -1,5 +1,6 @@
 import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
@@ -17,6 +18,10 @@ import StatisticsScreen from "./app/screens/StatisticsScreen";
 import SettingScreen from "./app/screens/SettingScreen";
 import FavoriteScreen from "./app/screens/FavoriteScreen";
 import ProfileScreen from "./app/screens/ProfileScreen";
+import MapScreen from "./app/screens/MapScreen";
+import MapModalScreen from "./app/screens/MapModalScreen";
+import TimerScreen from "./app/screens/TimerScreen";
+import * as Location from "expo-location";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -29,68 +34,69 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function Home() {
-  return (
-    <Stack.Navigator
-      initialRouteName="ProfileScreen"
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="LeaderboardScreen" component={LeaderboardScreen} />
-      <Stack.Screen name="StatisticsScreen" component={StatisticsScreen} />
-      <Stack.Screen
-        name="FilterScreen"
-        component={FilterScreen}
-        initialParams={{
-          location: "Any",
-          activity: "Any",
-          price: "Any",
-          time: "Any",
-          day: "Any",
-          hour: "Any",
-        }}
-      />
-      <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
-    </Stack.Navigator>
-  );
+	return (
+		<Stack.Navigator
+			initialRouteName="HomeScreen"
+			screenOptions={{
+				headerShown: false,
+			}}
+		>
+			<Stack.Screen name="HomeScreen" component={HomeScreen} />
+			<Stack.Screen name="LeaderboardScreen" component={LeaderboardScreen} />
+			<Stack.Screen name="StatisticsScreen" component={StatisticsScreen} />
+			<Stack.Screen
+				name="FilterScreen"
+				component={FilterScreen}
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+			/>
+			<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+			<Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+			<Stack.Screen name="MapScreen" component={MapScreen} />
+		</Stack.Navigator>
+	);
 }
 
 function Filter() {
-  return (
-    <Stack.Navigator
-      initialRouteName="FilterScreen"
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <Stack.Screen
-        name="FilterScreen"
-        component={FilterScreen}
-        initialParams={{
-          location: "Any",
-          activity: "Any",
-          price: "Any",
-          time: "Any",
-          day: "Any",
-          hour: "Any",
-        }}
-      />
-      <Stack.Screen
-        name="FilterLocationScreen"
-        component={FilterLocationScreen}
-      />
-      <Stack.Screen
-        name="FilterActivityScreen"
-        component={FilterActivityScreen}
-      />
-      <Stack.Screen name="FilterPriceScreen" component={FilterPriceScreen} />
-      <Stack.Screen name="FilterTimeScreen" component={FilterTimeScreen} />
-      <Stack.Screen name="ResultsScreen" component={ResultsScreen} />
-      <Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
-    </Stack.Navigator>
-  );
+	return (
+		<Stack.Navigator
+			initialRouteName="FilterScreen"
+			screenOptions={{
+				headerShown: false,
+			}}
+		>
+			<Stack.Screen
+				name="FilterScreen"
+				component={FilterScreen}
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+			/>
+			<Stack.Screen
+				name="FilterLocationScreen"
+				component={FilterLocationScreen}
+			/>
+			<Stack.Screen
+				name="FilterActivityScreen"
+				component={FilterActivityScreen}
+			/>
+			<Stack.Screen name="FilterPriceScreen" component={FilterPriceScreen} />
+			<Stack.Screen name="FilterTimeScreen" component={FilterTimeScreen} />
+			<Stack.Screen name="ResultsScreen" component={ResultsScreen} />
+			<Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
+		</Stack.Navigator>
+	);
 }
 
 function Main() {
@@ -136,44 +142,42 @@ function Main() {
 }
 
 export default function App() {
-  let [fontsLoaded] = useFonts({
-    "SF-Pro-Display-Bold": require("./app/assets/fonts/SF-Pro-Display-Bold.otf"),
-    "SF-Pro-Display-BoldItalic": require("./app/assets/fonts/SF-Pro-Display-BoldItalic.otf"),
-    "SF-Pro-Display-Regular": require("./app/assets/fonts/SF-Pro-Display-Regular.otf"),
-    "SF-Pro-Display-RegularItalic": require("./app/assets/fonts/SF-Pro-Display-RegularItalic.otf"),
-    "SF-Pro-Display-Medium": require("./app/assets/fonts/SF-Pro-Display-Medium.otf"),
-    "SF-Pro-Display-MediumItalic": require("./app/assets/fonts/SF-Pro-Display-MediumItalic.otf"),
-    "SF-Pro-Text-Bold": require("./app/assets/fonts/SF-Pro-Text-Bold.otf"),
-    "SF-Pro-Text-BoldItalic": require("./app/assets/fonts/SF-Pro-Text-BoldItalic.otf"),
-    "SF-Pro-Text-Regular": require("./app/assets/fonts/SF-Pro-Text-Regular.otf"),
-    "SF-Pro-Text-RegularItalic": require("./app/assets/fonts/SF-Pro-Text-RegularItalic.otf"),
-    "SF-Pro-Text-Medium": require("./app/assets/fonts/SF-Pro-Text-Medium.otf"),
-    "SF-Pro-Text-MediumItalic": require("./app/assets/fonts/SF-Pro-Text-MediumItalic.otf"),
-  });
+	let [fontsLoaded] = useFonts({
+		"SF-Pro-Display-Bold": require("./app/assets/fonts/SF-Pro-Display-Bold.otf"),
+		"SF-Pro-Display-BoldItalic": require("./app/assets/fonts/SF-Pro-Display-BoldItalic.otf"),
+		"SF-Pro-Display-Regular": require("./app/assets/fonts/SF-Pro-Display-Regular.otf"),
+		"SF-Pro-Display-RegularItalic": require("./app/assets/fonts/SF-Pro-Display-RegularItalic.otf"),
+		"SF-Pro-Display-Medium": require("./app/assets/fonts/SF-Pro-Display-Medium.otf"),
+		"SF-Pro-Display-MediumItalic": require("./app/assets/fonts/SF-Pro-Display-MediumItalic.otf"),
+		"SF-Pro-Text-Bold": require("./app/assets/fonts/SF-Pro-Text-Bold.otf"),
+		"SF-Pro-Text-BoldItalic": require("./app/assets/fonts/SF-Pro-Text-BoldItalic.otf"),
+		"SF-Pro-Text-Regular": require("./app/assets/fonts/SF-Pro-Text-Regular.otf"),
+		"SF-Pro-Text-RegularItalic": require("./app/assets/fonts/SF-Pro-Text-RegularItalic.otf"),
+		"SF-Pro-Text-Medium": require("./app/assets/fonts/SF-Pro-Text-Medium.otf"),
+		"SF-Pro-Text-MediumItalic": require("./app/assets/fonts/SF-Pro-Text-MediumItalic.otf"),
+	});
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
+	if (!fontsLoaded) {
+		return <AppLoading />;
+	}
 
-  const navTheme = {
-    colors: {
-      background: "white",
-    },
-  };
-
-  return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="WelcomeScreen"
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-        <Stack.Screen name="Main" component={Main} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+	return (
+		<NavigationContainer>
+			<Stack.Navigator
+				initialRouteName="WelcomeScreen"
+				screenOptions={{
+					headerShown: false,
+				}}
+			>
+				<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+				<Stack.Screen name="Main" component={Tabs} />
+				<Stack.Group>
+					<Stack.Screen name="MapModalScreen" component={MapModalScreen} />
+					<Stack.Screen name="TimerScreen" component={TimerScreen} />
+				</Stack.Group>
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 }
 
 const styles = StyleSheet.create({});

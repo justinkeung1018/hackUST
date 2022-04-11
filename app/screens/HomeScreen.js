@@ -14,6 +14,7 @@ import { globalColors } from "../assets/globalColors";
 import { globalStyles } from "../assets/globalStyles";
 import CircularProgress from "react-native-circular-progress-indicator";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function HomeScreen({ navigation }) {
 	const [activityYouMightLike, setActivityYouMightLike] = useState([
@@ -102,7 +103,10 @@ export default function HomeScreen({ navigation }) {
 						progressValueStyle={{ color: globalColors.darkBlue }}
 					/>
 				</View>
-				<TouchableOpacity style={styles.startButton}>
+				<TouchableOpacity
+					style={styles.startButton}
+					onPress={() => navigation.navigate("MapScreen")}
+				>
 					<Text style={styles.startButtonText}>Start</Text>
 				</TouchableOpacity>
 			</View>
@@ -190,7 +194,7 @@ const styles = StyleSheet.create({
 	},
 	icon: {
 		fontSize: 32,
-		marginRight: 12,
+		marginLeft: 12,
 		color: globalColors.darkBlue,
 	},
 	nameText: {

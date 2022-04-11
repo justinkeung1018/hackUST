@@ -7,7 +7,7 @@ import {
 	FlatList,
 	ScrollView,
 	Image,
-    Dimensions,
+	Dimensions,
 } from "react-native";
 import { globalFonts } from "../assets/globalFonts";
 import { globalColors } from "../assets/globalColors";
@@ -83,9 +83,7 @@ const badges = [
 export default class Leaderboard extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			
-		};
+		this.state = {};
 	}
 
 	render() {
