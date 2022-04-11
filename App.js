@@ -117,7 +117,7 @@ function Main() {
       style={styles.navBar}
     >
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Search" component={LeaderboardScreen} />
+      <Tab.Screen name="Search" component={StatisticsScreen} />
       <Tab.Screen 
         name="Favorites" 
         component={FavoriteScreen} 
