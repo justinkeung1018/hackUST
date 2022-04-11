@@ -20,6 +20,7 @@ import FavoriteScreen from "./app/screens/FavoriteScreen";
 import ProfileScreen from "./app/screens/ProfileScreen";
 import MapScreen from "./app/screens/MapScreen";
 import MapModalScreen from "./app/screens/MapModalScreen";
+import SelectLocationScreen from "./app/screens/SelectLocationScreen";
 import TimerScreen from "./app/screens/TimerScreen";
 import * as Location from "expo-location";
 
@@ -169,10 +170,16 @@ export default function App() {
 					headerShown: false,
 				}}
 			>
-				<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+				<Stack.Screen name="WelcomeScreen" component={SelectLocationScreen} />
 				<Stack.Screen name="Main" component={Main} />
 				<Stack.Group>
-					<Stack.Screen name="MapModalScreen" component={MapModalScreen} />
+					<Stack.Screen 
+						name="MapModalScreen" 
+						component={MapModalScreen} 
+						initialParams={{
+          					place: "Ryze Hong Kong",}}
+						/>
+					<Stack.Screen name="SelectLocationScreen" component={SelectLocationScreen} />
 					<Stack.Screen name="TimerScreen" component={TimerScreen} />
 				</Stack.Group>
 			</Stack.Navigator>

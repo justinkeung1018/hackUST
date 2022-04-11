@@ -54,7 +54,7 @@ export default class Leaderboard extends Component {
 								<View style={styles.modalCenterContainer}>
 									<Text style={globalFonts.largeText}>You are at</Text>
 									<Text style={[globalFonts.heading2, styles.locationName]}>
-										Ryze Hong Kong
+										{this.props.route.params.place}
 									</Text>
 									<TouchableOpacity
 										style={[styles.startButton, globalStyles.interactiveShadow]}
@@ -68,7 +68,7 @@ export default class Leaderboard extends Component {
 								</View>
 								<View style={styles.notWhereYouAreContainer}>
 									<TouchableOpacity
-										onPress={() => this.setModalVisible(!modalVisible)}
+										onPress={() => this.props.navigation.navigate("SelectLocationScreen")}
 									>
 										<Text
 											style={[globalFonts.largeText, styles.notWhereYouAreText]}

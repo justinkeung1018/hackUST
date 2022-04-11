@@ -51,6 +51,7 @@ export default function FilterLocationScreen({ route, navigation }) {
         <FlatList
           showsVerticalScrollIndicator={false}
           data={district}
+          ListFooterComponent={<View style={{height: 170}}/>}
           renderItem={({ item }) => (
             <View>
               <TouchableOpacity
