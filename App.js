@@ -20,6 +20,7 @@ import FavoriteScreen from "./app/screens/FavoriteScreen";
 import ProfileScreen from "./app/screens/ProfileScreen";
 import MapScreen from "./app/screens/MapScreen";
 import MapModalScreen from "./app/screens/MapModalScreen";
+import TimerScreen from "./app/screens/TimerScreen";
 import * as Location from "expo-location";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -58,7 +59,6 @@ function Home() {
 			<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
 			<Stack.Screen name="ProfileScreen" component={ProfileScreen} />
 			<Stack.Screen name="MapScreen" component={MapScreen} />
-			<Stack.Screen name="MapModalScreen" component={MapModalScreen} />
 		</Stack.Navigator>
 	);
 }
@@ -99,7 +99,7 @@ function Filter() {
 	);
 }
 
-function Main() {
+function Tabs() {
 	return (
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
@@ -170,7 +170,11 @@ export default function App() {
 				}}
 			>
 				<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-				<Stack.Screen name="Main" component={Main} />
+				<Stack.Screen name="Main" component={Tabs} />
+				<Stack.Group>
+					<Stack.Screen name="MapModalScreen" component={MapModalScreen} />
+					<Stack.Screen name="TimerScreen" component={TimerScreen} />
+				</Stack.Group>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

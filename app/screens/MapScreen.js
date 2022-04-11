@@ -23,36 +23,18 @@ export default class MapScreen extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			location: null,
 			region: {
 				latitude: 51.52340004914676,
 				longitude: -0.2619892576715497,
 				latitudeDelta: 0.01,
 				longitudeDelta: 0.01,
 			},
-			modalVisible: false,
 		};
 	}
-
-	setModalVisible = (visible) => {
-		this.setState({ modalVisible: visible });
-	};
 
 	render() {
 		return (
 			<View style={styles.container}>
-				<Modal
-					animationType="none"
-					transparent={true}
-					visible={this.modalVisible}
-					onRequestClose={() => {
-						Alert.alert("Modal has been closed.");
-						this.setModalVisible(!this.modalVisible);
-					}}
-					// style={styles.modal}
-				>
-					<Text>Hell0o</Text>
-				</Modal>
 				<MapView
 					style={styles.map}
 					showsUserLocation={true}
@@ -60,6 +42,12 @@ export default class MapScreen extends Component {
 					initialRegion={this.state.initialRegion}
 					followsUserLocation={true}
 				></MapView>
+				<TouchableOpacity
+					style={styles.arrowContainer}
+					onPress={() => this.props.navigation.goBack()}
+				>
+					<Ionicons name="chevron-back-outline" style={globalStyles.arrow} />
+				</TouchableOpacity>
 				<TouchableOpacity
 					style={styles.initialButton}
 					onPress={() => this.props.navigation.navigate("MapModalScreen")}
@@ -74,6 +62,11 @@ export default class MapScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+	arrowContainer: {
+		position: "absolute",
+		top: 50,
+		left: 24,
+	},
 	container: {
 		position: "absolute",
 		top: 0,
@@ -85,7 +78,7 @@ const styles = StyleSheet.create({
 	},
 	initialButton: {
 		position: "absolute",
-		top: 80,
+		bottom: 80,
 		backgroundColor: globalColors.black,
 		opacity: 0.5,
 		width: windowWidth - 48,
