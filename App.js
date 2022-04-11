@@ -170,7 +170,12 @@ export default function App() {
 					headerShown: false,
 				}}
 			>
-				<Stack.Screen name="WelcomeScreen" component={SelectLocationScreen} />
+				<Stack.Screen 
+					name="WelcomeScreen" 
+					component={SelectLocationScreen}
+					initialParams={{
+						place: "Ryze Hong Kong",}}					
+				/>
 				<Stack.Screen name="Main" component={Main} />
 				<Stack.Group>
 					<Stack.Screen name="MapScreen" component={MapScreen} />
@@ -180,7 +185,12 @@ export default function App() {
 						initialParams={{
           					place: "Ryze Hong Kong",}}
 						/>
-					<Stack.Screen name="SelectLocationScreen" component={SelectLocationScreen} />
+					<Stack.Screen 
+						name="SelectLocationScreen" 
+						component={SelectLocationScreen} 
+						initialParams={{
+							place: "Ryze Hong Kong",}}						
+						/>
 					<Stack.Screen name="TimerScreen" component={TimerScreen} />
 				</Stack.Group>
 			</Stack.Navigator>

@@ -12,20 +12,22 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { globalColors } from "../assets/globalColors";
 import { globalStyles } from "../assets/globalStyles";
 import { globalFonts } from "../assets/globalFonts";
+import { RotateInUpLeft } from "react-native-reanimated";
 
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
 
-export default function SelectLocationScreen({ navigation }) {
-      
+export default function SelectLocationScreen({ route, navigation }) {
+    let { place } = route.params;  
+
     return (
         <View style={globalStyles.container}>
             <View style={styles.title}>
                 <TouchableOpacity
                 onPress={() =>
-                navigation.navigate("MapModalScreen", {place: "Testing Route"})}
+                navigation.navigate("MapModalScreen", {place: place})}
                     style={styles.arrowContainer}
                 >
                     <Ionicons name="chevron-back-outline" style={globalStyles.arrow} />
