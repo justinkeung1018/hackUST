@@ -7,6 +7,7 @@ import {
 	StyleSheet,
 	Dimensions,
 	ImageBackground,
+	Modal,
 } from "react-native";
 import { globalFonts } from "../assets/globalFonts";
 import { globalColors } from "../assets/globalColors";
@@ -23,10 +24,16 @@ export default class TimerScreen extends Component {
 		this.state = {
 			isStopwatchStart: true,
 			resetStopwatch: false,
+			modalVisible: false,
 		};
 	}
 
+	setModalVisible = (visible) => {
+		this.setState({ modalVisible: visible });
+	};
+
 	render() {
+		const { modalVisible } = this.state;
 		return (
 			<ImageBackground
 				source={require("../assets/images/background.png")}
@@ -35,13 +42,15 @@ export default class TimerScreen extends Component {
 				imageStyle={{ opacity: 0.5 }}
 			>
 				<View style={styles.container}>
-					<Stopwatch
-						laps
-						msecs={false}
-						start={this.state.isStopwatchStart}
-						reset={this.state.resetStopwatch}
-						options={options}
-					/>
+					<View style={styles.stopwatchContainer}>
+						<Stopwatch
+							laps
+							msecs={false}
+							start={this.state.isStopwatchStart}
+							reset={this.state.resetStopwatch}
+							options={options}
+						/>
+					</View>
 					<View style={styles.endSessionButtonContainer}>
 						<TouchableOpacity
 							onPress={() => {
@@ -49,16 +58,66 @@ export default class TimerScreen extends Component {
 									isStopwatchStart: !this.state.isStopwatchStart,
 								});
 								this.setState({ resetStopwatch: false });
-								console.log(this.state.isStopwatchStart);
+								this.setModalVisible(!modalVisible);
 							}}
 							style={styles.endSessionButton}
 						>
-							<Text style={styles.buttonText}>
-								{!this.state.isStopwatchStart ? "START" : "STOP"}
+							<Text style={[globalFonts.heading3Bold, styles.endSessionText]}>
+								End session
 							</Text>
 						</TouchableOpacity>
 					</View>
 				</View>
+				<Modal
+					animationType="slide"
+					transparent={true}
+					visible={modalVisible}
+					onRequestClose={() => {
+						Alert.alert("Modal has been closed.");
+						setModalVisible(!modalVisible);
+					}}
+				>
+					<View style={styles.modalContainer}>
+						<View style={styles.modal}>
+							<View style={styles.modalCenterContainer}>
+								<Text style={[globalFonts.heading3Bold, styles.modalHeading]}>
+									Session summary
+								</Text>
+								<View style={styles.bulletFlex}>
+									<Text style={styles.bulletText}>Location:</Text>
+									<Text style={styles.largeText}>Ryze Hong Kong</Text>
+									{/* Retrieve from database */}
+								</View>
+								<View style={styles.bulletFlex}>
+									<Text style={styles.bulletText}>Sports:</Text>
+									<Text style={styles.largeText}>Trampoline</Text>
+									{/* Retrieve from database */}
+								</View>
+								<View style={styles.bulletFlex}>
+									<Text style={styles.bulletText}>Time:</Text>
+									<Text style={styles.largeText}>1 h 50 min</Text>
+									{/* Retrieve from timer */}
+								</View>
+								<View style={styles.bulletFlex}>
+									<Text style={styles.bulletText}>Points:</Text>
+									<Text style={styles.largeText}>Cardio + 50</Text>
+									{/* Algorithm to compute points based on type of sport and duration */}
+								</View>
+							</View>
+							<View style={styles.notWhereYouAreContainer}>
+								<TouchableOpacity
+									onPress={() => {
+										this.setModalVisible(!modalVisible);
+										this.props.navigation.navigate("HomeScreen");
+									}}
+									style={styles.doneButton}
+								>
+									<Text style={styles.doneButtonText}>Done</Text>
+								</TouchableOpacity>
+							</View>
+						</View>
+					</View>
+				</Modal>
 			</ImageBackground>
 		);
 	}
@@ -70,30 +129,85 @@ const styles = StyleSheet.create({
 		width: windowWidth,
 		backgroundColor: "rgba(0,0,0,0.9)",
 	},
+	bulletFlex: {
+		width: "100%",
+		flexDirection: "row",
+		justifyContent: "space-between",
+		marginBottom: 30,
+	},
+	bulletText: {
+		color: globalColors.darkGray,
+	},
 	container: {
 		paddingTop: 50,
 		paddingLeft: 24,
 		paddingRight: 24,
+		flex: 1,
 		flexDirection: "column",
-		justifyContent: "center",
+		justifyContent: "space-between",
 		alignItems: "center",
+	},
+	doneButton: {
+		backgroundColor: globalColors.blue,
+		borderRadius: 10,
+		paddingTop: 10,
+		paddingBottom: 10,
+		paddingLeft: 30,
+		paddingRight: 30,
+	},
+	doneButtonText: {
+		color: globalColors.white,
 	},
 	endSessionButton: {
 		width: "100%",
 		paddingTop: 20,
 		paddingBottom: 20,
 		borderRadius: 100,
-		backgroundColor: globalColors.gray,
-		opacity: 0.2,
+		backgroundColor: "rgba(196, 196, 196, 0.2)", // globalColors.gray with opacity 0.2
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",
 	},
 	endSessionButtonContainer: {
-		// flex: 1,
+		flex: 1,
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",
+	},
+	endSessionText: {
+		color: globalColors.white,
+	},
+	modal: {
+		width: windowWidth - 48,
+		height: 440,
+		backgroundColor: globalColors.white,
+		flexDirection: "column",
+		justifyContent: "center",
+		alignItems: "center",
+		borderRadius: 10,
+		paddingLeft: 20,
+		paddingRight: 20,
+	},
+	modalCenterContainer: {
+		flexDirection: "column",
+		justifyContent: "center",
+		alignItems: "center",
+		width: "100%",
+	},
+	modalContainer: {
+		flex: 1,
+		flexDirection: "row",
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	modalHeading: {
+		marginBottom: 50,
+	},
+	stopwatchContainer: {
+		flex: 4,
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "center",
 	},
 });
 
