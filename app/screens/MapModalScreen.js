@@ -33,10 +33,10 @@ export default class Leaderboard extends Component {
 		const { modalVisible } = this.state;
 		return (
 			<ImageBackground
-				source={require("../assets/images/background.png")}
+				source={require("../assets/images/sea-timer.jpg")}
 				// resizeMode="cover"
-				style={styles.backgroundImage}
-				imageStyle={{ opacity: 0.5 }}
+				style={[styles.backgroundImage, {minHeight: windowHeight}]}
+				imageStyle={{opacity: 0.8}}
 			>
 				<View style={styles.container}>
 					<Modal
@@ -78,6 +78,13 @@ export default class Leaderboard extends Component {
 									</TouchableOpacity>
 								</View>
 							</View>
+							<TouchableOpacity
+								style={styles.arrowContainer}
+								onPress={() => this.props.navigation.goBack()}
+							>
+								<Ionicons name="chevron-back-outline" style={globalStyles.arrow} />
+							</TouchableOpacity>
+							
 						</View>
 					</Modal>
 				</View>
@@ -88,6 +95,7 @@ export default class Leaderboard extends Component {
 
 const styles = StyleSheet.create({
 	backgroundImage: {
+		flex: 1,
 		height: windowHeight,
 		width: windowWidth,
 		backgroundColor: "rgba(0,0,0,0.9)",
@@ -142,5 +150,10 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		paddingTop: 12,
 		paddingBottom: 12,
+	},
+	arrowContainer: {
+		position: "absolute",
+		top: 160,
+		left: 40,
 	},
 });
