@@ -41,41 +41,119 @@ const weeklyTask = [
     },        
 ]
 
-const badges = [
+const beginnerbadges = [
     {
         name: "Loyalty I",
         detail: "Did the same sports activity 4 times",
-        image: require("../assets/images/badges/badge_1_1.png"),
+        image: require("../assets/images/badges/badge_1_1_shadow.png"),
         key: "1"
     },
     {
         name: "Explorer I",
         detail: "Tried 4 different sports activities",
-        image: require("../assets/images/badges/badge_1_2.png"),
+        image: require("../assets/images/badges/badge_1_2_shadow.png"),
         key: "2"
     },
     {
         name: "Adventurer I",
         detail: "Went to 4 different sports venues",
-        image: require("../assets/images/badges/badge_1_3.png"),
+        image: require("../assets/images/badges/badge_1_3_shadow.png"),
         key: "3"
     },
     {
         name: "Adventurer I",
         detail: "Spent 8 hours doing sports",
-        image: require("../assets/images/badges/badge_1_4.png"),
+        image: require("../assets/images/badges/badge_1_4_shadow.png"),
         key: "4"
     },
     {
         name: "Strong-willed I",
         detail: "Did sports for 2 consecutive days",
-        image: require("../assets/images/badges/badge_1_5.png"),
+        image: require("../assets/images/badges/badge_1_5_shadow.png"),
         key: "5"
     },
     {
         name: "Growth I",
-        detail: "Reach Level 2",
-        image: require("../assets/images/badges/badge_1_6.png"),
+        detail: "Reach Level 5",
+        image: require("../assets/images/badges/badge_1_6_shadow.png"),
+        key: "6"
+    },
+]
+
+const intermediatebadges = [
+    {
+        name: "Loyalty II",
+        detail: "Did the same sports activity 20 times",
+        image: require("../assets/images/badges/badge_2_1_shadow.png"),
+        key: "1"
+    },
+    {
+        name: "Explorer II",
+        detail: "Tried 10 different sports activities",
+        image: require("../assets/images/badges/badge_2_2_shadow.png"),
+        key: "2"
+    },
+    {
+        name: "Adventurer II",
+        detail: "Went to 20 different sports venues",
+        image: require("../assets/images/badges/badge_2_3_shadow.png"),
+        key: "3"
+    },
+    {
+        name: "Adventurer II",
+        detail: "Spent 20 hours doing sports",
+        image: require("../assets/images/badges/badge_2_4_shadow.png"),
+        key: "4"
+    },
+    {
+        name: "Strong-willed II",
+        detail: "Did sports for 7 consecutive days",
+        image: require("../assets/images/badges/badge_2_5_shadow.png"),
+        key: "5"
+    },
+    {
+        name: "Growth II",
+        detail: "Reach Level 10",
+        image: require("../assets/images/badges/badge_2_6_shadow.png"),
+        key: "6"
+    },
+]
+
+const expertbadges = [
+    {
+        name: "Loyalty III",
+        detail: "Did the same sports activity 580 times",
+        image: require("../assets/images/badges/badge_3_1_shadow.png"),
+        key: "1"
+    },
+    {
+        name: "Explorer III",
+        detail: "Tried 25 different sports activities",
+        image: require("../assets/images/badges/badge_3_2_shadow.png"),
+        key: "2"
+    },
+    {
+        name: "Adventurer III",
+        detail: "Went to 50 different sports venues",
+        image: require("../assets/images/badges/badge_3_3_shadow.png"),
+        key: "3"
+    },
+    {
+        name: "Adventurer III",
+        detail: "Spent 200 hours doing sports",
+        image: require("../assets/images/badges/badge_3_4_shadow.png"),
+        key: "4"
+    },
+    {
+        name: "Strong-willed III",
+        detail: "Did sports for 20 consecutive days",
+        image: require("../assets/images/badges/badge_3_5_shadow.png"),
+        key: "5"
+    },
+    {
+        name: "Growth III",
+        detail: "Reach Level 30",
+        image: require("../assets/images/badges/badge_3_6_shadow.png"),
         key: "6"
     },
 ]
@@ -139,22 +217,55 @@ export default class Leaderboard extends Component {
                                     <Text style={styles.title}>Badges</Text>
                                     <Text style={styles.subtitle}>Beginner</Text>
                                     <View style={styles.badgeContainer}>
-                                        <FlatList />
                                         <FlatList
                                             scrollEnabled={false}
-                                            data={badges}
+                                            data={beginnerbadges}
                                             renderItem={({ item }) => (
                                                 <View style={{backgroundColor: "white"}}>
                                                 <TouchableOpacity style={styles.weeklyTaskButtonContainer}>
-                                                    <View style={globalStyles.interactiveShadow}>
-                                                        <Image source={item.image} style={styles.badge}/>
-                                                    </View>                                                    
+                                                        <Image source={item.image} style={styles.badge}/>                                                   
                                                 </TouchableOpacity>
                                                 </View>
                                             )} 
                                             numColumns={3}
                                             style={{borderRadius:10, overflow: 'hidden'}}
                                             listKey="2"
+                                        />
+                                    </View>
+
+                                    <Text style={styles.subtitle}>Intermediate</Text>
+                                    <View style={styles.badgeContainer}>
+                                        <FlatList
+                                            scrollEnabled={false}
+                                            data={intermediatebadges}
+                                            renderItem={({ item }) => (
+                                                <View style={{backgroundColor: "white"}}>
+                                                <TouchableOpacity style={styles.weeklyTaskButtonContainer}>
+                                                        <Image source={item.image} style={styles.badge}/>                                                  
+                                                </TouchableOpacity>
+                                                </View>
+                                            )} 
+                                            numColumns={3}
+                                            style={{borderRadius:10, overflow: 'hidden'}}
+                                            listKey="3"
+                                        />
+                                    </View>
+
+                                    <Text style={styles.subtitle}>Expert</Text>
+                                    <View style={styles.badgeContainer}>
+                                        <FlatList
+                                            scrollEnabled={false}
+                                            data={expertbadges}
+                                            renderItem={({ item }) => (
+                                                <View style={{backgroundColor: "white"}}>
+                                                <TouchableOpacity style={styles.weeklyTaskButtonContainer}>
+                                                        <Image source={item.image} style={styles.badge}/>                                                 
+                                                </TouchableOpacity>
+                                                </View>
+                                            )} 
+                                            numColumns={3}
+                                            style={{borderRadius:10, overflow: 'hidden'}}
+                                            listKey="4"
                                         />
                                     </View>
                                 </View>
@@ -281,16 +392,12 @@ const styles = StyleSheet.create({
         marginBottom: 31,
     },
     badge: {
-        height: 100,
-        width: 100,
-        margin: ((windowWidth-48)/3-100)/2, 
-        borderRadius: 100,
+        height: 110,
+        width: 130,
+        marginLeft: ((windowWidth-48)/3-130)/2,
+        marginRight: ((windowWidth-48)/3-130)/2,
+        marginTop: 0, 
+        marginBottom: 0,  
     },
-    badgeShadow: {
-        shadowColor: "black",
-        shadowOffset: { width: 0, height: 0 },
-        shadowOpacity: 0.5,
-        shadowRadius: 5,  
-        elevation: 5
-    }
+
 });

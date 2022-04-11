@@ -169,8 +169,8 @@ export default function App() {
 					headerShown: false,
 				}}
 			>
-				<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-				<Stack.Screen name="Main" component={Tabs} />
+				<Stack.Screen name="WelcomeScreen" component={ProfileScreen} />
+				<Stack.Screen name="Main" component={Main} />
 				<Stack.Group>
 					<Stack.Screen name="MapModalScreen" component={MapModalScreen} />
 					<Stack.Screen name="TimerScreen" component={TimerScreen} />
