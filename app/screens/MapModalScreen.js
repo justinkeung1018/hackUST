@@ -22,32 +22,16 @@ const windowWidth = Dimensions.get("window").width;
 export default class Leaderboard extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { modalVisible: true };
 	}
 
-	setModalVisible = (visible) => {
-		this.setState({ modalVisible: visible });
-	};
-
 	render() {
-		const { modalVisible } = this.state;
 		return (
 			<ImageBackground
 				source={require("../assets/images/sea-timer.jpg")}
-				// resizeMode="cover"
 				style={[styles.backgroundImage, {minHeight: windowHeight}]}
 				imageStyle={{opacity: 0.8}}
 			>
 				<View style={styles.container}>
-					<Modal
-						animationType="slide"
-						transparent={true}
-						visible={modalVisible}
-						onRequestClose={() => {
-							Alert.alert("Modal has been closed.");
-							setModalVisible(!modalVisible);
-						}}
-					>
 						<View style={styles.modalContainer}>
 							<View style={styles.modal}>
 								<View style={{ flex: 1 }} />
@@ -80,13 +64,11 @@ export default class Leaderboard extends Component {
 							</View>
 							<TouchableOpacity
 								style={styles.arrowContainer}
-								onPress={() => this.props.navigation.goBack()}
+								onPress={() => this.props.navigation.navigate("MapScreen")}
 							>
 								<Ionicons name="chevron-back-outline" style={globalStyles.arrow} />
 							</TouchableOpacity>
-							
 						</View>
-					</Modal>
 				</View>
 			</ImageBackground>
 		);
@@ -105,7 +87,7 @@ const styles = StyleSheet.create({
 		opacity: 0.5,
 	},
 	container: {
-		paddingTop: 50,
+		paddingTop: 200,
 		paddingLeft: 24,
 		paddingRight: 24,
 		flexDirection: "row",
@@ -153,7 +135,7 @@ const styles = StyleSheet.create({
 	},
 	arrowContainer: {
 		position: "absolute",
-		top: 160,
-		left: 40,
+		top: 30,
+		left: 30,
 	},
 });

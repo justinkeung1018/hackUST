@@ -173,6 +173,7 @@ export default function App() {
 				<Stack.Screen name="WelcomeScreen" component={SelectLocationScreen} />
 				<Stack.Screen name="Main" component={Main} />
 				<Stack.Group>
+					<Stack.Screen name="MapScreen" component={MapScreen} />
 					<Stack.Screen 
 						name="MapModalScreen" 
 						component={MapModalScreen} 

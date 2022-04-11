@@ -22,13 +22,16 @@ export default function SelectLocationScreen({ navigation }) {
       
     return (
         <View style={globalStyles.container}>
-            <TouchableOpacity
-            onPress={() =>
-              navigation.navigate("MapModalScreen", {place: "Testing Route"})}
-                style={styles.arrowContainer}
-            >
-                <Ionicons name="chevron-back-outline" style={globalStyles.arrow} />
-            </TouchableOpacity>
+            <View style={styles.title}>
+                <TouchableOpacity
+                onPress={() =>
+                navigation.navigate("MapModalScreen", {place: "Testing Route"})}
+                    style={styles.arrowContainer}
+                >
+                    <Ionicons name="chevron-back-outline" style={globalStyles.arrow} />
+                </TouchableOpacity>
+                <Text style={[globalFonts.heading3Bold, styles.title]}>Select a location</Text>
+            </View>
         </View>
         );
     }
@@ -39,5 +42,11 @@ export default function SelectLocationScreen({ navigation }) {
       height: windowHeight,
       width: windowWidth,
     },
-    arrowContainer: {}
+    title: {
+        flexDirection: "row",
+        alignItems: "center",
+    },
+    arrowContainer: {
+        marginRight: 15
+    },
   });
