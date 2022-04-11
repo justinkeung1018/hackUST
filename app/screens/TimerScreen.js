@@ -25,6 +25,7 @@ export default class TimerScreen extends Component {
 			isStopwatchStart: true,
 			resetStopwatch: false,
 			modalVisible: false,
+			currentTime: null,
 		};
 	}
 
@@ -37,7 +38,6 @@ export default class TimerScreen extends Component {
 		return (
 			<ImageBackground
 				source={require("../assets/images/background.png")}
-				// resizeMode="cover"
 				style={styles.backgroundImage}
 				imageStyle={{ opacity: 0.5 }}
 			>
@@ -49,6 +49,9 @@ export default class TimerScreen extends Component {
 							start={this.state.isStopwatchStart}
 							reset={this.state.resetStopwatch}
 							options={options}
+							getTime={(time) => {
+								this.currentTime = time;
+							}}
 						/>
 					</View>
 					<View style={styles.endSessionButtonContainer}>
@@ -95,7 +98,7 @@ export default class TimerScreen extends Component {
 								</View>
 								<View style={styles.bulletFlex}>
 									<Text style={styles.bulletText}>Time:</Text>
-									<Text style={styles.largeText}>1 h 50 min</Text>
+									<Text style={styles.largeText}>{this.currentTime}</Text>
 									{/* Retrieve from timer */}
 								</View>
 								<View style={styles.bulletFlex}>

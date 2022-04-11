@@ -19,56 +19,62 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
 
-export default class Leaderboard extends Component {
+export default class MapModalScreen extends Component {
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
+		// const { modalVisible } = this.state;
 		return (
 			<ImageBackground
 				source={require("../assets/images/sea-timer.jpg")}
-				style={[styles.backgroundImage, {minHeight: windowHeight}]}
-				imageStyle={{opacity: 0.8}}
+				style={[styles.backgroundImage, { minHeight: windowHeight }]}
+				imageStyle={{ opacity: 0.8 }}
 			>
 				<View style={styles.container}>
-						<View style={styles.modalContainer}>
-							<View style={styles.modal}>
-								<View style={{ flex: 1 }} />
-								<View style={styles.modalCenterContainer}>
-									<Text style={globalFonts.largeText}>You are at</Text>
-									<Text style={[globalFonts.heading2, styles.locationName]}>
-										{this.props.route.params.place}
-									</Text>
-									<TouchableOpacity
-										style={[styles.startButton, globalStyles.interactiveShadow]}
-										onPress={() => {
-											this.props.navigation.navigate("TimerScreen");
-											this.setModalVisible(!modalVisible);
-										}}
-									>
-										<Text style={globalFonts.largeText}>Start</Text>
-									</TouchableOpacity>
-								</View>
-								<View style={styles.notWhereYouAreContainer}>
-									<TouchableOpacity
-										onPress={() => this.props.navigation.navigate("SelectLocationScreen")}
-									>
-										<Text
-											style={[globalFonts.largeText, styles.notWhereYouAreText]}
-										>
-											Not where you are?
-										</Text>
-									</TouchableOpacity>
-								</View>
+					<View style={styles.modalContainer}>
+						<View style={styles.modal}>
+							<View style={{ flex: 1 }} />
+							<View style={styles.modalCenterContainer}>
+								<Text style={globalFonts.largeText}>You are at</Text>
+								<Text style={[globalFonts.heading2, styles.locationName]}>
+									{this.props.route.params.place}
+								</Text>
+								<TouchableOpacity
+									style={[styles.startButton, globalStyles.interactiveShadow]}
+									onPress={() => {
+										this.props.navigation.navigate("TimerScreen");
+										// this.setModalVisible(!modalVisible);
+									}}
+								>
+									<Text style={globalFonts.largeText}>Start</Text>
+								</TouchableOpacity>
 							</View>
-							<TouchableOpacity
-								style={styles.arrowContainer}
-								onPress={() => this.props.navigation.navigate("MapScreen")}
-							>
-								<Ionicons name="chevron-back-outline" style={globalStyles.arrow} />
-							</TouchableOpacity>
+							<View style={styles.notWhereYouAreContainer}>
+								<TouchableOpacity
+									onPress={() =>
+										this.props.navigation.navigate("SelectLocationScreen")
+									}
+								>
+									<Text
+										style={[globalFonts.largeText, styles.notWhereYouAreText]}
+									>
+										Not where you are?
+									</Text>
+								</TouchableOpacity>
+							</View>
 						</View>
+						<TouchableOpacity
+							style={styles.arrowContainer}
+							onPress={() => this.props.navigation.navigate("MapScreen")}
+						>
+							<Ionicons
+								name="chevron-back-outline"
+								style={globalStyles.arrow}
+							/>
+						</TouchableOpacity>
+					</View>
 				</View>
 			</ImageBackground>
 		);

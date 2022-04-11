@@ -98,9 +98,12 @@ export default function HomeScreen({ navigation }) {
 						value={300}
 						radius={120}
 						maxValue={500}
+						title={"till next level"}
+						titleColor={globalColors.black}
+						titleStyle={[globalFonts.largeText, { marginTop: -5 }]}
 						activeStrokeColor={globalColors.darkBlue}
 						inActiveStrokeColor={"#B7D4FD"}
-						progressValueStyle={{ color: globalColors.darkBlue }}
+						progressValueStyle={{ color: globalColors.black }}
 					/>
 				</View>
 				<TouchableOpacity
