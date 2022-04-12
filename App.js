@@ -172,7 +172,7 @@ export default function App() {
 			>
 				<Stack.Screen 
 					name="WelcomeScreen" 
-					component={SelectLocationScreen}
+					component={WelcomeScreen}
 					initialParams={{
 						place: "Ryze Hong Kong",}}					
 				/>

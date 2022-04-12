@@ -25,6 +25,8 @@ export default class Leaderboard extends Component {
 	}
 
 	render() {
+		let { place } = this.props.route.params; 
+
 		return (
 			<ImageBackground
 				source={require("../assets/images/sea-timer.jpg")}
@@ -43,8 +45,7 @@ export default class Leaderboard extends Component {
 									<TouchableOpacity
 										style={[styles.startButton, globalStyles.interactiveShadow]}
 										onPress={() => {
-											this.props.navigation.navigate("TimerScreen");
-											this.setModalVisible(!modalVisible);
+											this.props.navigation.navigate("TimerScreen", {place: place});
 										}}
 									>
 										<Text style={globalFonts.largeText}>Start</Text>
@@ -52,7 +53,7 @@ export default class Leaderboard extends Component {
 								</View>
 								<View style={styles.notWhereYouAreContainer}>
 									<TouchableOpacity
-										onPress={() => this.props.navigation.navigate("SelectLocationScreen")}
+										onPress={() => this.props.navigation.navigate("SelectLocationScreen", {place: place})}
 									>
 										<Text
 											style={[globalFonts.largeText, styles.notWhereYouAreText]}
@@ -96,7 +97,9 @@ const styles = StyleSheet.create({
 	},
 	locationName: {
 		marginTop: 20,
-		marginBottom: 20,
+		marginBottom: 30,
+		maxWidth: 300,
+		textAlign: "center"
 	},
 	modal: {
 		width: windowWidth - 48,

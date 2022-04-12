@@ -1,6 +1,6 @@
 [
-    {"name": "Hammer Hill Road Sports Ground"},
-    {"name": "Hong Kong Central Harbourfront Circuit"},
-    {"name": "Hong Kong Sports Institute"},
-    {"name": "Hong Kong Velodrome"}
+    {"name": "Hammer Hill Road Sports Ground", "key": "1"},
+    {"name": "Hong Kong Central Harbourfront Circuit", "key": "2"},
+    {"name": "Hong Kong Sports Institute", "key": "3"},
+    {"name": "Hong Kong Velodrome", "key": "4"}
 ]

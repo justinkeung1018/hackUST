@@ -34,7 +34,7 @@ export default class MapScreen extends Component {
 
 	render() {
 		return (
-			<View style={styles.container}>
+			<View style={{minHeight: "100%", flex: 1}}>
 				<MapView
 					style={styles.map}
 					showsUserLocation={true}
@@ -44,7 +44,7 @@ export default class MapScreen extends Component {
 				></MapView>
 				<TouchableOpacity
 					style={styles.arrowContainer}
-					onPress={() => this.props.navigation.goBack()}
+					onPress={() => this.props.navigation.navigate("HomeScreen")}
 				>
 					<Ionicons name="chevron-back-outline" style={globalStyles.arrow} />
 				</TouchableOpacity>

@@ -33,10 +33,11 @@ export default class TimerScreen extends Component {
 	};
 
 	render() {
+		let { place } = this.props.route.params; 
 		const { modalVisible } = this.state;
 		return (
 			<ImageBackground
-				source={require("../assets/images/background.png")}
+				source={require("../assets/images/sea-timer.jpg")}
 				// resizeMode="cover"
 				style={styles.backgroundImage}
 				imageStyle={{ opacity: 0.5 }}
@@ -85,7 +86,7 @@ export default class TimerScreen extends Component {
 								</Text>
 								<View style={styles.bulletFlex}>
 									<Text style={styles.bulletText}>Location:</Text>
-									<Text style={styles.largeText}>Ryze Hong Kong</Text>
+									<Text style={styles.largeText}>{place}</Text>
 									{/* Retrieve from database */}
 								</View>
 								<View style={styles.bulletFlex}>
@@ -108,7 +109,7 @@ export default class TimerScreen extends Component {
 								<TouchableOpacity
 									onPress={() => {
 										this.setModalVisible(!modalVisible);
-										this.props.navigation.navigate("HomeScreen");
+										this.props.navigation.navigate("Main");
 									}}
 									style={styles.doneButton}
 								>
@@ -128,6 +129,7 @@ const styles = StyleSheet.create({
 		height: windowHeight,
 		width: windowWidth,
 		backgroundColor: "rgba(0,0,0,0.9)",
+		flex: 1,
 	},
 	bulletFlex: {
 		width: "100%",
