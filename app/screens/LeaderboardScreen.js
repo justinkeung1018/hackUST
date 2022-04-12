@@ -25,24 +25,24 @@ export default class Leaderboard extends Component {
 
 	render() {
 		const allTimeData = [
-			// {
-			//   name: "Anson Lo",
-			//   score: 791000,
-			//   image: require("../assets/images/avatars/ansonlo.jpg"),
-			//   key: "1",
-			// },
-			// {
-			//   name: "Keung To",
-			//   score: 791000,
-			//   image: require("../assets/images/avatars/keungto.jpg"),
-			//   key: "2",
-			// },
-			// {
-			//   name: "Edan Lui",
-			//   score: 580000,
-			//   image: require("../assets/images/avatars/edanlui.jpg"),
-			//   key: "3",
-			// },
+			{
+				name: "Anson Lo",
+				score: 791000,
+				image: require("../assets/images/avatars/ansonlo.jpg"),
+				key: "1",
+			},
+			{
+				name: "Edan Lui",
+				score: 600000,
+				image: require("../assets/images/avatars/edanlui.jpg"),
+				key: "2",
+			},
+			{
+				name: "Keung To",
+				score: 580000,
+				image: require("../assets/images/avatars/keungto.jpg"),
+				key: "3",
+			},
 			{
 				name: "Jeremy Lee",
 				score: 447000,
@@ -122,6 +122,212 @@ export default class Leaderboard extends Component {
 				key: "16",
 			},
 		];
+
+		const thisWeekData = [
+			{
+				name: "Anson Lo",
+				score: 1200,
+				image: require("../assets/images/avatars/ansonlo.jpg"),
+				key: "1",
+			},
+			{
+				name: "Keung To",
+				score: 1000,
+				image: require("../assets/images/avatars/keungto.jpg"),
+				key: "2",
+			},
+			{
+				name: "Fatboy",
+				score: 800,
+				image: require("../assets/images/avatars/fatboy.jpg"),
+				key: "3",
+			},
+			{
+				name: "Jeremy Lee",
+				score: 400,
+				image: require("../assets/images/avatars/jeremylee.jpg"),
+				key: "4",
+			},
+			{
+				name: "Jer Lau",
+				score: 0,
+				image: require("../assets/images/avatars/jerlau.jpg"),
+				key: "5",
+			},
+			{
+				name: "Ian Chan",
+				score: 0,
+				image: require("../assets/images/avatars/ianchan.jpg"),
+				key: "6",
+			},
+			{
+				name: "Stanley Yau",
+				score: 0,
+				image: require("../assets/images/avatars/stanleyyau.jpg"),
+				key: "7",
+			},
+			{
+				name: "Anson Kong",
+				score: 0,
+				image: require("../assets/images/avatars/ansonkong.jpg"),
+				key: "8",
+			},
+			{
+				name: "Frankie Chan",
+				score: 0,
+				image: require("../assets/images/avatars/frankiechan.jpg"),
+				key: "9",
+			},
+			{
+				name: "Lokman Yeung",
+				score: 0,
+				image: require("../assets/images/avatars/lokmanyeung.jpg"),
+				key: "10",
+			},
+			{
+				name: "Alton Wong",
+				score: 0,
+				image: require("../assets/images/avatars/altonwong.jpg"),
+				key: "11",
+			},
+			{
+				name: "Tiger Yau",
+				score: 0,
+				image: require("../assets/images/avatars/tigeryau.jpg"),
+				key: "12",
+			},
+			{
+				name: "Keung To",
+				score: 0,
+				image: require("../assets/images/avatars/keungto.jpg"),
+				key: "13",
+			},
+			{
+				name: "Denis Kwok",
+				score: 0,
+				image: require("../assets/images/avatars/193.jpg"),
+				key: "14",
+			},
+			{
+				name: "Deegor",
+				score: 0,
+				image: require("../assets/images/avatars/deegor.jpg"),
+				key: "15",
+			},
+			{
+				name: "Poki",
+				score: 0,
+				image: require("../assets/images/avatars/poki.jpg"),
+				key: "16",
+			},
+		];
+
+		const thisMonthData = [
+			{
+				name: "Anson Lo",
+				score: 1200,
+				image: require("../assets/images/avatars/ansonlo.jpg"),
+				key: "1",
+			},
+			{
+				name: "Keung To",
+				score: 1000,
+				image: require("../assets/images/avatars/keungto.jpg"),
+				key: "2",
+			},
+			{
+				name: "Fatboy",
+				score: 800,
+				image: require("../assets/images/avatars/fatboy.jpg"),
+				key: "3",
+			},
+			{
+				name: "Jeremy Lee",
+				score: 400,
+				image: require("../assets/images/avatars/jeremylee.jpg"),
+				key: "4",
+			},
+			{
+				name: "Jer Lau",
+				score: 0,
+				image: require("../assets/images/avatars/jerlau.jpg"),
+				key: "5",
+			},
+			{
+				name: "Ian Chan",
+				score: 0,
+				image: require("../assets/images/avatars/ianchan.jpg"),
+				key: "6",
+			},
+			{
+				name: "Stanley Yau",
+				score: 0,
+				image: require("../assets/images/avatars/stanleyyau.jpg"),
+				key: "7",
+			},
+			{
+				name: "Anson Kong",
+				score: 0,
+				image: require("../assets/images/avatars/ansonkong.jpg"),
+				key: "8",
+			},
+			{
+				name: "Frankie Chan",
+				score: 0,
+				image: require("../assets/images/avatars/frankiechan.jpg"),
+				key: "9",
+			},
+			{
+				name: "Lokman Yeung",
+				score: 0,
+				image: require("../assets/images/avatars/lokmanyeung.jpg"),
+				key: "10",
+			},
+			{
+				name: "Alton Wong",
+				score: 0,
+				image: require("../assets/images/avatars/altonwong.jpg"),
+				key: "11",
+			},
+			{
+				name: "Tiger Yau",
+				score: 0,
+				image: require("../assets/images/avatars/tigeryau.jpg"),
+				key: "12",
+			},
+			{
+				name: "Keung To",
+				score: 0,
+				image: require("../assets/images/avatars/keungto.jpg"),
+				key: "13",
+			},
+			{
+				name: "Denis Kwok",
+				score: 0,
+				image: require("../assets/images/avatars/193.jpg"),
+				key: "14",
+			},
+			{
+				name: "Deegor",
+				score: 0,
+				image: require("../assets/images/avatars/deegor.jpg"),
+				key: "15",
+			},
+			{
+				name: "Poki",
+				score: 0,
+				image: require("../assets/images/avatars/poki.jpg"),
+				key: "16",
+			},
+		];
+
+		let data = this.state.allTimePressed
+			? allTimeData
+			: this.state.thisWeekPressed
+			? thisWeekData
+			: this.state.thisMonthPressed
+			? thisMonthData
+			: undefined;
 
 		return (
 			<View>
@@ -245,24 +451,42 @@ export default class Leaderboard extends Component {
 										<View style={styles.podiumImageShadow}>
 											<Image
 												style={styles.podiumSilverImage}
-												source={require("../assets/images/avatars/edanlui.jpg")}
+												source={data[1].image}
 											/>
+										</View>
+										<View style={styles.podiumSilverText}>
+											<Text>{data[1].name}</Text>
+											<Text style={[styles.scoreText, globalFonts.text]}>
+												{data[1].score}
+											</Text>
 										</View>
 									</View>
 									<View style={styles.podiumGold}>
 										<View style={styles.podiumImageShadow}>
 											<Image
 												style={styles.podiumGoldImage}
-												source={require("../assets/images/avatars/ansonlo.jpg")}
+												source={data[0].image}
 											/>
+										</View>
+										<View style={styles.podiumGoldText}>
+											<Text>{data[0].name}</Text>
+											<Text style={[styles.scoreText, globalFonts.text]}>
+												{data[0].score}
+											</Text>
 										</View>
 									</View>
 									<View style={styles.podiumBronze}>
 										<View style={styles.podiumImageShadow}>
 											<Image
 												style={styles.podiumBronzeImage}
-												source={require("../assets/images/avatars/keungto.jpg")}
+												source={data[2].image}
 											/>
+										</View>
+										<View style={styles.podiumBronzeText}>
+											<Text>{data[2].name}</Text>
+											<Text style={[styles.scoreText, globalFonts.text]}>
+												{data[2].score}
+											</Text>
 										</View>
 									</View>
 								</View>
@@ -270,9 +494,9 @@ export default class Leaderboard extends Component {
 							<View style={globalStyles.section}></View>
 						</View>
 					}
-					data={allTimeData}
+					data={data.slice(3)}
 					renderItem={({ item }) => (
-						<View style={{paddingLeft: 24, paddingRight: 24}}>
+						<View style={{ paddingLeft: 24, paddingRight: 24 }}>
 							<View style={styles.card}>
 								<View style={styles.cardContent}>
 									<View style={styles.cardContentLeft}>
@@ -373,6 +597,9 @@ const styles = StyleSheet.create({
 	emptyFlexContainer: {
 		flex: 1,
 	},
+	emptyPodiumText: {
+		height: 20,
+	},
 	cardScore: {
 		flex: 1,
 		alignItems: "flex-end",
@@ -397,6 +624,13 @@ const styles = StyleSheet.create({
 		borderColor: "#CD7F32",
 		borderWidth: 3,
 	},
+	podiumBronzeText: {
+		width: "100%",
+		height: "100%",
+		flexDirection: "column",
+		alignItems: "center",
+		marginTop: 45,
+	},
 	podiumFlex: {
 		flexDirection: "row",
 		justifyContent: "center",
@@ -419,6 +653,13 @@ const styles = StyleSheet.create({
 		borderColor: "#fcbe06",
 		borderWidth: 3,
 	},
+	podiumGoldText: {
+		width: "100%",
+		height: "100%",
+		flexDirection: "column",
+		alignItems: "center",
+		marginTop: 70,
+	},
 	podiumImageShadow: {
 		shadowColor: "#000",
 		shadowOffset: { width: 0, height: 2 },
@@ -428,7 +669,7 @@ const styles = StyleSheet.create({
 	podiumSilver: {
 		width: 80,
 		height: 103,
-		backgroundColor: "#c4c4c4",
+		backgroundColor: globalColors.lightGray,
 	},
 	podiumSilverImage: {
 		position: "absolute",
@@ -438,6 +679,16 @@ const styles = StyleSheet.create({
 		borderRadius: 100,
 		borderColor: "#767676",
 		borderWidth: 3,
+	},
+	podiumSilverText: {
+		width: "100%",
+		height: "100%",
+		flexDirection: "column",
+		alignItems: "center",
+		marginTop: 45,
+	},
+	scoreText: {
+		color: globalColors.darkGray,
 	},
 	titleContainer: {
 		flex: 4,
