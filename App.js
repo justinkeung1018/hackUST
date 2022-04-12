@@ -22,7 +22,7 @@ import MapScreen from "./app/screens/MapScreen";
 import MapModalScreen from "./app/screens/MapModalScreen";
 import SelectLocationScreen from "./app/screens/SelectLocationScreen";
 import TimerScreen from "./app/screens/TimerScreen";
-import * as Location from "expo-location";
+import PhotoScreenRyze from "./app/screens/PhotoScreenRyze";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -57,6 +57,20 @@ function Home() {
 					hour: "Any",
 				}}
 			/>
+			<Stack.Screen
+				name="ResultsScreen"
+				component={ResultsScreen}
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+			/>
+			<Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
+			<Stack.Screen name="PhotoScreenRyze" component={PhotoScreenRyze} />
 			<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
 			<Stack.Screen name="ProfileScreen" component={ProfileScreen} />
 			<Stack.Screen name="MapScreen" component={MapScreen} />

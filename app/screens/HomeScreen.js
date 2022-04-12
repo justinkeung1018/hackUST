@@ -22,21 +22,21 @@ export default function HomeScreen({ navigation }) {
 			activity: "Trampoline",
 			benefits: "Circulation, bone health",
 			image: require("../assets/images/sports-categories/trampoline.jpg"),
-			details: "./DetailsScreenRyze",
+			details: "ResultsScreen",
 			key: "1",
 		},
 		{
 			activity: "Weight lifting",
 			benefits: "Bone health",
 			image: require("../assets/images/sports-categories/weight-lifting.jpg"),
-			details: "./DetailsScreenRyze",
+			details: "DetailsScreenRyze",
 			key: "2",
 		},
 		{
 			activity: "Swimming",
 			benefits: "Circulation",
 			image: require("../assets/images/sports-categories/swimming.jpg"),
-			details: "./DetailsScreenRyze",
+			details: "DetailsScreenRyze",
 			key: "3",
 		},
 	]);
@@ -46,21 +46,21 @@ export default function HomeScreen({ navigation }) {
 			activity: "Badminton",
 			benefits: "Bone health",
 			image: require("../assets/images/sports-categories/badminton.jpg"),
-			details: "./DetailsScreenRyze",
+			details: "DetailsScreenRyze",
 			key: "1",
 		},
 		{
 			activity: "Table tennis",
 			benefits: "Bone health",
 			image: require("../assets/images/sports-categories/table-tennis.jpg"),
-			details: "./DetailsScreenRyze",
+			details: "DetailsScreenRyze",
 			key: "2",
 		},
 		{
 			activity: "Tennis",
 			benefits: "Circulation",
 			image: require("../assets/images/sports-categories/tennis.jpg"),
-			details: "./DetailsScreenRyze",
+			details: "DetailsScreenRyze",
 			key: "3",
 		},
 	]);
@@ -122,7 +122,10 @@ export default function HomeScreen({ navigation }) {
 					showsHorizontalScrollIndicator={false}
 					data={activityYouMightLike}
 					renderItem={({ item }) => (
-						<TouchableOpacity style={styles.card}>
+						<TouchableOpacity
+							style={styles.card}
+							onPress={() => navigation.navigate(item.details)}
+						>
 							<Image source={item.image} style={styles.cardImage} />
 							<Text style={styles.cardActivityText}>{item.activity}</Text>
 							<Text style={styles.cardBenefitsText}>{item.benefits}</Text>
@@ -139,7 +142,10 @@ export default function HomeScreen({ navigation }) {
 					showsHorizontalScrollIndicator={false}
 					data={activityMoreToDiscover}
 					renderItem={({ item }) => (
-						<TouchableOpacity style={styles.card}>
+						<TouchableOpacity
+							style={styles.card}
+							onPress={() => navigation.navigate(item.details)}
+						>
 							<Image source={item.image} style={styles.cardImage} />
 							<Text style={styles.cardActivityText}>{item.activity}</Text>
 							<Text style={styles.cardBenefitsText}>{item.benefits}</Text>
