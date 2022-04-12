@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 	},
 	info: {
-		color: globalColors.gray,
+		color: globalColors.black,
 	},
 	name: {
 		fontFamily: "SF-Pro-Text-Bold",
