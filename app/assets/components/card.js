@@ -31,6 +31,8 @@ const styles = StyleSheet.create({
 		marginBottom: 20,
 		backgroundColor: globalColors.white,
 		borderRadius: 10,
+		borderWidth: 1,
+		borderColor: globalColors.gray
 	},
 	cardContent: {
 		padding: 15,

@@ -26,7 +26,7 @@ export default class PhotoScreenRyze extends Component {
 					<View style={styles.titleBar}>
 						<View style={styles.results}>
 							<TouchableOpacity
-								onPress={() => this.props.navigation.goBack()}
+								onPress={() => this.props.navigation.navigate("DetailsScreenRyze")}
 								style={styles.arrowContainer}
 							>
 								<Ionicons name="chevron-back-outline" style={styles.arrow} />

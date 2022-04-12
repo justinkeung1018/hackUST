@@ -79,8 +79,8 @@ export default class MapModalScreen extends Component {
 							/>
 						</TouchableOpacity>
 				</View>
-
-			</ImageBackground>
+			</View>
+		</ImageBackground>
 		);
 	}
 }

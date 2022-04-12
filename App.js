@@ -82,8 +82,6 @@ function Home() {
 					hour: "Any",
 				}}
 			/>
-			<Stack.Screen name="PhotoScreenRyze" component={PhotoScreenRyze} />
-			<Stack.Screen name="ReviewScreenRyze" component={ReviewScreenRyze} />
 			<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
 			<Stack.Screen name="ProfileScreen" component={ProfileScreen} />
 			<Stack.Screen name="MapScreen" component={MapScreen} />
@@ -114,15 +112,100 @@ function Filter() {
 			<Stack.Screen
 				name="FilterLocationScreen"
 				component={FilterLocationScreen}
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+				
 			/>
 			<Stack.Screen
 				name="FilterActivityScreen"
 				component={FilterActivityScreen}
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
 			/>
-			<Stack.Screen name="FilterPriceScreen" component={FilterPriceScreen} />
-			<Stack.Screen name="FilterTimeScreen" component={FilterTimeScreen} />
-			<Stack.Screen name="ResultsScreen" component={ResultsScreen} />
-			<Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
+			<Stack.Screen 
+				name="FilterPriceScreen" 
+				component={FilterPriceScreen} 
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+			/>
+			<Stack.Screen 
+				name="FilterTimeScreen" 
+				component={FilterTimeScreen} 
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+			/>
+			<Stack.Screen 
+				name="ResultsScreen" 
+				component={ResultsScreen} 
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+			/>
+			<Stack.Screen 
+				name="DetailsScreenRyze" 
+				component={DetailsScreenRyze} 
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+			/>
+			<Stack.Screen 
+				name="PhotoScreenRyze" 
+				component={PhotoScreenRyze} 
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+			/>
+			<Stack.Screen 
+				name="ReviewScreenRyze" 
+				component={ReviewScreenRyze} 
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+			/>
 		</Stack.Navigator>
 	);
 }

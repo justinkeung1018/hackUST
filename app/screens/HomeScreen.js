@@ -27,7 +27,7 @@ export default function HomeScreen({ navigation }) {
 		},
 		{
 			activity: "Weight lifting",
-			benefits: "Bone health",
+			benefits: "Muscle strength",
 			image: require("../assets/images/sports-categories/weight-lifting.jpg"),
 			details: "DetailsScreenRyze",
 			key: "2",
@@ -44,21 +44,21 @@ export default function HomeScreen({ navigation }) {
 	const [activityMoreToDiscover, setActivityMoreToDiscover] = useState([
 		{
 			activity: "Badminton",
-			benefits: "Bone health",
+			benefits: "Mobility, coordination",
 			image: require("../assets/images/sports-categories/badminton.jpg"),
 			details: "DetailsScreenRyze",
 			key: "1",
 		},
 		{
 			activity: "Table tennis",
-			benefits: "Bone health",
+			benefits: "Mobility, coordination",
 			image: require("../assets/images/sports-categories/table-tennis.jpg"),
 			details: "DetailsScreenRyze",
 			key: "2",
 		},
 		{
 			activity: "Tennis",
-			benefits: "Circulation",
+			benefits: "Mobility, coordination",
 			image: require("../assets/images/sports-categories/tennis.jpg"),
 			details: "DetailsScreenRyze",
 			key: "3",

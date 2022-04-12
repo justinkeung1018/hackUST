@@ -95,13 +95,20 @@ export default function ResultsScreen({ route, navigation }) {
 		<View
 			style={[
 				globalStyles.container,
-				{ minHeight: "100%", backgroundColor: globalColors.lightGray },
+				{ minHeight: "100%", backgroundColor: globalColors.white },
 			]}
 		>
 			<View style={styles.titleBar}>
 				<View style={styles.results}>
 					<TouchableOpacity
-						onPress={() => navigation.goBack()}
+						onPress={() => navigation.navigate("FilterScreen", {
+							location: location,
+							activity: activity,
+							price: price,
+							time: time,
+							day: day,
+							hour: hour,
+						})}
 						style={styles.arrowContainer}
 					>
 						<Ionicons name="chevron-back-outline" style={styles.arrow} />

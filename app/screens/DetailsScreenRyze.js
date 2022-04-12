@@ -37,7 +37,7 @@ export default class DetailsScreenRyze extends Component {
 				<View style={styles.navBar}>
 					<TouchableOpacity
 						onPress={() =>
-							this.props.navigation.goBack({
+							this.props.navigation.navigate("ResultsScreen", {
 								location: location,
 								activity: activity,
 								price: price,
