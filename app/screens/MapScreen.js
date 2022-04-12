@@ -3,11 +3,7 @@ import {
 	Text,
 	View,
 	StyleSheet,
-	FlatList,
 	TouchableOpacity,
-	Image,
-	Permissions,
-	Modal,
 	Dimensions,
 } from "react-native";
 import { globalFonts } from "../assets/globalFonts";
@@ -78,7 +74,7 @@ const styles = StyleSheet.create({
 	},
 	initialButton: {
 		position: "absolute",
-		bottom: 80,
+		bottom: 120,
 		backgroundColor: globalColors.black,
 		opacity: 0.5,
 		width: windowWidth - 48,

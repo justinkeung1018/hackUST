@@ -19,7 +19,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
 
-export default class Leaderboard extends Component {
+export default class MapModalScreen extends Component {
 	constructor(props) {
 		super(props);
 	}
@@ -30,8 +30,8 @@ export default class Leaderboard extends Component {
 		return (
 			<ImageBackground
 				source={require("../assets/images/sea-timer.jpg")}
-				style={[styles.backgroundImage, {minHeight: windowHeight}]}
-				imageStyle={{opacity: 0.8}}
+				style={[styles.backgroundImage, { minHeight: windowHeight }]}
+				imageStyle={{ opacity: 0.8 }}
 			>
 				<View style={styles.container}>
 						<View style={styles.modalContainer}>
@@ -63,13 +63,17 @@ export default class Leaderboard extends Component {
 									</TouchableOpacity>
 								</View>
 							</View>
-							<TouchableOpacity
-								style={styles.arrowContainer}
-								onPress={() => this.props.navigation.navigate("MapScreen")}
-							>
-								<Ionicons name="chevron-back-outline" style={globalStyles.arrow} />
-							</TouchableOpacity>
 						</View>
+						<TouchableOpacity
+							style={styles.arrowContainer}
+							onPress={() => this.props.navigation.navigate("MapScreen")}
+						>
+							<Ionicons
+								name="chevron-back-outline"
+								style={globalStyles.arrow}
+							/>
+						</TouchableOpacity>
+					</View>
 				</View>
 			</ImageBackground>
 		);

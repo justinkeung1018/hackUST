@@ -22,7 +22,8 @@ import MapScreen from "./app/screens/MapScreen";
 import MapModalScreen from "./app/screens/MapModalScreen";
 import SelectLocationScreen from "./app/screens/SelectLocationScreen";
 import TimerScreen from "./app/screens/TimerScreen";
-import * as Location from "expo-location";
+import PhotoScreenRyze from "./app/screens/PhotoScreenRyze";
+import ReviewScreenRyze from "./app/screens/ReviewScreenRyze";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -57,6 +58,21 @@ function Home() {
 					hour: "Any",
 				}}
 			/>
+			<Stack.Screen
+				name="ResultsScreen"
+				component={ResultsScreen}
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+			/>
+			<Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
+			<Stack.Screen name="PhotoScreenRyze" component={PhotoScreenRyze} />
+			<Stack.Screen name="ReviewScreenRyze" component={ReviewScreenRyze} />
 			<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
 			<Stack.Screen name="ProfileScreen" component={ProfileScreen} />
 			<Stack.Screen name="MapScreen" component={MapScreen} />
@@ -101,45 +117,45 @@ function Filter() {
 }
 
 function Main() {
-  return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-          if (route.name === "Home") {
-            iconName = focused ? "home" : "home-outline";
-          } else if (route.name === "Settings") {
-            iconName = focused ? "list" : "list-outline";
-          } else if (route.name === "Favorites") {
-            iconName = focused ? "heart" : "heart-outline";
-          } else if (route.name === "Search") {
-            iconName = focused ? "search" : "search-outline";
-          }
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-        tabBarActiveTintColor: globalColors.darkBlue,
-        tabBarInactiveTintColor: globalColors.darkGray,
-        headerShown: false,
-      })}
-      style={styles.navBar}
-    >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Search" component={Filter} />
-      <Tab.Screen 
-        name="Favorites" 
-        component={FavoriteScreen} 
-        initialParams={{
-          location: "Any",
-          activity: "Any",
-          price: "Any",
-          time: "Any",
-          day: "Any",
-          hour: "Any",
-        }}
-        />
-      <Tab.Screen name="Settings" component={SettingScreen} />
-    </Tab.Navigator>
-  );
+	return (
+		<Tab.Navigator
+			screenOptions={({ route }) => ({
+				tabBarIcon: ({ focused, color, size }) => {
+					let iconName;
+					if (route.name === "Home") {
+						iconName = focused ? "home" : "home-outline";
+					} else if (route.name === "Settings") {
+						iconName = focused ? "list" : "list-outline";
+					} else if (route.name === "Favorites") {
+						iconName = focused ? "heart" : "heart-outline";
+					} else if (route.name === "Search") {
+						iconName = focused ? "search" : "search-outline";
+					}
+					return <Ionicons name={iconName} size={size} color={color} />;
+				},
+				tabBarActiveTintColor: globalColors.darkBlue,
+				tabBarInactiveTintColor: globalColors.darkGray,
+				headerShown: false,
+			})}
+			style={styles.navBar}
+		>
+			<Tab.Screen name="Home" component={Home} />
+			<Tab.Screen name="Search" component={Filter} />
+			<Tab.Screen
+				name="Favorites"
+				component={FavoriteScreen}
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+			/>
+			<Tab.Screen name="Settings" component={SettingScreen} />
+		</Tab.Navigator>
+	);
 }
 
 export default function App() {
@@ -178,19 +194,17 @@ export default function App() {
 				/>
 				<Stack.Screen name="Main" component={Main} />
 				<Stack.Group>
-					<Stack.Screen name="MapScreen" component={MapScreen} />
-					<Stack.Screen 
-						name="MapModalScreen" 
-						component={MapModalScreen} 
+					<Stack.Screen
+						name="MapModalScreen"
+						component={MapModalScreen}
 						initialParams={{
-          					place: "Ryze Hong Kong",}}
-						/>
-					<Stack.Screen 
-						name="SelectLocationScreen" 
-						component={SelectLocationScreen} 
-						initialParams={{
-							place: "Ryze Hong Kong",}}						
-						/>
+							place: "Ryze Hong Kong",
+						}}
+					/>
+					<Stack.Screen
+						name="SelectLocationScreen"
+						component={SelectLocationScreen}
+					/>
 					<Stack.Screen name="TimerScreen" component={TimerScreen} />
 				</Stack.Group>
 			</Stack.Navigator>
