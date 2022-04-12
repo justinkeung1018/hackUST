@@ -7,11 +7,13 @@ import {
 	Text,
 	TouchableOpacity,
 	ScrollView,
+	RecyclerViewBackedScrollViewBase,
 } from "react-native";
 import { globalColors } from "../assets/globalColors";
 import { globalFonts } from "../assets/globalFonts";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { photos, reviews } from "./DetailsRyze";
+import ReviewCard from "../assets/components/reviewCard";
 import { globalStyles } from "../assets/globalStyles";
 
 export default class DetailsScreenRyze extends Component {
@@ -185,6 +187,18 @@ export default class DetailsScreenRyze extends Component {
 								</Text>
 							</TouchableOpacity>
 						</View>
+						<View style={styles.reviewCardAndButtonFlex}>
+							<View style={styles.reviewCardContainer}>
+								<ReviewCard info={reviews[0]} />
+							</View>
+							<TouchableOpacity
+								onPress={() =>
+									this.props.navigation.navigate("ReviewScreenRyze")
+								}
+							>
+								<Text>Show all 99 reviews</Text>
+							</TouchableOpacity>
+						</View>
 					</View>
 				</View>
 			</ScrollView>
@@ -300,6 +314,13 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 		alignItems: "center",
 		marginTop: 10,
+	},
+	reviewCardAndButtonFlex: {
+		flexDirection: "column",
+		alignItems: "center",
+	},
+	reviewCardContainer: {
+		marginTop: 20,
 	},
 	sectionHeading: {
 		justifyContent: "space-between",

@@ -23,6 +23,7 @@ import MapModalScreen from "./app/screens/MapModalScreen";
 import SelectLocationScreen from "./app/screens/SelectLocationScreen";
 import TimerScreen from "./app/screens/TimerScreen";
 import PhotoScreenRyze from "./app/screens/PhotoScreenRyze";
+import ReviewScreenRyze from "./app/screens/ReviewScreenRyze";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -71,6 +72,7 @@ function Home() {
 			/>
 			<Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
 			<Stack.Screen name="PhotoScreenRyze" component={PhotoScreenRyze} />
+			<Stack.Screen name="ReviewScreenRyze" component={ReviewScreenRyze} />
 			<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
 			<Stack.Screen name="ProfileScreen" component={ProfileScreen} />
 			<Stack.Screen name="MapScreen" component={MapScreen} />
