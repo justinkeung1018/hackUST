@@ -63,8 +63,8 @@ export default class SelectLocationScreen extends Component {
 
             <View style={styles.locationList}>
                     <FlatList
-                    scrollEnabled={false}
                     data={this.state.locationsFiltered}
+                    ListFooterComponent={<View style={{height: 150}}/>}
                     renderItem={({ item }) => (
                     <View>
                         <TouchableOpacity

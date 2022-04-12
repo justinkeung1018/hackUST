@@ -1,6 +1,15 @@
 [
-    {"name": "Hammer Hill Road Sports Ground", "key": "1"},
-    {"name": "Hong Kong Central Harbourfront Circuit", "key": "2"},
-    {"name": "Hong Kong Sports Institute", "key": "3"},
-    {"name": "Hong Kong Velodrome", "key": "4"}
+    {"name": "Ryze Hong Kong", "key": "1"},
+    {"name": "Bounce Inc", "key": "2"},
+    {"name": "Verm City", "key": "3"},
+    {"name": "Just Climb", "key": "4"},
+    {"name": "Attic V", "key": "5"},
+    {"name": "Hong Kong Climbing Park", "key": "6"},
+    {"name": "Go Nature", "key": "7"},
+    {"name": "The Player Climbing Gym", "key": "8"},
+    {"name": "Ice Rink (Elements Mall)", "key": "9"},
+    {"name": "Combo", "key": "10"},
+    {"name": "The Player Climbingym", "key": "11"},
+    {"name": "DB Ice Rink", "key": "12"},
+    {"name": "Glacier Ice Skating Rink", "key": "13"},
 ]
