@@ -34,7 +34,7 @@ export default class TimerScreen extends Component {
 	};
 
 	render() {
-		let { place } = this.props.route.params; 
+		let { place } = this.props.route.params;
 		const { modalVisible } = this.state;
 		return (
 			<ImageBackground
@@ -113,7 +113,9 @@ export default class TimerScreen extends Component {
 								<TouchableOpacity
 									onPress={() => {
 										this.setModalVisible(!modalVisible);
-										this.props.navigation.navigate("Main");
+										this.props.navigation.navigate("HomeScreen", {
+											points: 50,
+										});
 									}}
 									style={styles.doneButton}
 								>

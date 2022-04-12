@@ -30,7 +30,7 @@ export default class MapScreen extends Component {
 
 	render() {
 		return (
-			<View style={{minHeight: "100%", flex: 1}}>
+			<View style={{ minHeight: "100%", flex: 1 }}>
 				<MapView
 					style={styles.map}
 					showsUserLocation={true}
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
 	},
 	initialButton: {
 		position: "absolute",
-		bottom: 120,
+		bottom: 50,
 		backgroundColor: globalColors.darkGray,
 		opacity: 0.7,
 		width: windowWidth - 48,
@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
 		marginLeft: 24,
 		marginRight: 24,
 		borderRadius: 10,
-
 	},
 	initialButtonText: {
 		color: globalColors.white,

@@ -26,10 +26,13 @@ export default class PhotoScreenRyze extends Component {
 					<View style={styles.titleBar}>
 						<View style={styles.results}>
 							<TouchableOpacity
-								onPress={() => this.props.navigation.navigate("DetailsScreenRyze")}
+								onPress={() => this.props.navigation.goBack()}
 								style={styles.arrowContainer}
 							>
-								<Ionicons name="chevron-back-outline" style={styles.arrow} />
+								<Ionicons
+									name="chevron-back-outline"
+									style={globalStyles.arrow}
+								/>
 							</TouchableOpacity>
 							<Text style={[globalFonts.heading3Bold, styles.title]}>
 								{photos.length} photos
@@ -49,9 +52,6 @@ export default class PhotoScreenRyze extends Component {
 }
 
 const styles = StyleSheet.create({
-	arrow: {
-		fontSize: 32,
-	},
 	arrowContainer: {
 		alignItems: "center",
 		justifyContent: "center",

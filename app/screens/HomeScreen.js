@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import {
 	View,
 	Text,
@@ -14,162 +14,176 @@ import { globalColors } from "../assets/globalColors";
 import { globalStyles } from "../assets/globalStyles";
 import CircularProgress from "react-native-circular-progress-indicator";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { NavigationContainer } from "@react-navigation/native";
 
-export default function HomeScreen({ navigation }) {
-	const [activityYouMightLike, setActivityYouMightLike] = useState([
-		{
-			activity: "Trampoline",
-			benefits: "Circulation, bone health",
-			image: require("../assets/images/sports-categories/trampoline.jpg"),
-			details: "ResultsScreen",
-			key: "1",
-		},
-		{
-			activity: "Weight lifting",
-			benefits: "Muscle strength",
-			image: require("../assets/images/sports-categories/weight-lifting.jpg"),
-			details: "DetailsScreenRyze",
-			key: "2",
-		},
-		{
-			activity: "Swimming",
-			benefits: "Circulation",
-			image: require("../assets/images/sports-categories/swimming.jpg"),
-			details: "DetailsScreenRyze",
-			key: "3",
-		},
-	]);
+export default class HomeScreen extends Component {
+	constructor(props) {
+		super(props);
+	}
 
-	const [activityMoreToDiscover, setActivityMoreToDiscover] = useState([
-		{
-			activity: "Badminton",
-			benefits: "Mobility, coordination",
-			image: require("../assets/images/sports-categories/badminton.jpg"),
-			details: "DetailsScreenRyze",
-			key: "1",
-		},
-		{
-			activity: "Table tennis",
-			benefits: "Mobility, coordination",
-			image: require("../assets/images/sports-categories/table-tennis.jpg"),
-			details: "DetailsScreenRyze",
-			key: "2",
-		},
-		{
-			activity: "Tennis",
-			benefits: "Mobility, coordination",
-			image: require("../assets/images/sports-categories/tennis.jpg"),
-			details: "DetailsScreenRyze",
-			key: "3",
-		},
-	]);
+	render() {
+		let { points } = this.props.route.params;
+		const activityYouMightLike = [
+			{
+				activity: "Trampoline",
+				benefits: "Circulation, bone health",
+				image: require("../assets/images/sports-categories/trampoline.jpg"),
+				details: "ResultsScreen",
+				key: "1",
+			},
+			{
+				activity: "Weight lifting",
+				benefits: "Muscle strength",
+				image: require("../assets/images/sports-categories/weight-lifting.jpg"),
+				details: "DetailsScreenRyze",
+				key: "2",
+			},
+			{
+				activity: "Swimming",
+				benefits: "Circulation",
+				image: require("../assets/images/sports-categories/swimming.jpg"),
+				details: "DetailsScreenRyze",
+				key: "3",
+			},
+		];
 
-	return (
-		<ScrollView style={styles.backgroundColor}>
-			<View style={[globalStyles.container, styles.blueContainer]}>
-				<View style={styles.topBarFlex}>
-					<View style={styles.welcomeBackContainer}>
-						<Text style={globalFonts.largeText}>Welcome back,</Text>
-						<Text style={[globalFonts.largeText, styles.nameText]}>
-							Chris Wong
-						</Text>
+		const activityMoreToDiscover = [
+			{
+				activity: "Badminton",
+				benefits: "Mobility, coordination",
+				image: require("../assets/images/sports-categories/badminton.jpg"),
+				details: "DetailsScreenRyze",
+				key: "1",
+			},
+			{
+				activity: "Table tennis",
+				benefits: "Mobility, coordination",
+				image: require("../assets/images/sports-categories/table-tennis.jpg"),
+				details: "DetailsScreenRyze",
+				key: "2",
+			},
+			{
+				activity: "Tennis",
+				benefits: "Mobility, coordination",
+				image: require("../assets/images/sports-categories/tennis.jpg"),
+				details: "DetailsScreenRyze",
+				key: "3",
+			},
+		];
+
+		return (
+			<ScrollView style={styles.backgroundColor}>
+				<View style={[globalStyles.container, styles.blueContainer]}>
+					<View style={styles.topBarFlex}>
+						<View style={styles.welcomeBackContainer}>
+							<Text style={globalFonts.largeText}>Welcome back,</Text>
+							<Text style={[globalFonts.largeText, styles.nameText]}>
+								Chris Wong
+							</Text>
+						</View>
+						<View style={styles.topBarButtonsFlex}>
+							<TouchableOpacity
+								onPress={() =>
+									this.props.navigation.navigate("LeaderboardScreen")
+								}
+							>
+								<Ionicons name="trophy-outline" style={styles.icon} />
+							</TouchableOpacity>
+							<TouchableOpacity
+								onPress={() =>
+									this.props.navigation.navigate("StatisticsScreen")
+								}
+							>
+								<Ionicons name="podium-outline" style={styles.icon} />
+							</TouchableOpacity>
+							<TouchableOpacity
+								onPress={() => this.props.navigation.navigate("ProfileScreen")}
+							>
+								<Ionicons name="person-circle-outline" style={styles.icon} />
+							</TouchableOpacity>
+						</View>
 					</View>
-					<View style={styles.topBarButtonsFlex}>
-						<TouchableOpacity
-							onPress={() => navigation.navigate("LeaderboardScreen")}
-						>
-							<Ionicons name="trophy-outline" style={styles.icon} />
-						</TouchableOpacity>
-						<TouchableOpacity
-							onPress={() => navigation.navigate("StatisticsScreen")}
-						>
-							<Ionicons name="podium-outline" style={styles.icon} />
-						</TouchableOpacity>
-						<TouchableOpacity
-							onPress={() => navigation.navigate("ProfileScreen")}
-						>
-							<Ionicons name="person-circle-outline" style={styles.icon} />
-						</TouchableOpacity>
+					<View style={styles.progressFlex}>
+						<CircularProgress
+							value={1200 + points}
+							radius={120}
+							maxValue={1500}
+							title={"1500 to level up"}
+							titleColor={globalColors.black}
+							titleStyle={[globalFonts.largeText, { marginTop: -5 }]}
+							activeStrokeColor={globalColors.darkBlue}
+							inActiveStrokeColor={"#B7D4FD"}
+							progressValueStyle={{
+								fontFamily: "SF-Pro-Display-Bold",
+								fontSize: 64,
+								color: globalColors.black,
+							}}
+						/>
 					</View>
-				</View>
-				<View style={styles.progressFlex}>
-					<CircularProgress
-						value={300}
-						radius={120}
-						maxValue={500}
-						title={"till next level"}
-						titleColor={globalColors.black}
-						titleStyle={[globalFonts.largeText, { marginTop: -5 }]}
-						activeStrokeColor={globalColors.darkBlue}
-						inActiveStrokeColor={"#B7D4FD"}
-						progressValueStyle={{ color: globalColors.black }}
-					/>
-				</View>
-				<TouchableOpacity
-					style={styles.startButton}
-					onPress={() => navigation.navigate("MapScreen")}
-				>
-					<Text style={styles.startButtonText}>Start</Text>
-				</TouchableOpacity>
-			</View>
-			<View style={[styles.section, { paddingTop: 25 }]}>
-				<Text style={globalFonts.heading3Bold}>You might like</Text>
-				<Text style={[globalFonts.largeText, styles.subheadingText]}>
-					Based on your activity
-				</Text>
-			</View>
-			<FlatList
-				showsHorizontalScrollIndicator={false}
-				data={activityYouMightLike}
-				renderItem={({ item }) => (
 					<TouchableOpacity
-						style={
-							item.key === "1"
-								? styles.firstCard
-								: item.key === "3"
-								? styles.lastCard
-								: styles.card
-						}
-						onPress={() => navigation.navigate(item.details)}
+						style={styles.startButton}
+						onPress={() => this.props.navigation.navigate("MapScreen")}
 					>
-						<Image source={item.image} style={styles.cardImage} />
-						<Text style={styles.cardActivityText}>{item.activity}</Text>
-						<Text style={styles.cardBenefitsText}>{item.benefits}</Text>
+						<Text style={styles.startButtonText}>Start</Text>
 					</TouchableOpacity>
-				)}
-				horizontal={true}
-			/>
-			<View style={styles.line}></View>
-			<View style={styles.section}>
-				<Text style={globalFonts.heading3Bold}>More to discover</Text>
-				<Text style={[globalFonts.largeText, styles.subheadingText]}>
-					Based on your activity
-				</Text>
-			</View>
-			<FlatList
-				showsHorizontalScrollIndicator={false}
-				data={activityMoreToDiscover}
-				renderItem={({ item }) => (
-					<TouchableOpacity
-						style={
-							item.key === "1"
-								? styles.firstCard
-								: item.key === "3"
-								? styles.lastCard
-								: styles.card
-						}
-						onPress={() => navigation.navigate(item.details)}
-					>
-						<Image source={item.image} style={styles.cardImage} />
-						<Text style={styles.cardActivityText}>{item.activity}</Text>
-						<Text style={styles.cardBenefitsText}>{item.benefits}</Text>
-					</TouchableOpacity>
-				)}
-				horizontal={true}
-			/>
-		</ScrollView>
-	);
+				</View>
+				<View style={[styles.section, { paddingTop: 25 }]}>
+					<Text style={globalFonts.heading3Bold}>You might like</Text>
+					<Text style={[globalFonts.largeText, styles.subheadingText]}>
+						Based on your activity
+					</Text>
+				</View>
+				<FlatList
+					showsHorizontalScrollIndicator={false}
+					data={activityYouMightLike}
+					renderItem={({ item }) => (
+						<TouchableOpacity
+							style={
+								item.key === "1"
+									? styles.firstCard
+									: item.key === "3"
+									? styles.lastCard
+									: styles.card
+							}
+							onPress={() => this.props.navigation.navigate(item.details)}
+						>
+							<Image source={item.image} style={styles.cardImage} />
+							<Text style={styles.cardActivityText}>{item.activity}</Text>
+							<Text style={styles.cardBenefitsText}>{item.benefits}</Text>
+						</TouchableOpacity>
+					)}
+					horizontal={true}
+				/>
+				<View style={styles.line}></View>
+				<View style={styles.section}>
+					<Text style={globalFonts.heading3Bold}>More to discover</Text>
+					<Text style={[globalFonts.largeText, styles.subheadingText]}>
+						Based on your activity
+					</Text>
+				</View>
+				<FlatList
+					showsHorizontalScrollIndicator={false}
+					data={activityMoreToDiscover}
+					renderItem={({ item }) => (
+						<TouchableOpacity
+							style={
+								item.key === "1"
+									? styles.firstCard
+									: item.key === "3"
+									? styles.lastCard
+									: styles.card
+							}
+							onPress={() => this.props.navigation.navigate(item.details)}
+						>
+							<Image source={item.image} style={styles.cardImage} />
+							<Text style={styles.cardActivityText}>{item.activity}</Text>
+							<Text style={styles.cardBenefitsText}>{item.benefits}</Text>
+						</TouchableOpacity>
+					)}
+					horizontal={true}
+				/>
+			</ScrollView>
+		);
+	}
 }
 
 const styles = StyleSheet.create({

@@ -201,7 +201,9 @@ export default class DetailsScreenRyze extends Component {
 									this.props.navigation.navigate("ReviewScreenRyze")
 								}
 							>
-								<Text>Show all 99 reviews</Text>
+								<Text style={[globalFonts.text, styles.showAllReviewsText]}>
+									Show all 99 reviews
+								</Text>
 							</TouchableOpacity>
 						</View>
 					</View>
@@ -373,4 +375,7 @@ const styles = StyleSheet.create({
 		marginBottom: 30,
 	},
 	sectionReviews: {},
+	showAllReviewsText: {
+		color: globalColors.darkBlue,
+	},
 });

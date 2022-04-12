@@ -43,7 +43,13 @@ function Home() {
 				headerShown: false,
 			}}
 		>
-			<Stack.Screen name="HomeScreen" component={HomeScreen} />
+			<Stack.Screen
+				name="HomeScreen"
+				component={HomeScreen}
+				initialParams={{
+					points: 0,
+				}}
+			/>
 			<Stack.Screen name="LeaderboardScreen" component={LeaderboardScreen} />
 			<Stack.Screen name="StatisticsScreen" component={StatisticsScreen} />
 			<Stack.Screen
@@ -70,9 +76,9 @@ function Home() {
 					hour: "Any",
 				}}
 			/>
-			<Stack.Screen 
-				name="DetailsScreenRyze" 
-				component={DetailsScreenRyze} 
+			<Stack.Screen
+				name="DetailsScreenRyze"
+				component={DetailsScreenRyze}
 				initialParams={{
 					location: "Any",
 					activity: "Any",
@@ -84,6 +90,8 @@ function Home() {
 			/>
 			<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
 			<Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+			<Stack.Screen name="PhotoScreenRyze" component={PhotoScreenRyze} />
+			<Stack.Screen name="ReviewScreenRyze" component={ReviewScreenRyze} />
 			<Stack.Screen name="MapScreen" component={MapScreen} />
 		</Stack.Navigator>
 	);
@@ -120,7 +128,6 @@ function Filter() {
 					day: "Any",
 					hour: "Any",
 				}}
-				
 			/>
 			<Stack.Screen
 				name="FilterActivityScreen"
@@ -134,9 +141,9 @@ function Filter() {
 					hour: "Any",
 				}}
 			/>
-			<Stack.Screen 
-				name="FilterPriceScreen" 
-				component={FilterPriceScreen} 
+			<Stack.Screen
+				name="FilterPriceScreen"
+				component={FilterPriceScreen}
 				initialParams={{
 					location: "Any",
 					activity: "Any",
@@ -146,9 +153,9 @@ function Filter() {
 					hour: "Any",
 				}}
 			/>
-			<Stack.Screen 
-				name="FilterTimeScreen" 
-				component={FilterTimeScreen} 
+			<Stack.Screen
+				name="FilterTimeScreen"
+				component={FilterTimeScreen}
 				initialParams={{
 					location: "Any",
 					activity: "Any",
@@ -158,9 +165,9 @@ function Filter() {
 					hour: "Any",
 				}}
 			/>
-			<Stack.Screen 
-				name="ResultsScreen" 
-				component={ResultsScreen} 
+			<Stack.Screen
+				name="ResultsScreen"
+				component={ResultsScreen}
 				initialParams={{
 					location: "Any",
 					activity: "Any",
@@ -170,9 +177,9 @@ function Filter() {
 					hour: "Any",
 				}}
 			/>
-			<Stack.Screen 
-				name="DetailsScreenRyze" 
-				component={DetailsScreenRyze} 
+			<Stack.Screen
+				name="DetailsScreenRyze"
+				component={DetailsScreenRyze}
 				initialParams={{
 					location: "Any",
 					activity: "Any",
@@ -182,30 +189,8 @@ function Filter() {
 					hour: "Any",
 				}}
 			/>
-			<Stack.Screen 
-				name="PhotoScreenRyze" 
-				component={PhotoScreenRyze} 
-				initialParams={{
-					location: "Any",
-					activity: "Any",
-					price: "Any",
-					time: "Any",
-					day: "Any",
-					hour: "Any",
-				}}
-			/>
-			<Stack.Screen 
-				name="ReviewScreenRyze" 
-				component={ReviewScreenRyze} 
-				initialParams={{
-					location: "Any",
-					activity: "Any",
-					price: "Any",
-					time: "Any",
-					day: "Any",
-					hour: "Any",
-				}}
-			/>
+			<Stack.Screen name="PhotoScreenRyze" component={PhotoScreenRyze} />
+			<Stack.Screen name="ReviewScreenRyze" component={ReviewScreenRyze} />
 		</Stack.Navigator>
 	);
 }
@@ -280,11 +265,12 @@ export default function App() {
 					headerShown: false,
 				}}
 			>
-				<Stack.Screen 
-					name="WelcomeScreen" 
+				<Stack.Screen
+					name="WelcomeScreen"
 					component={WelcomeScreen}
 					initialParams={{
-						place: "Ryze Hong Kong",}}					
+						place: "Ryze Hong Kong",
+					}}
 				/>
 				<Stack.Screen name="Main" component={Main} />
 				<Stack.Group>

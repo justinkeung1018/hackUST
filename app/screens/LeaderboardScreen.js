@@ -332,11 +332,7 @@ export default class Leaderboard extends Component {
 		return (
 			<View>
 				<FlatList
-					style={[
-						styles.backgroundColor,
-						// globalStyles.section,
-						{ paddingTop: 0, minHeight: "100%" },
-					]}
+					style={[styles.backgroundColor, { paddingTop: 0, minHeight: "100%" }]}
 					ListHeaderComponent={
 						<View>
 							<View
@@ -695,6 +691,6 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",
-		marginBottom: 30,
+		marginBottom: 20,
 	},
 });

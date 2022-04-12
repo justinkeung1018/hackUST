@@ -30,7 +30,10 @@ export default class ReviewScreenRyze extends Component {
 								onPress={() => this.props.navigation.goBack()}
 								style={styles.arrowContainer}
 							>
-								<Ionicons name="chevron-back-outline" style={styles.arrow} />
+								<Ionicons
+									name="chevron-back-outline"
+									style={globalStyles.arrow}
+								/>
 							</TouchableOpacity>
 							<Text style={[globalFonts.heading3Bold, styles.title]}>
 								All reviews

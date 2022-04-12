@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 		backgroundColor: globalColors.white,
 		borderRadius: 10,
 		borderWidth: 1,
-		borderColor: globalColors.gray
+		borderColor: globalColors.lightGray,
 	},
 	cardContent: {
 		padding: 15,
