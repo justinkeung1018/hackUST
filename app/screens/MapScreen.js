@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
 	initialButton: {
 		position: "absolute",
 		bottom: 120,
-		backgroundColor: globalColors.black,
-		opacity: 0.5,
+		backgroundColor: globalColors.darkGray,
+		opacity: 0.7,
 		width: windowWidth - 48,
 		flexDirection: "row",
 		justifyContent: "center",
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
 		marginLeft: 24,
 		marginRight: 24,
 		borderRadius: 10,
+
 	},
 	initialButtonText: {
 		color: globalColors.white,

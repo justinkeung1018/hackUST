@@ -69,14 +69,17 @@ export default class MapModalScreen extends Component {
 								</TouchableOpacity>
 							</View>
 						</View>
-					</View>
-					<TouchableOpacity
-						style={styles.arrowContainer}
-						onPress={() => this.props.navigation.navigate("MapScreen")}
-					>
-						<Ionicons name="chevron-back-outline" style={globalStyles.arrow} />
-					</TouchableOpacity>
+						<TouchableOpacity
+							style={styles.arrowContainer}
+							onPress={() => this.props.navigation.navigate("MapScreen")}
+						>
+							<Ionicons
+								name="chevron-back-outline"
+								style={globalStyles.arrow}
+							/>
+						</TouchableOpacity>
 				</View>
+
 			</ImageBackground>
 		);
 	}
