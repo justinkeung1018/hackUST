@@ -113,47 +113,61 @@ export default function HomeScreen({ navigation }) {
 					<Text style={styles.startButtonText}>Start</Text>
 				</TouchableOpacity>
 			</View>
-			<View style={[globalStyles.container, { paddingTop: 25 }]}>
+			<View style={[styles.section, { paddingTop: 25 }]}>
 				<Text style={globalFonts.heading3Bold}>You might like</Text>
 				<Text style={[globalFonts.largeText, styles.subheadingText]}>
 					Based on your activity
 				</Text>
-				<FlatList
-					showsHorizontalScrollIndicator={false}
-					data={activityYouMightLike}
-					renderItem={({ item }) => (
-						<TouchableOpacity
-							style={styles.card}
-							onPress={() => navigation.navigate(item.details)}
-						>
-							<Image source={item.image} style={styles.cardImage} />
-							<Text style={styles.cardActivityText}>{item.activity}</Text>
-							<Text style={styles.cardBenefitsText}>{item.benefits}</Text>
-						</TouchableOpacity>
-					)}
-					horizontal={true}
-				/>
-				<View style={styles.line}></View>
+			</View>
+			<FlatList
+				showsHorizontalScrollIndicator={false}
+				data={activityYouMightLike}
+				renderItem={({ item }) => (
+					<TouchableOpacity
+						style={
+							item.key === "1"
+								? styles.firstCard
+								: item.key === "3"
+								? styles.lastCard
+								: styles.card
+						}
+						onPress={() => navigation.navigate(item.details)}
+					>
+						<Image source={item.image} style={styles.cardImage} />
+						<Text style={styles.cardActivityText}>{item.activity}</Text>
+						<Text style={styles.cardBenefitsText}>{item.benefits}</Text>
+					</TouchableOpacity>
+				)}
+				horizontal={true}
+			/>
+			<View style={styles.line}></View>
+			<View style={styles.section}>
 				<Text style={globalFonts.heading3Bold}>More to discover</Text>
 				<Text style={[globalFonts.largeText, styles.subheadingText]}>
 					Based on your activity
 				</Text>
-				<FlatList
-					showsHorizontalScrollIndicator={false}
-					data={activityMoreToDiscover}
-					renderItem={({ item }) => (
-						<TouchableOpacity
-							style={styles.card}
-							onPress={() => navigation.navigate(item.details)}
-						>
-							<Image source={item.image} style={styles.cardImage} />
-							<Text style={styles.cardActivityText}>{item.activity}</Text>
-							<Text style={styles.cardBenefitsText}>{item.benefits}</Text>
-						</TouchableOpacity>
-					)}
-					horizontal={true}
-				/>
 			</View>
+			<FlatList
+				showsHorizontalScrollIndicator={false}
+				data={activityMoreToDiscover}
+				renderItem={({ item }) => (
+					<TouchableOpacity
+						style={
+							item.key === "1"
+								? styles.firstCard
+								: item.key === "3"
+								? styles.lastCard
+								: styles.card
+						}
+						onPress={() => navigation.navigate(item.details)}
+					>
+						<Image source={item.image} style={styles.cardImage} />
+						<Text style={styles.cardActivityText}>{item.activity}</Text>
+						<Text style={styles.cardBenefitsText}>{item.benefits}</Text>
+					</TouchableOpacity>
+				)}
+				horizontal={true}
+			/>
 		</ScrollView>
 	);
 }
@@ -194,6 +208,13 @@ const styles = StyleSheet.create({
 		height: 170,
 		borderRadius: 5,
 	},
+	firstCard: {
+		marginRight: 8,
+		marginLeft: 24,
+	},
+	lastCard: {
+		marginRight: 24,
+	},
 	line: {
 		height: 1,
 		marginTop: 20,
@@ -213,6 +234,10 @@ const styles = StyleSheet.create({
 		marginTop: 20,
 		flexDirection: "row",
 		justifyContent: "center",
+	},
+	section: {
+		paddingLeft: 24,
+		paddingRight: 24,
 	},
 	startButton: {
 		backgroundColor: "#C4DAF9",
@@ -234,6 +259,10 @@ const styles = StyleSheet.create({
 		marginBottom: 12,
 		letterSpacing: -0.4,
 		color: globalColors.darkGray,
+	},
+	suggestionsFlatlist: {
+		position: "absolute",
+		left: 20,
 	},
 	topBarFlex: {
 		flexDirection: "row",

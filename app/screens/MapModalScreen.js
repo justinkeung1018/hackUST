@@ -25,7 +25,7 @@ export default class MapModalScreen extends Component {
 	}
 
 	render() {
-		let { place } = this.props.route.params; 
+		let { place } = this.props.route.params;
 
 		return (
 			<ImageBackground
@@ -34,34 +34,39 @@ export default class MapModalScreen extends Component {
 				imageStyle={{ opacity: 0.8 }}
 			>
 				<View style={styles.container}>
-						<View style={styles.modalContainer}>
-							<View style={styles.modal}>
-								<View style={{ flex: 1 }} />
-								<View style={styles.modalCenterContainer}>
-									<Text style={globalFonts.largeText}>You are at</Text>
-									<Text style={[globalFonts.heading2, styles.locationName]}>
-										{this.props.route.params.place}
+					<View style={styles.modalContainer}>
+						<View style={styles.modal}>
+							<View style={{ flex: 1 }} />
+							<View style={styles.modalCenterContainer}>
+								<Text style={globalFonts.largeText}>You are at</Text>
+								<Text style={[globalFonts.heading2, styles.locationName]}>
+									{this.props.route.params.place}
+								</Text>
+								<TouchableOpacity
+									style={[styles.startButton, globalStyles.interactiveShadow]}
+									onPress={() => {
+										this.props.navigation.navigate("TimerScreen", {
+											place: place,
+										});
+									}}
+								>
+									<Text style={globalFonts.largeText}>Start</Text>
+								</TouchableOpacity>
+							</View>
+							<View style={styles.notWhereYouAreContainer}>
+								<TouchableOpacity
+									onPress={() =>
+										this.props.navigation.navigate("SelectLocationScreen", {
+											place: place,
+										})
+									}
+								>
+									<Text
+										style={[globalFonts.largeText, styles.notWhereYouAreText]}
+									>
+										Not where you are?
 									</Text>
-									<TouchableOpacity
-										style={[styles.startButton, globalStyles.interactiveShadow]}
-										onPress={() => {
-											this.props.navigation.navigate("TimerScreen", {place: place});
-										}}
-									>
-										<Text style={globalFonts.largeText}>Start</Text>
-									</TouchableOpacity>
-								</View>
-								<View style={styles.notWhereYouAreContainer}>
-									<TouchableOpacity
-										onPress={() => this.props.navigation.navigate("SelectLocationScreen", {place: place})}
-									>
-										<Text
-											style={[globalFonts.largeText, styles.notWhereYouAreText]}
-										>
-											Not where you are?
-										</Text>
-									</TouchableOpacity>
-								</View>
+								</TouchableOpacity>
 							</View>
 						</View>
 						<TouchableOpacity
@@ -103,7 +108,7 @@ const styles = StyleSheet.create({
 		marginTop: 20,
 		marginBottom: 30,
 		maxWidth: 300,
-		textAlign: "center"
+		textAlign: "center",
 	},
 	modal: {
 		width: windowWidth - 48,

@@ -41,10 +41,63 @@ export default function ResultsScreen({ route, navigation }) {
 			favorite: false,
 			key: "2",
 		},
+		{
+			name: "Verm City",
+			price: "2",
+			location: "North Point",
+			type: "Bouldering",
+			image: require("../assets/images/filter-cards/verm-city.jpg"),
+			details: "DetailsScreenRyze",
+			rating: "4.1",
+			open: true,
+			favorite: false,
+			key: "3",
+		},
+		{
+			name: "Attic V",
+			price: "2",
+			location: "Southern",
+			type: "Bouldering",
+			image: require("../assets/images/filter-cards/attic-v.jpg"),
+			details: "DetailsScreenRyze",
+			rating: "4.1",
+			open: true,
+			favorite: false,
+			key: "4",
+		},
+		{
+			name: "GoNature",
+			price: "2",
+			location: "Kwun Tong",
+			type: "Bouldering",
+			image: require("../assets/images/filter-cards/go-nature.jpg"),
+			details: "DetailsScreenRyze",
+			rating: "4.1",
+			open: true,
+			favorite: false,
+			key: "5",
+		},
+		{
+			name: "Just Climb",
+			price: "2",
+			location: "San Po Kong",
+			type: "Bouldering",
+			image: require("../assets/images/filter-cards/just-climb.jpg"),
+			details: "DetailsScreenRyze",
+			rating: "4.1",
+			open: true,
+			favorite: false,
+			key: "6",
+		},
 	]);
 
 	return (
-		<View style={[globalStyles.container, { minHeight: "100%" }]}>
+		<View
+			style={[
+				globalStyles.container,
+				{ minHeight: "100%", backgroundColor: globalColors.lightGray },
+			]}
+		>
 			<View style={styles.titleBar}>
 				<View style={styles.results}>
 					<TouchableOpacity
@@ -93,6 +146,7 @@ export default function ResultsScreen({ route, navigation }) {
 						<Card info={item} />
 					</TouchableOpacity>
 				)}
+				showsVerticalScrollIndicator={false}
 			/>
 		</View>
 	);
