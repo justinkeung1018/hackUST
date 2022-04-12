@@ -53,7 +53,7 @@ export default class DetailsScreenRyze extends Component {
 						<TouchableOpacity
 							style={styles.filterContainer}
 							onPress={() =>
-								this.props.navigation.navigate("FilterScreen", {
+								this.props.navigation.navigate("Search", {
 									location: location,
 									activity: activity,
 									price: price,

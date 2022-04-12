@@ -70,7 +70,18 @@ function Home() {
 					hour: "Any",
 				}}
 			/>
-			<Stack.Screen name="DetailsScreenRyze" component={DetailsScreenRyze} />
+			<Stack.Screen 
+				name="DetailsScreenRyze" 
+				component={DetailsScreenRyze} 
+				initialParams={{
+					location: "Any",
+					activity: "Any",
+					price: "Any",
+					time: "Any",
+					day: "Any",
+					hour: "Any",
+				}}
+			/>
 			<Stack.Screen name="PhotoScreenRyze" component={PhotoScreenRyze} />
 			<Stack.Screen name="ReviewScreenRyze" component={ReviewScreenRyze} />
 			<Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
