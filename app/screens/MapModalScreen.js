@@ -78,9 +78,9 @@ export default class MapModalScreen extends Component {
 								style={globalStyles.arrow}
 							/>
 						</TouchableOpacity>
+					</View>
 				</View>
-			</View>
-		</ImageBackground>
+			</ImageBackground>
 		);
 	}
 }
