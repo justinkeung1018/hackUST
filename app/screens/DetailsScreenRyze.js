@@ -7,7 +7,6 @@ import {
 	Text,
 	TouchableOpacity,
 	ScrollView,
-	RecyclerViewBackedScrollViewBase,
 } from "react-native";
 import { globalColors } from "../assets/globalColors";
 import { globalFonts } from "../assets/globalFonts";
@@ -137,6 +136,12 @@ export default class DetailsScreenRyze extends Component {
 							/>
 							<Text style={styles.infoCardHeadingText}>Price</Text>
 						</View>
+						<View style={styles.infoCardCentering}>
+							<Image
+								style={styles.priceImage}
+								source={require("../assets/images/ryze-details/price.png")}
+							/>
+						</View>
 					</View>
 					<View style={styles.sectionPhotos}>
 						<View style={styles.sectionHeading}>
@@ -260,6 +265,12 @@ const styles = StyleSheet.create({
 		paddingLeft: 30,
 		paddingRight: 30,
 		marginBottom: 10,
+		width: "100%",
+	},
+	infoCardCentering: {
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "center",
 	},
 	infoCardComponent: {
 		flexDirection: "row",
@@ -314,6 +325,12 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 		alignItems: "center",
 		marginTop: 10,
+	},
+	priceImage: {
+		width: "130%",
+		height: undefined,
+		aspectRatio: 1,
+		resizeMode: "contain",
 	},
 	reviewCardAndButtonFlex: {
 		flexDirection: "column",
