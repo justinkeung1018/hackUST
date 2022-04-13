@@ -1,33 +1,36 @@
 {
-	"expo": {
-		"name": "hackUST",
-		"slug": "hackUST",
-		"version": "1.0.0",
-		"orientation": "portrait",
-		"icon": "./app/assets/images/icon.png",
-		"splash": {
-			"image": "./app/assets/images/splash.png",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"updates": {
-			"fallbackToCacheTimeout": 0
-		},
-		"assetBundlePatterns": ["**/*"],
-		"ios": {
-			"supportsTablet": true,
-			"infoPlist": {
-				"NSLocationWhenInUseUsageDescription": "Allows users to see how close they are to sports venues."
-			}
-		},
-		"android": {
-			"adaptiveIcon": {
-				"foregroundImage": "./app/assets/images/adaptive-icon.png",
-				"backgroundColor": "#FFFFFF"
-			}
-		},
-		"web": {
-			"favicon": "./app/assets/images/favicon.png"
-		}
-	}
+  "expo": {
+    "name": "hackUST",
+    "slug": "hackUST",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./app/assets/images/icon.png",
+    "splash": {
+      "image": "./app/assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Allows users to see how close they are to sports venues."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./app/assets/images/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.hackaholic.openfitness"
+    },
+    "web": {
+      "favicon": "./app/assets/images/favicon.png"
+    }
+  }
 }
